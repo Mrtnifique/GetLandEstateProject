@@ -12,31 +12,27 @@ import org.openqa.selenium.support.ui.Select;
 
 
 public class ControlPanelStepDefs {
+    ControlPanelPage controlPanelPage = new ControlPanelPage();
     Faker faker = new Faker();
     String randomWord = faker.book().title();
 
 
     @And("Yeni kategori eklenir")
     public void yeniKategoriEklenir() {
-        ControlPanelPage controlPanelPage = new ControlPanelPage();
-
         controlPanelPage.categoriesAddNewButton.click();
         controlPanelPage.categoriesAddNewTitleBox.sendKeys("OhBoyWhataUniqueName");
         controlPanelPage.categoriesAddNewSequenceBox.sendKeys("3");
         controlPanelPage.categoriesAddNewIconBox.sendKeys("house");
         controlPanelPage.categoriesAddNewCreateButton.click();
-
     }
 
     @When("Categories butonuna tıklanır")
     public void categoriesButonunaTiklanir() {
-        ControlPanelPage controlPanelPage = new ControlPanelPage();
         controlPanelPage.categoriesButton.click();
     }
 
     @Then("Kategorinin eklenmiş olması test edilir")
     public void kategorininEklenmişOlmasıTestEdilir() {
-        ControlPanelPage controlPanelPage = new ControlPanelPage();
         Driver.getDriver().navigate().refresh();
 
         controlPanelPage.categoriesButton.click();
@@ -46,19 +42,15 @@ public class ControlPanelStepDefs {
         controlPanelPage.categoriesFirstCategoryDeleteButton.click();
         controlPanelPage.categoriesDeleteButtonConfirmButton.click();
         WaitUtils.waitFor(3);
-
     }
 
     @When("Advert types butonuna tıklanır")
     public void advertTypesButonunaTıklanır() {
-        ControlPanelPage controlPanelPage = new ControlPanelPage();
         controlPanelPage.advertTypeButton.click();
     }
 
     @And("Yeni advert type eklenir")
     public void yeniAdvertTypeEklenir() {
-        ControlPanelPage controlPanelPage = new ControlPanelPage();
-
         controlPanelPage.categoriesAddNewButton.click();
         controlPanelPage.categoriesAddNewTitleBox.sendKeys(randomWord);
         controlPanelPage.advertTypeCreateButton.click();
@@ -67,8 +59,6 @@ public class ControlPanelStepDefs {
 
     @Then("Advert type eklenmiş olması test edilir")
     public void advertTypeEklenmişOlmasıTestEdilir() {
-        ControlPanelPage controlPanelPage = new ControlPanelPage();
-
         controlPanelPage.categoriesSearchBox.sendKeys(randomWord);
         controlPanelPage.advertTypeSearchButton.click();
         controlPanelPage.advertTitleEditButton.click();
@@ -79,15 +69,11 @@ public class ControlPanelStepDefs {
 
     @When("Users butonuna tıklanır")
     public void usersButonunaTıklanır() {
-        ControlPanelPage controlPanelPage = new ControlPanelPage();
-
         controlPanelPage.usersButton.click();
     }
 
     @Then("Kullanıcı aratılabilirliği test edilir")
     public void kullanıcıAratılabilirliğiTestEdilir() {
-        ControlPanelPage controlPanelPage = new ControlPanelPage();
-
         controlPanelPage.categoriesSearchBox.sendKeys("Agent47");
         controlPanelPage.categoriesSearchBoxSearchButton.click();
         Assert.assertTrue(controlPanelPage.muratAssertionData2.isDisplayed());
@@ -95,9 +81,7 @@ public class ControlPanelStepDefs {
 
     @And("Kullanıcı rolü ve bilgileri güncellenir")
     public void kullanıcıRolüVeBilgileriGüncellenir() {
-        ControlPanelPage controlPanelPage = new ControlPanelPage();
         controlPanelPage.usersEditButton.click();
-
         Select selectRole = new Select(controlPanelPage.userRole);
         selectRole.selectByIndex(1);
         controlPanelPage.userEditUpdateButton.click();
@@ -106,7 +90,6 @@ public class ControlPanelStepDefs {
 
     @Then("Kullanıcı bilgilerinin güncellenebilirliği test edilir")
     public void kullanıcıBilgilerininGüncellenebilirliğiTestEdilir() {
-        ControlPanelPage controlPanelPage = new ControlPanelPage();
         Driver.getDriver().navigate().refresh();
         controlPanelPage.categoriesSearchBox.sendKeys("Agent47");
         controlPanelPage.categoriesSearchBoxSearchButton.click();
@@ -124,5 +107,29 @@ public class ControlPanelStepDefs {
         controlPanelPage.userEditUpdateButton.click();
         WaitUtils.waitFor(2);
 
+    }
+
+    @And("Icon bilgisi girilmeden kategori eklenmeye çalışılır")
+    public void ıconBilgisiGirilmedenKategoriEklenmeyeÇalışılır() {
+        controlPanelPage.categoriesAddNewButton.click();
+        controlPanelPage.categoriesAddNewTitleBox.sendKeys("OhBoyWhataUniqueName");
+        controlPanelPage.categoriesAddNewSequenceBox.sendKeys("3");
+
+    }
+
+    @Then("Kategorinin eklenmemiş olması test edilir")
+    public void kategorininEklenmemişOlmasıTestEdilir() {
+        Assert.assertFalse(controlPanelPage.categoriesAddNewCreateButton.isEnabled());
+    }
+
+    @And("Title bilgisi girilmeden advert eklenmeye çalışılır")
+    public void titleBilgisiGirilmedenAdvertEklenmeyeÇalışılır() {
+        controlPanelPage.categoriesAddNewButton.click();
+        controlPanelPage.categoriesAddNewTitleBox.sendKeys(" ");
+    }
+
+    @Then("Advertin eklenmemiş olması test edilir")
+    public void advertinEklenmemişOlmasıTestEdilir() {
+        Assert.assertFalse(controlPanelPage.advertTypeCreateButton.isEnabled());
     }
 }
