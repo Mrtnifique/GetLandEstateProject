@@ -8,6 +8,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.Select;
 
 
 public class ControlPanelStepDefs {
@@ -73,6 +74,55 @@ public class ControlPanelStepDefs {
         controlPanelPage.advertTitleEditButton.click();
         Assert.assertEquals(randomWord, controlPanelPage.firstAdvertTitle.getDomProperty("value"));
 
+
+    }
+
+    @When("Users butonuna tıklanır")
+    public void usersButonunaTıklanır() {
+        ControlPanelPage controlPanelPage = new ControlPanelPage();
+
+        controlPanelPage.usersButton.click();
+    }
+
+    @Then("Kullanıcı aratılabilirliği test edilir")
+    public void kullanıcıAratılabilirliğiTestEdilir() {
+        ControlPanelPage controlPanelPage = new ControlPanelPage();
+
+        controlPanelPage.categoriesSearchBox.sendKeys("Agent47");
+        controlPanelPage.categoriesSearchBoxSearchButton.click();
+        Assert.assertTrue(controlPanelPage.muratAssertionData2.isDisplayed());
+    }
+
+    @And("Kullanıcı rolü ve bilgileri güncellenir")
+    public void kullanıcıRolüVeBilgileriGüncellenir() {
+        ControlPanelPage controlPanelPage = new ControlPanelPage();
+        controlPanelPage.usersEditButton.click();
+
+        Select selectRole = new Select(controlPanelPage.userRole);
+        selectRole.selectByIndex(1);
+        controlPanelPage.userEditUpdateButton.click();
+        WaitUtils.waitFor(2);
+    }
+
+    @Then("Kullanıcı bilgilerinin güncellenebilirliği test edilir")
+    public void kullanıcıBilgilerininGüncellenebilirliğiTestEdilir() {
+        ControlPanelPage controlPanelPage = new ControlPanelPage();
+        Driver.getDriver().navigate().refresh();
+        controlPanelPage.categoriesSearchBox.sendKeys("Agent47");
+        controlPanelPage.categoriesSearchBoxSearchButton.click();
+        WaitUtils.waitFor(2);
+
+        String actualResult = controlPanelPage.userRoleText.getText();
+        String expectedResult = "MANAGER";
+        Assert.assertEquals(expectedResult, actualResult);
+        WaitUtils.waitFor(2);
+
+        //Teardown
+        controlPanelPage.usersEditButton.click();
+        Select selectRole = new Select(controlPanelPage.userRole);
+        selectRole.selectByIndex(2);
+        controlPanelPage.userEditUpdateButton.click();
+        WaitUtils.waitFor(2);
 
     }
 }
