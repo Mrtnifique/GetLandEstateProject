@@ -15,4 +15,12 @@ Feature: US015 Admin rapor oluşturabilmeli
     Then Advert type eklenmiş olması test edilir
     And Sayfa kapatılır
 
+  Scenario: TC03 Admin, kullanıcı arayabilmeli, güncelleme yapabilmeli ve kullanıcıya farklı roller atayabilmeli
+    Given Siteye admin olarak giriş yapılır
+    When Users butonuna tıklanır
+    Then Kullanıcı aratılabilirliği test edilir
+    And Kullanıcı rolü ve bilgileri güncellenir
+    Then Kullanıcı bilgilerinin güncellenebilirliği test edilir
+    And Sayfa kapatılır
+
 
