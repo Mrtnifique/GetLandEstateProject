@@ -9,12 +9,15 @@ public class LogInPage {
     public LogInPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
+    //Email Box
     @FindBy(name = "email")
     public WebElement emailBox;
 
+    //Password Box
     @FindBy(name = "password")
     public WebElement passwordBox;
 
+    //Login Button
     @FindBy(xpath = "//button[contains(@class,'submit-button btn')]")
     public WebElement loginButton;
 }
