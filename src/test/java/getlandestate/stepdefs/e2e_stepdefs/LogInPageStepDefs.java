@@ -24,8 +24,8 @@ public class LogInPageStepDefs {
         Driver.closeDriver();
     }
 
-    @Given("Siteye manager olarak giris yapilir")
-    public void siteyeManagerOlarakGirisYapilir() {
+    @Given("Web adresine gidilir")
+    public void webAdresineGidilir() {
         Driver.getDriver().get("http://64.227.123.49");
         DashBoardPage dashBoardPage = new DashBoardPage();
         LogInPage logInPage = new LogInPage();
@@ -36,4 +36,5 @@ public class LogInPageStepDefs {
         logInPage.loginButton.click();
 
 }
+    }
 }
