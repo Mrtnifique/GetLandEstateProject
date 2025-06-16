@@ -9,9 +9,9 @@ import io.cucumber.java.en.Given;
 public class LogInPageStepDefs {
     @Given("Siteye admin olarak giriş yapılır")
     public void siteyeAdminGirisYapilir() {
-        Driver.getDriver().get("http://64.227.123.49");
         DashBoardPage dashBoardPage = new DashBoardPage();
         LogInPage logInPage = new LogInPage();
+        Driver.getDriver().get("http://64.227.123.49");
 
         dashBoardPage.loginButton.click();
         logInPage.emailBox.sendKeys("b307admin@gmail.com");
@@ -40,5 +40,7 @@ public class LogInPageStepDefs {
 
 
 
-    }
-}
+
+
+
+}}
