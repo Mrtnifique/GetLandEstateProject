@@ -23,4 +23,22 @@ public class LogInPageStepDefs {
     public void sayfaKapatılır() {
         Driver.closeDriver();
     }
+
+
+
+    @Given("Siteye manager olarak giris yapilir")
+    public void siteyeManagerOlarakGirisYapilir() {
+        Driver.getDriver().get("http://64.227.123.49");
+        DashBoardPage dashBoardPage = new DashBoardPage();
+        LogInPage logInPage = new LogInPage();
+
+        dashBoardPage.loginButton.click();
+        logInPage.emailBox.sendKeys("b307manager@gmail.com");
+        logInPage.passwordBox.sendKeys("B307manager@");
+        logInPage.loginButton.click();
+
+
+
+
+    }
 }
