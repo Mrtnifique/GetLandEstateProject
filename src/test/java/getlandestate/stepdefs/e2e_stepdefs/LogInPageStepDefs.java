@@ -23,4 +23,9 @@ public class LogInPageStepDefs {
     public void sayfaKapatılır() {
         Driver.closeDriver();
     }
+
+    @Given("Web adresine gidilir")
+    public void webAdresineGidilir() {
+        Driver.getDriver().get("http://64.227.123.49");
+    }
 }
