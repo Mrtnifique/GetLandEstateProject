@@ -8,6 +8,7 @@ import io.cucumber.java.en.When;
 public class DashBoardPageStepDefs {
     @When("Search butonuna tıklanır")
     public void searchButonunaTiklanir() {
+
     }
 
 }
