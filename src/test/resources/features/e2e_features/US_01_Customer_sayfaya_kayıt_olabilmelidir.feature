@@ -60,3 +60,4 @@ Feature: US01 Kullanıcı kayıt formundaki doğrulamalar
     When Kayıt sayfasına gider
     And Kullanici bilgileri girilir
     Then Başarılı kayıt işlemi gerçekleşir
+  # <!-- ile başlayıp -->
