@@ -13,10 +13,11 @@ Feature: US012 Sayfaya kayıt olmayan kullanıcı satılık ve kiralık ilanlar�
     Then Register sayfasına gidildiği test edilir
     And Sayfa kapatılır
 
-  Scenario: TC02 Admin, ilan Türü (Advert Types) ekleyebilmeli
-    Given Web adresine gidilir
+  Scenario: TC02 Kullanıcı satılık ve kiralık ilanlar ile ilgili tur talebi için tarih ve saat boş bırakıldığında uyarı görülebilmeli
+    Given Customer olarak sayfaya giris yapılır
     When Login butonuna tıklanır
-    And Username
-    And Yeni advert type eklenir
-    Then Advert type eklenmiş olması test edilir
+    And Search butonuna tıklanır
+    Then Aranan ilanın listelenmesi test edilir
+    And Tarih ve saat boş bırakılır
+    Then Randevu icin uyarı mesajı görünürlüğü test edilir
     And Sayfa kapatılır
