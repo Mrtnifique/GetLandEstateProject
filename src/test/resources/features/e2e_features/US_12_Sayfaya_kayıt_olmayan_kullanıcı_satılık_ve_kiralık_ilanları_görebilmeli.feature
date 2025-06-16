@@ -1,6 +1,6 @@
-@US_12
+@US012
 Feature: US012 Sayfaya kayıt olmayan kullanıcı satılık ve kiralık ilanları görebilmeli
-
+@TC01T
   Scenario: TC01 Kullanıcı (Sayfaya Kayıt olmayan) satılık ve kiralık ilan arayabilmeli
     Given Web adresine gidilir
     When Search butonuna tıklanır
@@ -19,5 +19,5 @@ Feature: US012 Sayfaya kayıt olmayan kullanıcı satılık ve kiralık ilanlar�
     And Search butonuna tıklanır
     Then Aranan ilanın listelenmesi test edilir
     And Tarih ve saat boş bırakılır
-    Then Randevu icin uyarı mesajı görünürlüğü test edilir
+    Then Randevu icin tarih ve saat girmeden uyarı mesajı görünürlüğü test edilir
     And Sayfa kapatılır
