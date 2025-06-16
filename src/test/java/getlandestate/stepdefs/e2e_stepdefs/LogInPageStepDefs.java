@@ -27,5 +27,14 @@ public class LogInPageStepDefs {
     @Given("Web adresine gidilir")
     public void webAdresineGidilir() {
         Driver.getDriver().get("http://64.227.123.49");
-    }
+        DashBoardPage dashBoardPage = new DashBoardPage();
+        LogInPage logInPage = new LogInPage();
+
+        dashBoardPage.loginButton.click();
+        logInPage.emailBox.sendKeys("b307manager@gmail.com");
+        logInPage.passwordBox.sendKeys("B307manager@");
+        logInPage.loginButton.click();
+
 }
+    }
+
