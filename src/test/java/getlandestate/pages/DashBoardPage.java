@@ -50,7 +50,7 @@ public class DashBoardPage {
     public WebElement contactNumberEyesButton;
 
     //Contact Alert
-    @FindBy(xpath = "//div[@class='modal-content']")
+    @FindBy(xpath = "//button[normalize-space()='Login']")
     public WebElement contactAlert;
 
     //Contact Alert Close Button

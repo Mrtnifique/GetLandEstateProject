@@ -50,7 +50,8 @@ public class DashBoardPageStepDefs {
         Select selectCity = new Select(dashBoardPage.cityFilter);
         selectCity.selectByVisibleText("Ankara");
 
-        dashBoardPage.districtFilter.click();
+        actions.moveToElement(dashBoardPage.districtFilter).click().perform();
+
         Select selectDistrict = new Select(dashBoardPage.districtFilter);
         selectDistrict.selectByVisibleText("Çankaya");
 
@@ -62,13 +63,15 @@ public class DashBoardPageStepDefs {
     @Then("Aranan ilanın listelenmesi test edilir")
     public void arananIlanınListelenmesiTestEdilir() {
         assertTrue(dashBoardPage.houseDisplayed.isDisplayed());
+
     }
 
     @Then("İletisim bilgilerine tıklayarak uyarı mesajı alınır")
     public void iletisimBilgilerineTıklayarakUyarıMesajıAlınır() {
         dashBoardPage.houseClick.click();
         dashBoardPage.contactNumberEyesButton.click();
-        dashBoardPage.contactAlert.isDisplayed();
+
+        Assert.assertTrue(dashBoardPage.contactAlert.isEnabled());
         dashBoardPage.contactAlertCloseButton.click();
 
 
@@ -78,12 +81,7 @@ public class DashBoardPageStepDefs {
     public void tarihVeSaatGirilerekRandevuOlusturulur() {
         // Rastgele tarih
 
-        Date futureDate = faker.date().future(10, TimeUnit.DAYS); // Bugünden 10 gün sonrasına kadar rastgele bir tarih
-        LocalDate localDate = futureDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        String dateStr = localDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-
-        WebElement dateInput = dashBoardPage.tourDate;
-        dateInput.sendKeys(dateStr);
+        dashBoardPage.tourDate.sendKeys(faker.date().toString());
 
         // Rastgele saat
 
@@ -97,7 +95,9 @@ public class DashBoardPageStepDefs {
 
     @Then("Randevu icin uyarı mesajı görünürlüğü test edilir")
     public void randevuIcinUyarıMesajıGörünürlüğüTestEdilir() {
-     dashBoardPage.contactAlert2.isDisplayed();
+        WaitUtils.waitFor(3);
+
+     Assert.assertTrue(dashBoardPage.contactAlert2.isDisplayed());
     }
 
 
@@ -105,6 +105,8 @@ public class DashBoardPageStepDefs {
     public void createOneNowButonunaTıklanır() {
         dashBoardPage.createOneNowButton.click();
     }
+
+
 
     @Then("Register sayfasına gidildiği test edilir")
     public void registerSayfasınaGidildiğiTestEdilir() {
