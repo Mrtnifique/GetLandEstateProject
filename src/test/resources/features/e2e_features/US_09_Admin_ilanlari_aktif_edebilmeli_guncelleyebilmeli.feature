@@ -12,7 +12,7 @@ Background:
 
     Scenario: TC02 Admin ilanlari silebilmeli
 
-      Then Ilanlarimda silme islemi yapar
+      And Ilanlarimda silme islemi yapar
       And Silme isleminin basariyla gerceklestigi mesajini goruntuler .
 
       Scenario: TC03 Admin ilanlari aktive edebilmeli
@@ -26,3 +26,6 @@ Background:
         Scenario: TC04 Admin ilanlar ile ilgili arama islemleri yapabilmeli
 
           And Arama yapar
+
+       Scenario:TC05 Ilanlarim sayfasinda arama ozelligi eksik(negatif test)
+         And Arama butonu bulunmamalidir
