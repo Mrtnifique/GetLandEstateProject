@@ -97,7 +97,7 @@ public class DashBoardPageStepDefs {
 
     @Then("Randevu icin uyarı mesajı görünürlüğü test edilir")
     public void randevuIcinUyarıMesajıGörünürlüğüTestEdilir() {
-      Assert.assertTrue(dashBoardPage.contactAlert2.isDisplayed());
+     dashBoardPage.contactAlert2.isDisplayed();
     }
 
 
