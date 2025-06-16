@@ -23,9 +23,4 @@ public class LogInPageStepDefs {
     public void sayfaKapatılır() {
         Driver.closeDriver();
     }
-
-    @Given("Kullanıcı {string} sitesine erişir")
-    public void kullanıcıSitesineErişir(String arg0) {
-        Driver.getDriver().get("http://64.227.123.49");
-    }
 }
