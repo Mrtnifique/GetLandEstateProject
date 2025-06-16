@@ -24,8 +24,6 @@ public class LogInPageStepDefs {
         Driver.closeDriver();
     }
 
-
-
     @Given("Siteye manager olarak giris yapilir")
     public void siteyeManagerOlarakGirisYapilir() {
         Driver.getDriver().get("http://64.227.123.49");
@@ -37,10 +35,6 @@ public class LogInPageStepDefs {
         logInPage.passwordBox.sendKeys("B307manager@");
         logInPage.loginButton.click();
 
-
-
-
-
-
-
-}}
+}
+}
+}
