@@ -1,13 +1,11 @@
 @US20
-Feature: Yönetici Contact Mesajlari Görüntüleme
+Feature: Yönetici İletileri Görüntüleme
   Yönetici, iletişimini kontrol edebilmelidir.
-
   Background:
     Given Web sitesine erişim sağlanabilmeli
 
   Scenario: Yönetici ileti mesajlarını görüntüleyebilmeli
-    When Web sitesine git "http://64.227.123.49/"
-    And "Mail Us" butonuna tıkla
+    When "Mail Us" butonuna tıkla
     And Kutuları doldur "fatih US20", "Testcase01", "fustunyer@ggmail.com", "hello world"
     And "Send" butonuna tıkla
     And Login butonuna tıkla

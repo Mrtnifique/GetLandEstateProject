@@ -5,6 +5,7 @@ import getlandestate.pages.LogInPage;
 import getlandestate.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 
 public class LogInPageStepDefs {
     @Given("Siteye admin olarak giriş yapılır")
@@ -22,5 +23,19 @@ public class LogInPageStepDefs {
     @And("Sayfa kapatılır")
     public void sayfaKapatılır() {
         Driver.closeDriver();
+    }
+
+    DashBoardPage dashBoardPage = new DashBoardPage();
+    LogInPage logInPage = new LogInPage();
+
+    @Given("Web sitesine erişim sağlanabilmeli")
+    public void webSitesineErişimSağlanabilmeli() {
+        Driver.getDriver().get("http://64.227.123.49");
+    }
+
+    @When("{string} butonuna tıkla")
+    public void butonunaTıkla(String arg0) {
+
+
     }
 }
