@@ -114,4 +114,5 @@ public class DashBoardPageStepDefs {
         String expectedUrl = "http://64.227.123.49/register";
         Assert.assertEquals(expectedUrl, actualUrl);
     }
+
 }
