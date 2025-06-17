@@ -3,6 +3,7 @@ package getlandestate.stepdefs.e2e_stepdefs;
 import getlandestate.pages.DashBoardPage;
 import getlandestate.pages.LogInPage;
 import getlandestate.utilities.Driver;
+import getlandestate.utilities.ReusableMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 
@@ -35,6 +36,5 @@ public class LogInPageStepDefs {
         logInPage.passwordBox.sendKeys("B307manager@");
         logInPage.loginButton.click();
 
-}
 }
 }
