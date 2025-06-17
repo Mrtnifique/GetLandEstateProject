@@ -1,5 +1,7 @@
 package getlandestate.utilities;
 
+import getlandestate.pages.DashBoardPage;
+import getlandestate.pages.LogInPage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -193,5 +195,6 @@ public class ReusableMethods {
             throw new RuntimeException(e);
         }
     }
+
 
 }
