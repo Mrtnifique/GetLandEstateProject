@@ -27,3 +27,14 @@ Feature: US03 Customer profile bilgilerini görebilmeli ve güncelleyebilmeli
     When Delete Account sekmesi açılır
     Then Uyarı mesajı görüntülenir
     And Form validasyonu çalışır
+
+  @TC02 @Negative
+  Scenario: TC02 Geçersiz Bilgilerle Profil Güncelleme
+    When Firstname ve Lastname alanını tamamen sil
+    And Email alanına geçersiz format gir
+    And Telefon alanına geçersiz format gir
+    And UPDATE butonuna tıklanır
+    Then Ad alanı boş bırakılamaz hata mesajı gösterilir
+    And Geçerli email adres giriniz hata mesajı gösterilir
+    And Telefon numarası geçersiz format hata mesajı gösterilir
+    And Profil bilgileri güncellenmez
