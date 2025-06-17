@@ -1,22 +1,49 @@
-Feature: Yönetici İletileri Görüntüleme
-  Yönetici, iletişimini kontrol edebilmelidir.
+@US015
+Feature: US015 Admin rapor oluşturabilmeli
 
   Background:
-    Given Web sitesine erişim sağlanabilmeli
+    Given Siteye admin olarak giriş yapılır
 
-  Scenario: Yönetici ileti mesajlarını görüntüleyebilmeli
-    When Web sitesine git "http://64.227.123.49/"
-    And "Mail Us" butonuna tıkla
-    And Kutuları doldur "fatih US20", "Testcase01", "fustunyer@ggmail.com", "hello world"
-    And "Send" butonuna tıkla
-    And Login butonuna tıkla
-    Then Login sayfası açılmalı
-    When Admin e-posta adresini gir "b307admin@gmail.com"
-    And Admin şifresini gir "B307admin@"
-    Then Admin girişi açılmalı
-    When ContactMessages butonuna tıkla
-    And Mesajlardan birincisine tıkla
-    Then Mesajın mail adresini ve tarihini al
-    And Mesajı text olarak al
-    Then Adminin ContactMessages görebildiğini doğrula
-    And mesajımızdaki test datalarıyla aynı olmalı
+  Scenario: TC01 Admin, kategori (categories) ekleyebilmeli
+    When Categories butonuna tıklanır
+    And Yeni kategori eklenir
+    Then Kategorinin eklenmiş olduğu doğrulanır
+    And Sayfa kapatılır
+
+  Scenario: TC02 Admin, ilan Türü (Advert Types) ekleyebilmeli
+    When Advert Types butonuna tıklanır
+    And Yeni Advert Type eklenir
+    Then Advert Type eklenmiş olması doğrulanır
+    And Sayfa kapatılır
+
+  Scenario: TC03 Admin, kullanıcı arayabilmeli, güncelleme yapabilmeli ve kullanıcıya farklı roller atayabilmeli
+    When Users butonuna tıklanır
+    Then Kullanıcı aratılabilmesi doğrulanır
+    And Kullanıcı rolü ve bilgileri güncellenir
+    Then Kullanıcı bilgilerinin güncellendiği doğrulanır
+    And Sayfa kapatılır
+
+  Scenario: TC04 Admin, Kategoriler (Categories) sekmesinde kategori güncelleyebilmeli
+    When Categories butonuna tıklanır
+    And Kategori verileri güncellenir
+    Then Kategori verilerinin güncellenmiş olması doğrulanır
+    And Sayfa kapatılır
+
+  Scenario: TC05 Admin olarak tour requestler görülebilir olmalı
+    When Tour Requests butonuna tıklanır
+    Then Tour Request görünebildiği doğrulanır
+    And Sayfa kapatılır
+
+  Scenario: TC06 Admin, icon bilgisi girmeden kategori (categories) ekleyememeli
+    When Categories butonuna tıklanır
+    And Icon bilgisi girilmeden kategori eklenmeye çalışılır
+    Then Kategorinin eklenemiyor olması doğrulanır
+    And Sayfa kapatılır
+
+  Scenario: TC07 Admin, title girmeden advert type ekleyememeli
+    When Advert Types butonuna tıklanır
+    And Title bilgisi girilmeden advert eklenmeye çalışılır
+    Then Advertin eklenemiyor olması doğrulanır
+    And Sayfa kapatılır
+
+

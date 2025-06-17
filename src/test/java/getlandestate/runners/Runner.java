@@ -16,7 +16,11 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features/e2e_features",
         glue = {"getlandestate/stepdefs", "getlandestate/hooks"},
-        tags = "@US020",
+
+        tags = "@",
+
+    
+
         dryRun = false,
         monochrome = false//true iken console daki ciktilari tek renk olarak verir
 )
