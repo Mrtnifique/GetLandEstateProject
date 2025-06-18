@@ -135,4 +135,5 @@ public class DashBoardPage {
     @FindBy(xpath= "//div[@class='p-toast-detail']")
     public WebElement successMessage;
 
+
 }
