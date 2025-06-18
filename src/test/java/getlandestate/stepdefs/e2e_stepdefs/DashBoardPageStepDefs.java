@@ -116,6 +116,7 @@ public class DashBoardPageStepDefs {
     }
 
 
+
     @When("Kullanıcı iletişim formuna tıklar")
     public void kullanıcı_iletişim_formuna_tıklar() {
         dashBoardPage.contact.click();
@@ -199,6 +200,20 @@ public class DashBoardPageStepDefs {
     }
 
 
+
+
+
+    @And("Tarih ve saat boş bırakılır")
+    public void tarihVeSaatBoşBırakılır() {
+        dashBoardPage.tourDate.sendKeys(" ");
+        dashBoardPage.tourTime.sendKeys(" ");
+    }
+
+    @Then("Randevu icin tarih ve saat girmeden uyarı mesajı görünürlüğü test edilir")
+    public void randevuIcinTarihVeSaatGirmedenUyarıMesajıGörünürlüğüTestEdilir() {
+        WaitUtils.waitFor(3);
+        Assert.assertTrue(dashBoardPage.contactAlert2.isDisplayed());
+    }
 
 
 
