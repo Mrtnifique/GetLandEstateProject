@@ -86,6 +86,7 @@ public class DashBoardPage {
     @FindBy(xpath = "//div[normalize-space()='Tour time is required']")
     public WebElement tourTimeIsRequired;
 
+
     // Contact
     @FindBy(xpath= "//*[@id='offcanvas-menu']/div[2]/div[1]/a[4]")
     public WebElement contact;
@@ -133,7 +134,5 @@ public class DashBoardPage {
     // Contact success Message
     @FindBy(xpath= "//div[@class='p-toast-detail']")
     public WebElement successMessage;
-
-
 
 }
