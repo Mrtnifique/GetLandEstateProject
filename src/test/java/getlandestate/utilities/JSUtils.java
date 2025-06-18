@@ -7,6 +7,7 @@ public class JSUtils {
 
     /**
      * Belirtilen elemente kaydırma yapar.
+     *
      * @param element Kaydırma yapılacak WebElement.
      */
     public static void JSscrollIntoView(WebElement element) {
@@ -32,6 +33,7 @@ public class JSUtils {
 
     /**
      * Belirtilen elemente tıklar, öncesinde elementin görünür olmasını bekler ve kaydırma yapar.
+     *
      * @param element Tıklanacak WebElement.
      */
     public static void JSclickWithTimeout(WebElement element) {
@@ -41,6 +43,7 @@ public class JSUtils {
 
     /**
      * Belirtilen ID'ye sahip elementi locate eder ve döner.
+     *
      * @param idOfElement Locate edilecek elementin ID'si.
      * @return Locate edilen WebElement.
      */
@@ -51,8 +54,9 @@ public class JSUtils {
 
     /**
      * Belirtilen elemente verilen metni yazar.
+     *
      * @param inputElement Metin yazılacak WebElement.
-     * @param text Yazılacak metin.
+     * @param text         Yazılacak metin.
      */
     public static void JSsetValueBy(WebElement inputElement, String text) {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
@@ -61,6 +65,7 @@ public class JSUtils {
 
     /**
      * Belirtilen ID'ye sahip elementin değerini döner.
+     *
      * @param idOfElement Değeri alınacak elementin ID'si.
      * @return Elementin değeri.
      */

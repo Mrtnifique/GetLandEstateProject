@@ -1,6 +1,9 @@
 @US012
 Feature: US012 Sayfaya kayıt olmayan kullanıcı satılık ve kiralık ilanları görebilmeli
 
+
+  @TC01T
+
   Scenario: TC01 Kullanıcı (Sayfaya Kayıt olmayan) satılık ve kiralık ilan arayabilmeli
     Given Web adresine gidilir
     When Search butonuna tıklanır

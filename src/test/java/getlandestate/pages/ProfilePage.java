@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import java.time.Duration;
 
 public class ProfilePage {
@@ -17,6 +18,7 @@ public class ProfilePage {
         PageFactory.initElements(Driver.getDriver(), this);
         this.wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
     }
+
     @FindBy(xpath = "//a[normalize-space()='Login']")
     public WebElement loginIcon;
 
@@ -158,4 +160,56 @@ public class ProfilePage {
 
     }
 
+
+
+    public void clickEditPhotoButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(editPhotoButton));
+        editPhotoButton.click();
+    }
+
+    public void clickSavePhotoButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(savePhotoButton));
+        savePhotoButton.click();
+    }
+
+    /*  public void clickDeleteAccountSection() {
+          wait.until(ExpectedConditions.elementToBeClickable(deleteAccountSection));
+          deleteAccountSection.click();
+      }
+
+      public boolean isWarningMessageDisplayed() {
+          try {
+              wait.until(ExpectedConditions.visibilityOf(warningMessage));
+              return warningMessage.isDisplayed();
+          } catch (Exception e) {
+              return false;
+          }
+      }
+  */
+    public void updateProfileFields(String name, String phone, String email) {
+        if (name != null && !name.isEmpty()) {
+            wait.until(ExpectedConditions.visibilityOf(nameField));
+            nameField.clear();
+            nameField.sendKeys(name);
+        }
+        if (phone != null && !phone.isEmpty()) {
+            wait.until(ExpectedConditions.visibilityOf(phoneNumberField));
+            phoneNumberField.clear();
+            phoneNumberField.sendKeys(phone);
+        }
+        if (email != null && !email.isEmpty()) {
+            wait.until(ExpectedConditions.visibilityOf(emailField));
+            emailField.clear();
+            emailField.sendKeys(email);
+        }
+    }
+
+  /*  public boolean isFormValidationWorking() {
+        try {
+            wait.until(ExpectedConditions.visibilityOf(formValidation));
+            return formValidation.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }*/
+}
 

@@ -17,6 +17,7 @@ public class BrowserUtils {
 
     /**
      * Belirtilen elemente belirli bir süre boyunca tıklamaya çalışır.
+     *
      * @param element Tıklanacak WebElement.
      * @param timeout Deneme süresi (saniye).
      */
@@ -33,6 +34,7 @@ public class BrowserUtils {
 
     /**
      * Belirtilen elementin metnini belirli bir süre boyunca almaya çalışır.
+     *
      * @param element Metni alınacak WebElement.
      * @param timeout Deneme süresi (saniye).
      * @return Alınan metin.
@@ -52,8 +54,9 @@ public class BrowserUtils {
 
     /**
      * Belirtilen elemente belirli bir süre boyunca metin göndermeye çalışır.
+     *
      * @param element Metin gönderilecek WebElement.
-     * @param text Gönderilecek metin.
+     * @param text    Gönderilecek metin.
      * @param timeout Deneme süresi (saniye).
      */
     public static void sendKeysWithTimeout(WebElement element, String text, int timeout) {
@@ -69,6 +72,7 @@ public class BrowserUtils {
 
     /**
      * Belirtilen indeksteki radio butonuna tıklar.
+     *
      * @param index Tıklanacak radio butonunun indeksi.
      */
     public void radioClickByIndex(int index) {
@@ -82,6 +86,7 @@ public class BrowserUtils {
 
     /**
      * Belirtilen indeksteki checkbox butonuna tıklar.
+     *
      * @param index Tıklanacak checkbox butonunun indeksi.
      */
     public void checkboxClickByIndex(int index) {
@@ -99,8 +104,9 @@ public class BrowserUtils {
 
     /**
      * Dropdown menüsünden görünen metin ile seçim yapar.
+     *
      * @param element Dropdown WebElement.
-     * @param text Seçilecek metin.
+     * @param text    Seçilecek metin.
      */
     public static void dropdownSelectByVisibleText(WebElement element, String text) {
         Select select = new Select(element);
@@ -114,8 +120,9 @@ public class BrowserUtils {
 
     /**
      * Dropdown menüsünden indeks ile seçim yapar.
+     *
      * @param element Dropdown WebElement.
-     * @param index Seçilecek indeks.
+     * @param index   Seçilecek indeks.
      */
     public static void dropdownSelectByIndex(WebElement element, int index) {
         Select objSelect = new Select(element);
@@ -124,8 +131,9 @@ public class BrowserUtils {
 
     /**
      * Dropdown menüsünden değer ile seçim yapar.
+     *
      * @param element Dropdown WebElement.
-     * @param value Seçilecek değer.
+     * @param value   Seçilecek değer.
      */
     public static void dropdownSelectByValue(WebElement element, String value) {
         Select objSelect = new Select(element);
@@ -134,7 +142,8 @@ public class BrowserUtils {
 
     /**
      * Dropdown menüsünden verilen metin ile seçim yapar.
-     * @param element Dropdown WebElement.
+     *
+     * @param element        Dropdown WebElement.
      * @param textOfDropdown Seçilecek metin.
      */
     public static void dropdownSelectOption(WebElement element, String textOfDropdown) {
@@ -150,6 +159,7 @@ public class BrowserUtils {
 
     /**
      * Dropdown listesinden rastgele bir değer seçer ve seçilen WebElement'i döner.
+     *
      * @param select Dropdown Select nesnesi.
      * @return Seçilen WebElement.
      */
@@ -163,6 +173,7 @@ public class BrowserUtils {
 
     /**
      * Dropdown menüsünden seçilen tüm seçeneklerin metinlerini bir ArrayList olarak döner.
+     *
      * @param element Dropdown WebElement.
      * @return Seçilen metinlerin listesi.
      * @throws Exception Eğer element null ise.
@@ -184,19 +195,21 @@ public class BrowserUtils {
     /**
      * Belirtilen elementin sayfada görüntülenip görüntülenmediğini doğrular.
      * Element bulunamaz veya görüntülenemezse test başarısız olur.
+     *
      * @param element Görüntülenmesi istenen WebElement.
      */
     public static void verifyElementDisplayed(WebElement element) {
         try {
             assertTrue("Element is not visible: " + element, element.isDisplayed());
         } catch (NoSuchElementException e) {
-           fail("Element is not found: " + element);
+            fail("Element is not found: " + element);
         }
     }
 
     /**
      * Belirtilen locatora sahip elementin sayfada görüntülenip görüntülenmediğini doğrular.
      * Element bulunamaz veya görüntülenemezse test başarısız olur.
+     *
      * @param by Görüntülenmesi istenen locator.
      */
     public static void verifyElementDisplayed(By by) {
@@ -210,6 +223,7 @@ public class BrowserUtils {
     /**
      * Belirtilen locatora sahip elementin sayfada görüntülenmediğini doğrular.
      * Element bulunamaz veya görüntülenemezse test başarısız olur.
+     *
      * @param by Görüntülenmemesi istenen locator.
      */
     public static void verifyElementNotDisplayed(By by) {
@@ -223,6 +237,7 @@ public class BrowserUtils {
     /**
      * Belirtilen WebElement'in sayfada görüntülenmediğini doğrular.
      * Element bulunamaz veya görüntülenemezse test başarısız olur.
+     *
      * @param element Görüntülenmemesi istenen WebElement.
      */
     public static void verifyElementNotDisplayed(WebElement element) {
@@ -235,6 +250,7 @@ public class BrowserUtils {
 
     /**
      * Belirtilen elementin tıklanabilir olup olmadığını doğrular.
+     *
      * @param element Tıklanabilir olup olmadığı doğrulanacak WebElement.
      */
     public static void verifyElementClickable(WebElement element) {
@@ -248,6 +264,7 @@ public class BrowserUtils {
 
     /**
      * Belirtilen elementin tıklanabilir olmadığını doğrular.
+     *
      * @param element Tıklanabilir olmaması gereken WebElement.
      */
     public static void verifyElementNotClickable(WebElement element) {
@@ -260,7 +277,8 @@ public class BrowserUtils {
 
     /**
      * Beklenen ve gerçek metinlerin eşleşip eşleşmediğini doğrular.
-     * @param expectedText Beklenen metin.
+     *
+     * @param expectedText  Beklenen metin.
      * @param actualElement Gerçek metni içeren WebElement.
      */
     public static void verifyExpectedAndActualTextMatch(String expectedText, WebElement actualElement) {
@@ -275,6 +293,7 @@ public class BrowserUtils {
 
     /**
      * Açılır uyarıyı kabul eder.
+     *
      * @throws InterruptedException Eğer bir kesinti olursa.
      */
     public void alertAccept() throws InterruptedException {
@@ -283,6 +302,7 @@ public class BrowserUtils {
 
     /**
      * Açılır uyarıyı reddeder.
+     *
      * @throws InterruptedException Eğer bir kesinti olursa.
      */
     public void alertDismiss() throws InterruptedException {
@@ -291,6 +311,7 @@ public class BrowserUtils {
 
     /**
      * Belirtilen xpath'e sahip iframe'e geçiş yapar.
+     *
      * @param xpath Iframe'in xpath'i.
      */
     public static void frameSwitchTo(String xpath) {
@@ -300,6 +321,7 @@ public class BrowserUtils {
 
     /**
      * Belirtilen indeksteki iframe'e geçiş yapar.
+     *
      * @param index Iframe'in indeksi.
      */
     public static void frameSwitchTo(int index) {
@@ -308,6 +330,7 @@ public class BrowserUtils {
 
     /**
      * Belirtilen başlığa sahip pencereye geçiş yapar.
+     *
      * @param targetTitle Geçiş yapılacak pencerenin başlığı.
      */
     public static void windowSwitchTo(String targetTitle) {
@@ -324,6 +347,7 @@ public class BrowserUtils {
 
     /**
      * Belirtilen indeksteki pencereye geçiş yapar.
+     *
      * @param windowIndex Geçiş yapılacak pencerenin indeksi.
      */
     public static void windowSwitchTo(int windowIndex) {

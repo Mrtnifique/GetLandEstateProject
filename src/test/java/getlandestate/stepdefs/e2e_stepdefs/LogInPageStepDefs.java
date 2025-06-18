@@ -30,6 +30,7 @@ public class LogInPageStepDefs {
         Driver.getDriver().get("http://64.227.123.49");
 
 
+
 }
 
     @Given("Customer olarak sayfaya giris yapılır")
@@ -41,7 +42,9 @@ public class LogInPageStepDefs {
         logInPage.emailBox.sendKeys("bilen@cimail.com");
         logInPage.passwordBox.sendKeys("Aa123456.");
 
+
     }
+}
 
     @When("Login butonuna tıklanır")
     public void loginButonunaTıklanır() {
