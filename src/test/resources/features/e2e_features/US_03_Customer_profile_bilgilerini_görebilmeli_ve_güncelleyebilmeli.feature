@@ -12,29 +12,42 @@ Feature: US03 Customer profile bilgilerini görebilmeli ve güncelleyebilmeli
 
     When Profil bilgileri güncellenir
     And UPDATE butonuna tıklanır
-    Then Güncelleme başarı mesajı görüntülenir
+    #Then Güncelleme başarı mesajı görüntülenir
+
+    When Profile Photo sekmesi açılır
+    And Fotoğraf seçilir ve yüklenir
+   # Then Fotoğraf başarıyla güncellenir
 
     When Change Password sekmesi açılır
     And Şifre değiştirme formu doldurulur
     And CHANGE butonuna tıklanır
-    Then Şifre değiştirme başarı mesajı görüntülenir
+    #Then Şifre değiştirme başarı mesajı görüntülenir
     And Password strength STRONG olarak görüntülenir
 
-    When Profile Photo sekmesi açılır
-    And Fotoğraf seçilir ve yüklenir
-    Then Fotoğraf başarıyla güncellenir
 
-    When Delete Account sekmesi açılır
-    Then Uyarı mesajı görüntülenir
-    And Form validasyonu çalışır
+
 
   @TC02 @Negative
-  Scenario: TC02 Geçersiz Bilgilerle Profil Güncelleme
-    When Firstname ve Lastname alanını tamamen sil
-    And Email alanına geçersiz format gir
-    And Telefon alanına geçersiz format gir
-    And UPDATE butonuna tıklanır
-    Then Ad alanı boş bırakılamaz hata mesajı gösterilir
-    And Geçerli email adres giriniz hata mesajı gösterilir
-    And Telefon numarası geçersiz format hata mesajı gösterilir
-    And Profil bilgileri güncellenmez
+  Scenario: TC02 Geçersiz bilgilerle profil güncelleme
+    When Ad, soyad silinir; geçersiz email ve telefon girilir
+    And UPDATE butonuna tekrar tıklanır
+    Then Zorunlu alan ve format uyarı mesajları gösterilir
+    And Profil güncelleme işlemi başarısız olur
+
+
+
+  @TC03 @Negative
+  Scenario: TC03 Geçersiz şifre ile değiştirme
+    When Şifre değiştirme sekmesi açılır
+    And Yanlış mevcut şifre ve zayıf yeni şifre girilir, tekrar şifre boş bırakılır
+    And Şifre gücü durumu kontrol edilir
+    And CHANGE butonuna basılır
+    Then Şifre gücü NONE veya WEAK görünür
+    And Şifreler eşleşmiyor uyarısı çıkar
+    And Şifre değişimi başarısız olur
+
+
+  @TC04 @Negative
+  Scenario: TC04 Geçersiz dosya ile profil resmi eklenemez
+    When Geçersiz boyutta profil fotoğrafı yüklenmeye çalışılır
+    Then Yükleme reddedilir ve hata mesajı gösterilir

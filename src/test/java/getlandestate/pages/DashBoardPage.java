@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class DashBoardPage {
     public DashBoardPage() {
         PageFactory.initElements(Driver.getDriver(), this);
@@ -76,5 +78,90 @@ public class DashBoardPage {
     //Create one now butonuna tıklanır
     @FindBy(xpath = "//span[@class='register-link']")
     public WebElement createOneNowButton;
+
+
+
+
+    @FindBy(xpath = "//a[@class='side-menu-link back-site nav-link' and @title='Back to Site']")
+    public WebElement backToSiteButton;
+
+    //Profile Button
+    @FindBy(xpath ="//html[1]/body[1]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[1]/div[1]/img[1]")
+    public WebElement profileButton;
+
+    //My Adverts Button
+    @FindBy(xpath = "//a[@href='/my-adverts']")
+    public WebElement myAdvertsButton;
+
+    @FindBy(xpath = "//tr[@draggable='false']//div[@class='p-image-preview-indicator']")
+    public List<WebElement> advertListElements;
+
+    @FindBy(xpath = "//span[@class='date-published']")
+    public WebElement datePublishedList;
+
+    @FindBy(xpath = "//span[@class='status']")
+    public WebElement statusList;
+
+    @FindBy(xpath = "//div[@class='view-like-tour']")
+    public WebElement viewLikeTourList;
+
+    //Tour date is required
+    @FindBy(xpath = "//div[normalize-space()='Tour date is required']")
+    public WebElement tourDateIsRequired;
+
+    //Tour time is required
+    @FindBy(xpath = "//div[normalize-space()='Tour time is required']")
+    public WebElement tourTimeIsRequired;
+
+
+    // Contact
+    @FindBy(xpath= "//*[@id='offcanvas-menu']/div[2]/div[1]/a[4]")
+    public WebElement contact;
+
+    // Contact FirstName
+    @FindBy(xpath= "//*[@id='firstName']")
+    public WebElement firstName;
+
+    // Contact Lastname
+    @FindBy(xpath= "//*[@id='lastName']")
+    public WebElement lastName;
+
+    // Contact email
+    @FindBy(xpath= "//*[@id='email']")
+    public WebElement  email;
+
+    // Contact message
+    @FindBy(xpath= "//*[@id='message']")
+    public WebElement message;
+
+    // Contact Submit Button
+    @FindBy(xpath= "//button[@type='submit']")
+    public WebElement submitButton;
+
+    // Contact Submit Button negatif
+    @FindBy(xpath= "//button[@type='submit']")
+    public WebElement submitButton01;
+
+    // Contact Firstname warning
+    @FindBy(xpath= "//*[@id='root']/div[1]/div/div[3]/div[2]/div[1]/div/form/div[1]/div")
+    public WebElement firstNameWarning;
+
+    // Contact Lastname warning
+    @FindBy(xpath= "//*[@id='root']/div[1]/div/div[3]/div[2]/div[1]/div/form/div[2]/div")
+    public WebElement lastNameWarning;
+
+    // Contact required email warning
+    @FindBy(xpath="//*[@id='root']/div[1]/div/div[3]/div[2]/div[1]/div/form/div[3]/div")
+    public WebElement requiredEmailWarning;
+
+    //Contact invalid email warning
+    @FindBy(xpath= "//*[@id='root']/div[1]/div/div[3]/div[2]/div[1]/div/form/div[3]/div")
+    public WebElement invalidEmailWarning;
+
+    // Contact success Message
+    @FindBy(xpath= "//div[@class='p-toast-detail']")
+    public WebElement successMessage;
+
+
 
 }
