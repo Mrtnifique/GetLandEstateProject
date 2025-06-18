@@ -209,7 +209,7 @@ public class DashBoardPageStepDefs {
 
         @And("Tarih ve saat boş bırakılır")
         public void tarihVeSaatBoşBırakılır () {
-            dashBoardPage.tourDate.sendKeys(" ");
+            dashBoardPage.tourDate.sendKeys("  ");
             dashBoardPage.tourTime.sendKeys(" ");
 
         }
