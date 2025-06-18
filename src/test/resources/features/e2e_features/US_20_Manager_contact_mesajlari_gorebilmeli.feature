@@ -2,7 +2,7 @@
 Feature: Yönetici İletileri Görüntüleme
   Yönetici, iletişimini kontrol edebilmelidir.
   Background:
-    Given Web sitesine erişim sağlanabilmeli
+    Given Kullanıcı siteye giriş yapar
 
   Scenario: Yönetici ileti mesajlarını görüntüleyebilmeli
     When "Mail Us" butonuna tıkla
