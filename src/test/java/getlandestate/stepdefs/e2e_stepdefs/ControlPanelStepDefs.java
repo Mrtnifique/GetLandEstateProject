@@ -8,13 +8,15 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 
 public class ControlPanelStepDefs {
     ControlPanelPage controlPanelPage = new ControlPanelPage();
     Faker faker = new Faker();
-    String randomWord = faker.book().title();
+    String randomWord = faker.funnyName().name();
 
 
     @And("Yeni kategori eklenir")
@@ -28,10 +30,11 @@ public class ControlPanelStepDefs {
 
     @When("Categories butonuna tıklanır")
     public void categoriesButonunaTiklanir() {
+        // Categories butonuna tıklanır
         controlPanelPage.categoriesButton.click();
     }
 
-    @Then("Kategorinin eklenmiş olması test edilir")
+    @Then("Kategorinin eklenmiş olduğu doğrulanır")
     public void kategorininEklenmişOlmasıTestEdilir() {
         Driver.getDriver().navigate().refresh();
 
@@ -44,12 +47,12 @@ public class ControlPanelStepDefs {
         WaitUtils.waitFor(3);
     }
 
-    @When("Advert types butonuna tıklanır")
+    @When("Advert Types butonuna tıklanır")
     public void advertTypesButonunaTıklanır() {
         controlPanelPage.advertTypeButton.click();
     }
 
-    @And("Yeni advert type eklenir")
+    @And("Yeni Advert Type eklenir")
     public void yeniAdvertTypeEklenir() {
         controlPanelPage.categoriesAddNewButton.click();
         controlPanelPage.categoriesAddNewTitleBox.sendKeys(randomWord);
@@ -57,11 +60,11 @@ public class ControlPanelStepDefs {
 
     }
 
-    @Then("Advert type eklenmiş olması test edilir")
+    @Then("Advert Type eklenmiş olması doğrulanır")
     public void advertTypeEklenmişOlmasıTestEdilir() {
         controlPanelPage.categoriesSearchBox.sendKeys(randomWord);
         controlPanelPage.advertTypeSearchButton.click();
-        controlPanelPage.advertTitleEditButton.click();
+        WaitUtils.waitFor(2);
         Assert.assertEquals(randomWord, controlPanelPage.firstAdvertTitle.getDomProperty("value"));
 
 
@@ -72,7 +75,7 @@ public class ControlPanelStepDefs {
         controlPanelPage.usersButton.click();
     }
 
-    @Then("Kullanıcı aratılabilirliği test edilir")
+    @Then("Kullanıcı aratılabilmesi doğrulanır")
     public void kullanıcıAratılabilirliğiTestEdilir() {
         controlPanelPage.categoriesSearchBox.sendKeys("Agent47");
         controlPanelPage.categoriesSearchBoxSearchButton.click();
@@ -128,8 +131,56 @@ public class ControlPanelStepDefs {
         controlPanelPage.categoriesAddNewTitleBox.sendKeys(" ");
     }
 
-    @Then("Advertin eklenmemiş olması test edilir")
+    @Then("Advertin eklenemiyor olması doğrulanır")
     public void advertinEklenmemişOlmasıTestEdilir() {
         Assert.assertFalse(controlPanelPage.advertTypeCreateButton.isEnabled());
+    }
+
+    @And("Kategori verileri güncellenir")
+    public void kategoriVerileriGüncellenir() {
+        controlPanelPage.categoriesSearchBox.sendKeys("TinyMinyHouse");
+        controlPanelPage.categoriesSearchBoxSearchButton.click();
+
+        controlPanelPage.usersEditButton.click();
+        WebElement input = controlPanelPage.categoriesAddNewTitleBox;
+        input.sendKeys(Keys.CONTROL + "a");
+        input.sendKeys(Keys.DELETE);
+        input.sendKeys("HouseMD");
+        controlPanelPage.categoriesEditUpdateButton.click();
+        WaitUtils.waitFor(2);
+        controlPanelPage.categoriesEditBackButton.click();
+
+    }
+
+    @Then("Kategori verilerinin güncellenmiş olması doğrulanır")
+    public void kategoriVerilerininGüncellenmişOlmasıDoğrulanır() {
+        controlPanelPage.categoriesSearchBox.sendKeys("HouseMD");
+        controlPanelPage.categoriesSearchBoxSearchButton.click();
+        Assert.assertTrue(controlPanelPage.muratAssertionData3.isDisplayed());
+        WaitUtils.waitFor(2);
+
+        //Teardown
+        controlPanelPage.usersEditButton.click();
+        WebElement input = controlPanelPage.categoriesAddNewTitleBox;
+        input.sendKeys(Keys.CONTROL + "a");
+        input.sendKeys(Keys.DELETE);
+        input.sendKeys("TinyMinyHouse");
+        controlPanelPage.categoriesEditUpdateButton.click();
+        WaitUtils.waitFor(2);
+
+
+    }
+
+    @When("Tour Requests butonuna tıklanır")
+    public void tourRequestsButonunaTıklanır() {
+        controlPanelPage.tourRequestsButton.click();
+
+    }
+
+    @Then("Tour Request görünebildiği doğrulanır")
+    public void tourRequestGörünebildiğiDoğrulanır() {
+        controlPanelPage.categoriesSearchBox.sendKeys("gupguzel");
+        controlPanelPage.categoriesSearchBoxSearchButton.click();
+        Assert.assertTrue(controlPanelPage.muratAssertionData4.isDisplayed());
     }
 }
