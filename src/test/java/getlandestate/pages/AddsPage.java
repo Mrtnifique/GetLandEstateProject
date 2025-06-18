@@ -11,10 +11,14 @@ public class AddsPage {
 
         PageFactory.initElements(Driver.getDriver(),this);
 
-        //ilanlarim butonu
+        //Profilim butonu
 }
-        @FindBy(xpath="//*[@id=\"subMenu\"]/div/a[2]/span[1]/span")
-                public WebElement addsBuuton;
+        @FindBy(xpath="//*[span='Profilim']")
+                public static WebElement ProfileButton;
+
+    //ilanlarim butonu
+    @FindBy(xpath="//*[@id=\"subMenu\"]/div/a[2]/span[1]/span")
+                public WebElement addsButon;
 
     //Ilan beklemede butonu
     @FindBy(xpath="(//*[@class='p-tag-value'])[1]")
