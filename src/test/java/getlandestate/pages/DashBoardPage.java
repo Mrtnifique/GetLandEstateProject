@@ -77,4 +77,8 @@ public class DashBoardPage {
     @FindBy(xpath = "//span[@class='register-link']")
     public WebElement createOneNowButton;
 
+    //Mail butonu
+    @FindBy(xpath = "//button[@class='mail-button']")
+    public WebElement mailButonu;
+
 }

@@ -37,6 +37,16 @@ public class LogInPageStepDefs {
 
 
     }
+
+    @And("Admin girişi yapılır")
+    public void adminGirişiYapılır() {
+        dashBoardPage.loginButton.click();
+        logInPage.emailBox.sendKeys("b307admin@gmail.com");
+        logInPage.passwordBox.sendKeys("B307admin@");
+        logInPage.loginButton.click();
+
+
+    }
 }
 
 
