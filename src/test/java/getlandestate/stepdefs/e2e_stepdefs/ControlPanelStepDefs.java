@@ -183,4 +183,44 @@ public class ControlPanelStepDefs {
         controlPanelPage.categoriesSearchBoxSearchButton.click();
         Assert.assertTrue(controlPanelPage.muratAssertionData4.isDisplayed());
     }
+
+    @And("Arama kutusuna yildiz isilti yazilir")
+    public void aramaKutusunaYildizIsiltiYazilir() {
+        //controlPanelPage.userSearchBox.click();
+        WaitUtils.waitFor(3);
+        controlPanelPage.categoriesSearchBox.sendKeys("yildiz");
+        controlPanelPage.categoriesSearchBoxSearchButton.click();
+        WaitUtils.waitFor(2);
+        Assert.assertTrue(controlPanelPage.yildizDisplayed.isDisplayed());
+    }
+
+    @And("Ilgili kullanicinin yanindaki kalem kutucuguna tiklanir")
+    public void ılgiliKullanicininYanindakiKalemKutucugunaTiklanir() {
+        controlPanelPage.penButton.click();
+    }
+
+    @And("Roles kismindan admin secilir")
+    public void rolesKismindanAdminSecilir() {
+        controlPanelPage.userRole.sendKeys("ADMIN");
+    }
+
+    @And("Update butonuna tiklanir")
+    public void updateButonunaTiklanir() {
+        controlPanelPage.userUpdateButton.click();
+    }
+
+    @Then("Kullanicinin rolunun basariyla admin olarak guncellendigi dogrulanir")
+    public void kullanicininRolununBasariylaAdminOlarakGuncellendigiDogrulanir() {
+        controlPanelPage.categoriesSearchBox.sendKeys("yildiz");
+        controlPanelPage.categoriesSearchBoxSearchButton.click();
+        WaitUtils.waitFor(2);
+
+        String actualResult = controlPanelPage.userRoleText.getText();
+        String expectedResult = "ADMIN";
+        Assert.assertEquals(expectedResult, actualResult);
+        WaitUtils.waitFor(2);
+
+    }
+
+
 }

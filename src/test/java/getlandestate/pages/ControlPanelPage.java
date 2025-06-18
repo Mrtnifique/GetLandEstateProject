@@ -118,4 +118,24 @@ public class ControlPanelPage {
     //Categories/Edit/Back Button
     @FindBy(xpath = "(//button[@type='button'])[1]")
     public WebElement categoriesEditBackButton;
+
+    //Pen button
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[5]/div[1]/div[1]/button[2]")
+    public WebElement penButton;
+
+    //Search box search button
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[2]/div[2]/div/div[1]/div/button")
+    public WebElement userSearchButton;
+
+    //Users search box
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[2]/div[2]/div/div[1]/div/input")
+    public WebElement userSearchBox;
+
+    //
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement userUpdateButton;
+
+    @FindBy(xpath = "//tbody/tr[1]/td[1]/div[1]")
+    public WebElement yildizDisplayed;
+
 }
