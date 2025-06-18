@@ -5,7 +5,9 @@ import getlandestate.pages.LogInPage;
 import getlandestate.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+
 import io.cucumber.java.en.Then;
+
 import io.cucumber.java.en.When;
 
 public class LogInPageStepDefs {
@@ -19,6 +21,8 @@ public class LogInPageStepDefs {
         logInPage.emailBox.sendKeys("b307admin@gmail.com");
         logInPage.passwordBox.sendKeys("B307admin@");
         logInPage.loginButton.click();
+
+
     }
 
     @And("Sayfa kapatılır")
@@ -30,8 +34,26 @@ public class LogInPageStepDefs {
     public void webAdresineGidilir() {
         Driver.getDriver().get("http://64.227.123.49");
 
+    }
+    @Given("Siteye Manager olarak giriş yapılır")
+    public void siteyeManagerGirisYapılır() {
+
+        DashBoardPage dashBoardPage = new DashBoardPage();
+        LogInPage logInPage = new LogInPage();
+        Driver.getDriver().get("http://64.227.123.49");
+
+        dashBoardPage.loginButton.click();
+        logInPage.emailBox.sendKeys("rose83@gmail.com");
+        logInPage.passwordBox.sendKeys("123123Rose?");
+        logInPage.loginButton.click();
+
+
+
+    }
+
 
 }
+
 
     @Given("Web seyfesine get")
     public void webSeyfesineGet() {
@@ -67,5 +89,24 @@ public class LogInPageStepDefs {
     public void customerOlaraqQeydOlmali() {
 
     }
+
+    @Given("Customer olarak sayfaya giris yapılır")
+    public void customerOlarakSayfayaGirisYapılır() {
+        LogInPage logInPage = new LogInPage();
+        DashBoardPage dashBoardPage = new DashBoardPage();
+        Driver.getDriver().get("http://64.227.123.49");
+        dashBoardPage.loginButton.click();
+        logInPage.emailBox.sendKeys("bilen@cimail.com");
+        logInPage.passwordBox.sendKeys("Aa123456.");
+
+    }
+
+    @When("Login butonuna tıklanır")
+    public void loginButonunaTıklanır() {
+        LogInPage logInPage = new LogInPage();
+        logInPage.loginButton.click();
+    }
+
+
 }
 

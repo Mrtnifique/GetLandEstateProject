@@ -22,6 +22,10 @@ public class ControlPanelPage {
     @FindBy(xpath = "(//a[@class='side-menu-link nav-link'])[5]")
     public WebElement usersButton;
 
+    //Tour Requests Page
+    @FindBy(xpath = "//a[@title='Tour Requests']")
+    public WebElement tourRequestsButton;
+
     //Categories/"+" Button
     @FindBy(xpath = "//button[contains(@class,'add-new-btn btn')]")
     public WebElement categoriesAddNewButton;
@@ -57,6 +61,14 @@ public class ControlPanelPage {
     // TC15 Test Data
     @FindBy(xpath = "//div[text()='Tobias Rieper']")
     public WebElement muratAssertionData2;
+
+    //TC15 Test Data
+    @FindBy(xpath = "//div[text()='HouseMD']")
+    public WebElement muratAssertionData3;
+
+    //TC15 Test Data
+    @FindBy(xpath = "//p[text()='gupguzel ev']")
+    public WebElement muratAssertionData4;
 
     //Categories/Delete Button for the First Visible Category
     @FindBy(xpath = "(//button[contains(@class,'btn-link btn')])[2]")
@@ -98,4 +110,32 @@ public class ControlPanelPage {
     //Users/User Role Text
     @FindBy(xpath = "//span[@data-pc-section='value']")
     public WebElement userRoleText;
+
+    //Categories/Edit/Update Button
+    @FindBy(xpath = "(//button[@type='button'])[2]")
+    public WebElement categoriesEditUpdateButton;
+
+    //Categories/Edit/Back Button
+    @FindBy(xpath = "(//button[@type='button'])[1]")
+    public WebElement categoriesEditBackButton;
+
+    //Pen button
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[5]/div[1]/div[1]/button[2]")
+    public WebElement penButton;
+
+    //Search box search button
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[2]/div[2]/div/div[1]/div/button")
+    public WebElement userSearchButton;
+
+    //Users search box
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[2]/div[2]/div/div[1]/div/input")
+    public WebElement userSearchBox;
+
+    //
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement userUpdateButton;
+
+    @FindBy(xpath = "//tbody/tr[1]/td[1]/div[1]")
+    public WebElement yildizDisplayed;
+
 }
