@@ -122,7 +122,7 @@ public class DashBoardPageStepDefs {
     @And("Tarih ve saat boş bırakılarak submit butonuna tıklanır")
     public void tarihVeSaatBoşBırakılarakSubmitButonunaTıklanır() {
         actions.moveToElement(dashBoardPage.submitTourRequestButton).click().perform();
-
+    }
 
         @When("Kullanıcı iletişim formuna tıklar")
         public void kullanıcı_iletişim_formuna_tıklar () {
@@ -215,11 +215,14 @@ public class DashBoardPageStepDefs {
         }
 
 
-        @Then("Randevu icin tarih ve saat girmeden uyarı mesajı görünürlüğü test edilir")
-        public void randevuIcinTarihVeSaatGirmedenUyarıMesajıGörünürlüğüTestEdilir () {
-            Assert.assertTrue(dashBoardPage.tourDateIsRequired.isDisplayed());
-            Assert.assertTrue(dashBoardPage.tourTimeIsRequired.isDisplayed());
-        }
+
+
+
+    @Then("Randevu icin tarih ve saat girmeden uyarı mesajı görünürlüğü test edilir")
+    public void randevuIcinTarihVeSaatGirmedenUyarıMesajıGörünürlüğüTestEdilir() {
+        Assert.assertTrue(dashBoardPage.tourDateIsRequired.isDisplayed());
+        Assert.assertTrue(dashBoardPage.tourTimeIsRequired.isDisplayed());
+    }
     }
 
 
