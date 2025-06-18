@@ -9,7 +9,7 @@ public class ConfigReader {
     public static String getProperty(String key) {
         Properties properties = new Properties();
         try {
-            FileInputStream fis = new FileInputStream("cucumber.properties");
+            FileInputStream fis = new FileInputStream("configuration.properties");
             properties.load(fis);
         } catch (IOException e) {
             throw new RuntimeException(e);

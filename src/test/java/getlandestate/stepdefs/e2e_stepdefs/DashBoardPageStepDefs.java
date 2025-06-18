@@ -115,6 +115,7 @@ public class DashBoardPageStepDefs {
         Assert.assertEquals(expectedUrl, actualUrl);
     }
 
+
     @And("Tarih ve saat boş bırakılır")
     public void tarihVeSaatBoşBırakılır() {
         dashBoardPage.tourDate.sendKeys(" ");
@@ -126,4 +127,6 @@ public class DashBoardPageStepDefs {
         WaitUtils.waitFor(3);
         Assert.assertTrue(dashBoardPage.contactAlert2.isDisplayed());
     }
+
+
 }
