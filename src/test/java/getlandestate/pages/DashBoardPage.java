@@ -78,4 +78,65 @@ public class DashBoardPage {
     @FindBy(xpath = "//span[@class='register-link']")
     public WebElement createOneNowButton;
 
+
+    //Tour date is required
+    @FindBy(xpath = "//div[normalize-space()='Tour date is required']")
+    public WebElement tourDateIsRequired;
+
+    //Tour time is required
+    @FindBy(xpath = "//div[normalize-space()='Tour time is required']")
+    public WebElement tourTimeIsRequired;
+
+
+    // Contact
+    @FindBy(xpath= "//*[@id='offcanvas-menu']/div[2]/div[1]/a[4]")
+    public WebElement contact;
+
+    // Contact FirstName
+    @FindBy(xpath= "//*[@id='firstName']")
+    public WebElement firstName;
+
+    // Contact Lastname
+    @FindBy(xpath= "//*[@id='lastName']")
+    public WebElement lastName;
+
+    // Contact email
+    @FindBy(xpath= "//*[@id='email']")
+    public WebElement  email;
+
+    // Contact message
+    @FindBy(xpath= "//*[@id='message']")
+    public WebElement message;
+
+    // Contact Submit Button
+    @FindBy(xpath= "//button[@type='submit']")
+    public WebElement submitButton;
+
+    // Contact Submit Button negatif
+    @FindBy(xpath= "//button[@type='submit']")
+    public WebElement submitButton01;
+
+    // Contact Firstname warning
+    @FindBy(xpath= "//*[@id='root']/div[1]/div/div[3]/div[2]/div[1]/div/form/div[1]/div")
+    public WebElement firstNameWarning;
+
+    // Contact Lastname warning
+    @FindBy(xpath= "//*[@id='root']/div[1]/div/div[3]/div[2]/div[1]/div/form/div[2]/div")
+    public WebElement lastNameWarning;
+
+    // Contact required email warning
+    @FindBy(xpath="//*[@id='root']/div[1]/div/div[3]/div[2]/div[1]/div/form/div[3]/div")
+    public WebElement requiredEmailWarning;
+
+    //Contact invalid email warning
+    @FindBy(xpath= "//*[@id='root']/div[1]/div/div[3]/div[2]/div[1]/div/form/div[3]/div")
+    public WebElement invalidEmailWarning;
+
+    // Contact success Message
+    @FindBy(xpath= "//div[@class='p-toast-detail']")
+    public WebElement successMessage;
+
+
+
+
 }
