@@ -1,8 +1,8 @@
 @US09
 Feature: US09 Admin ilanlarla ilgili islemleri yapar
 Background:
-  Given "Siteye admin olarak giriş yapılır"
-  When "Profilime"  tiklar
+  Given Kullanici "admin" olarak giris yapar
+  When "Profilim"e tiklar
   Then "Ilanlarim" a tiklar
 
   Scenario: TC01 Admin ilanlari guncelleyebilmeli
@@ -29,4 +29,3 @@ Background:
 
        Scenario:TC05 Ilanlarim sayfasinda arama ozelligi eksik(negatif test)
          And Arama butonu bulunmamalidir
-
