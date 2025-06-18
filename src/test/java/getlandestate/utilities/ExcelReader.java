@@ -25,13 +25,13 @@ public class ExcelReader {
         sheet = workbook.getSheet(sayfaIsmi);
     }
 
-    public String getCellData(int satir, int sutun){
+    public String getCellData(int satir, int sutun) {
         Cell cell = sheet.getRow(satir).getCell(sutun);
         return cell.toString();
     }
 
-    public int rowCount(){
-      return  sheet.getLastRowNum();
+    public int rowCount() {
+        return sheet.getLastRowNum();
     }
 
 

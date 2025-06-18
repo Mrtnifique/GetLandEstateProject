@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import java.time.Duration;
 
 public class ProfilePage {
@@ -17,6 +18,7 @@ public class ProfilePage {
         PageFactory.initElements(Driver.getDriver(), this);
         this.wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
     }
+
     @FindBy(xpath = "//a[normalize-space()='Login']")
     public WebElement loginIcon;
 
@@ -215,20 +217,20 @@ public class ProfilePage {
         savePhotoButton.click();
     }
 
-  /*  public void clickDeleteAccountSection() {
-        wait.until(ExpectedConditions.elementToBeClickable(deleteAccountSection));
-        deleteAccountSection.click();
-    }
+    /*  public void clickDeleteAccountSection() {
+          wait.until(ExpectedConditions.elementToBeClickable(deleteAccountSection));
+          deleteAccountSection.click();
+      }
 
-    public boolean isWarningMessageDisplayed() {
-        try {
-            wait.until(ExpectedConditions.visibilityOf(warningMessage));
-            return warningMessage.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-    }
-*/
+      public boolean isWarningMessageDisplayed() {
+          try {
+              wait.until(ExpectedConditions.visibilityOf(warningMessage));
+              return warningMessage.isDisplayed();
+          } catch (Exception e) {
+              return false;
+          }
+      }
+  */
     public void updateProfileFields(String name, String phone, String email) {
         if (name != null && !name.isEmpty()) {
             wait.until(ExpectedConditions.visibilityOf(nameField));
@@ -254,4 +256,4 @@ public class ProfilePage {
         } catch (Exception e) {
             return false;
         }*/
-    }
+}

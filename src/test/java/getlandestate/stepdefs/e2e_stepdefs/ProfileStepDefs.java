@@ -111,7 +111,8 @@ public class ProfileStepDefs {
         Assert.assertTrue("Photo update success message should be displayed",
                 profilePage.isSuccessMessageDisplayed());
     }
-   //==================@TC02=====================
+
+    //==================@TC02=====================
     @When("Delete Account sekmesi açılır")
     public void deleteAccountSekmesiAçılır() {
     }

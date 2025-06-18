@@ -27,7 +27,7 @@ public class DashBoardPageStepDefs {
     DashBoardPage dashBoardPage = new DashBoardPage();
     Faker faker = new Faker();
     Random random = new Random();
-    Actions actions = new Actions( Driver.getDriver() );
+    Actions actions = new Actions(Driver.getDriver());
 
 
     @When("Search butonuna tıklanır")
@@ -97,7 +97,7 @@ public class DashBoardPageStepDefs {
     public void randevuIcinUyarıMesajıGörünürlüğüTestEdilir() {
         WaitUtils.waitFor(3);
 
-     Assert.assertTrue(dashBoardPage.contactAlert2.isDisplayed());
+        Assert.assertTrue(dashBoardPage.contactAlert2.isDisplayed());
     }
 
 
@@ -105,7 +105,6 @@ public class DashBoardPageStepDefs {
     public void createOneNowButonunaTıklanır() {
         dashBoardPage.createOneNowButton.click();
     }
-
 
 
     @Then("Register sayfasına gidildiği test edilir")

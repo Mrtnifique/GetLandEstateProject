@@ -12,6 +12,7 @@ public class WaitUtils {
 
     /**
      * Yeni bir sayfa açıldığında sayfanın tamamen yüklenmesini bekler.
+     *
      * @param timeout Sayfanın yüklenmesi için maksimum bekleme süresi (saniye).
      */
     public static void waitForPageToLoad(long timeout) {
@@ -32,8 +33,9 @@ public class WaitUtils {
 
     /**
      * Fluent Wait kullanarak belirtilen elementin görünürlüğünü bekler.
-     * @param xpath Elementin xpath'i.
-     * @param withTimeout Maksimum bekleme süresi (saniye).
+     *
+     * @param xpath        Elementin xpath'i.
+     * @param withTimeout  Maksimum bekleme süresi (saniye).
      * @param pollingEvery Elementi kontrol etme sıklığı (saniye).
      * @return Beklenen element.
      */
@@ -49,6 +51,7 @@ public class WaitUtils {
 
     /**
      * Belirtilen süre boyunca bekler (hard wait).
+     *
      * @param seconds Beklenecek süre (saniye).
      */
     public static void waitFor(int seconds) {
@@ -61,6 +64,7 @@ public class WaitUtils {
 
     /**
      * Belirtilen elementin görünür olmasını bekler.
+     *
      * @param element Görünürlüğü beklenen WebElement.
      * @param timeout Maksimum bekleme süresi (saniye).
      * @return Görünür olan WebElement.
@@ -72,6 +76,7 @@ public class WaitUtils {
 
     /**
      * Belirtilen locator ile elementin görünür olmasını bekler.
+     *
      * @param locator Görünürlüğü beklenen locator.
      * @param timeout Maksimum bekleme süresi (saniye).
      * @return Görünür olan WebElement.
@@ -83,6 +88,7 @@ public class WaitUtils {
 
     /**
      * Belirtilen elementin tıklanabilir olmasını bekler.
+     *
      * @param element Tıklanabilirliği beklenen WebElement.
      * @param timeout Maksimum bekleme süresi (saniye).
      * @return Tıklanabilir olan WebElement.
@@ -94,6 +100,7 @@ public class WaitUtils {
 
     /**
      * Belirtilen locator ile elementin tıklanabilir olmasını bekler.
+     *
      * @param locator Tıklanabilirliği beklenen locator.
      * @param timeout Maksimum bekleme süresi (saniye).
      * @return Tıklanabilir olan WebElement.
