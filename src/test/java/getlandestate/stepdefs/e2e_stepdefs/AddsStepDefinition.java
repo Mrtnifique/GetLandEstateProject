@@ -6,23 +6,23 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class AddsStepDefinition {
-    @Given("Kullanici {string} olarak giris yapar")
-    public void kullaniciOlarakGirisYapar(String arg0) {
+    @Given("Kullanici admin olarak giris yapar")
+    public void kullaniciAdminOlarakGirisYapar() {
     }
 
-    @When("{string}e tiklar")
-    public void eTiklar(String arg0) {
+    @When("Profilim e tiklar")
+    public void profilimETiklar() {
     }
 
-    @Then("{string} a tiklar")
-    public void aTiklar(String arg0) {
+    @Then("Ilanlarim a tiklar")
+    public void ılanlarimATiklar() {
     }
 
     @And("Kayitli ilanlarim'da duzenleme islemi yapar")
     public void kayitliIlanlarimDaDuzenlemeIslemiYapar() {
     }
 
-    @Then("{string} yazisini goruntuler.")
+    @Then("Guncelleme basarili  yazisini goruntuler.")
     public void guncellemeBasariliYazisiniGoruntuler() {
     }
 
@@ -58,5 +58,3 @@ public class AddsStepDefinition {
     public void aramaYapar() {
     }
 }
-//
-//v4 versiyon
