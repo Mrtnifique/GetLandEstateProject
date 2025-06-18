@@ -242,15 +242,9 @@ public class ProfileStepDefs {
         Assert.assertTrue("Telefon formatı hatası görünmedi!", profilePage.phoneFormatError.isDisplayed());
     }
 
-
-    //==================@TC02=====================
-    @When("Delete Account sekmesi açılır")
-    public void deleteAccountSekmesiAçılır() {
-
     @And("Profil güncelleme işlemi başarısız olur")
     public void profilGuncellemeBasarisizOlur() {
         Assert.assertFalse("Update butonu hâlâ aktif, validasyon hatası uygulanmadı!", profilePage.updateButton.isEnabled());
-
     }
 
 
