@@ -6,6 +6,7 @@ import getlandestate.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+
 public class LogInPageStepDefs {
     @Given("Siteye admin olarak giriş yapılır")
     public void siteyeAdminGirisYapilir() {
@@ -24,29 +25,28 @@ public class LogInPageStepDefs {
         Driver.closeDriver();
     }
 
-    DashBoardPage dashBoardPage = new DashBoardPage();
-    LogInPage logInPage = new LogInPage();
-
-    @Given("Web sitesine erişim sağlanabilmeli")
-    public void webSitesineErişimSağlanabilmeli() {
+    @Given("Web adresine gidilir")
+    public void webAdresineGidilir() {
         Driver.getDriver().get("http://64.227.123.49");
-    }
-
-    @When("{string} butonuna tıkla")
-    public void butonunaTıkla(String arg0) {
 
 
-    }
-
-    @And("Admin girişi yapılır")
-    public void adminGirişiYapılır() {
-        dashBoardPage.loginButton.click();
-        logInPage.emailBox.sendKeys("b307admin@gmail.com");
-        logInPage.passwordBox.sendKeys("B307admin@");
-        logInPage.loginButton.click();
-
-
-    }
 }
 
+    @Given("Customer olarak sayfaya giris yapılır")
+    public void customerOlarakSayfayaGirisYapılır() {
+        LogInPage logInPage = new LogInPage();
+        DashBoardPage dashBoardPage = new DashBoardPage();
+        Driver.getDriver().get("http://64.227.123.49");
+        dashBoardPage.loginButton.click();
+        logInPage.emailBox.sendKeys("bilen@cimail.com");
+        logInPage.passwordBox.sendKeys("Aa123456.");
+
+    }
+
+    @When("Login butonuna tıklanır")
+    public void loginButonunaTıklanır() {
+        LogInPage logInPage = new LogInPage();
+        logInPage.loginButton.click();
+    }
+}
 

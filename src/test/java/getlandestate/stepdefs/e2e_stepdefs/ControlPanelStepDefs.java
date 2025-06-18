@@ -30,6 +30,7 @@ public class ControlPanelStepDefs {
 
     @When("Categories butonuna tıklanır")
     public void categoriesButonunaTiklanir() {
+        // Categories butonuna tıklanır
         controlPanelPage.categoriesButton.click();
     }
 
