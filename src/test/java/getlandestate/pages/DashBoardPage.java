@@ -5,8 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.List;
-
 public class DashBoardPage {
     public DashBoardPage() {
         PageFactory.initElements(Driver.getDriver(), this);
@@ -80,31 +78,6 @@ public class DashBoardPage {
     public WebElement createOneNowButton;
 
 
-
-
-    @FindBy(xpath = "//a[@class='side-menu-link back-site nav-link' and @title='Back to Site']")
-    public WebElement backToSiteButton;
-
-    //Profile Button
-    @FindBy(xpath ="//html[1]/body[1]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[1]/div[1]/img[1]")
-    public WebElement profileButton;
-
-    //My Adverts Button
-    @FindBy(xpath = "//a[@href='/my-adverts']")
-    public WebElement myAdvertsButton;
-
-    @FindBy(xpath = "//tr[@draggable='false']//div[@class='p-image-preview-indicator']")
-    public List<WebElement> advertListElements;
-
-    @FindBy(xpath = "//span[@class='date-published']")
-    public WebElement datePublishedList;
-
-    @FindBy(xpath = "//span[@class='status']")
-    public WebElement statusList;
-
-    @FindBy(xpath = "//div[@class='view-like-tour']")
-    public WebElement viewLikeTourList;
-
     //Tour date is required
     @FindBy(xpath = "//div[normalize-space()='Tour date is required']")
     public WebElement tourDateIsRequired;
@@ -161,7 +134,6 @@ public class DashBoardPage {
     // Contact success Message
     @FindBy(xpath= "//div[@class='p-toast-detail']")
     public WebElement successMessage;
-
 
 
 }

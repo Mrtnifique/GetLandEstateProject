@@ -18,8 +18,6 @@ public class LogInPageStepDefs {
         logInPage.emailBox.sendKeys("b307admin@gmail.com");
         logInPage.passwordBox.sendKeys("B307admin@");
         logInPage.loginButton.click();
-
-
     }
 
     @And("Sayfa kapatılır")
@@ -30,23 +28,6 @@ public class LogInPageStepDefs {
     @Given("Web adresine gidilir")
     public void webAdresineGidilir() {
         Driver.getDriver().get("http://64.227.123.49");
-
-    }
-    @Given("Siteye Manager olarak giriş yapılır")
-    public void siteyeManagerGirisYapılır() {
-
-        DashBoardPage dashBoardPage = new DashBoardPage();
-        LogInPage logInPage = new LogInPage();
-        Driver.getDriver().get("http://64.227.123.49");
-
-        dashBoardPage.loginButton.click();
-        logInPage.emailBox.sendKeys("rose83@gmail.com");
-        logInPage.passwordBox.sendKeys("123123Rose?");
-        logInPage.loginButton.click();
-
-
-
-    }
 
 
 }
@@ -67,6 +48,5 @@ public class LogInPageStepDefs {
         LogInPage logInPage = new LogInPage();
         logInPage.loginButton.click();
     }
-
 }
 
