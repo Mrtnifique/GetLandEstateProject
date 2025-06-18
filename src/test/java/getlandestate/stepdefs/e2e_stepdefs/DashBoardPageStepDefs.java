@@ -115,4 +115,18 @@ public class DashBoardPageStepDefs {
         Assert.assertEquals(expectedUrl, actualUrl);
     }
 
+
+    @And("Tarih ve saat boş bırakılır")
+    public void tarihVeSaatBoşBırakılır() {
+        dashBoardPage.tourDate.sendKeys(" ");
+        dashBoardPage.tourTime.sendKeys(" ");
+    }
+
+    @Then("Randevu icin tarih ve saat girmeden uyarı mesajı görünürlüğü test edilir")
+    public void randevuIcinTarihVeSaatGirmedenUyarıMesajıGörünürlüğüTestEdilir() {
+        WaitUtils.waitFor(3);
+        Assert.assertTrue(dashBoardPage.contactAlert2.isDisplayed());
+    }
+
+
 }
