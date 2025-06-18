@@ -40,7 +40,7 @@ public class LogInPageStepDefs {
 
     @When("Register seyfesine daxil olmali")
     public void registerSeyfesineDaxilOlmali() {
-
+         registerButtonunaDaxilOlmali();
     }
 
     @Then("Ad, Soyad ve telefon nomresi yazmali")

@@ -11,8 +11,6 @@
     And Customer olaraq qeyd olmali
     And Sayfa kapatılır
 
-
-
     Scenario: TC02 (Negative test)
     Given Web seyfesine get
     When Register seyfesine daxil olmali
