@@ -77,7 +77,7 @@ public class DashBoardPage {
     @FindBy(xpath = "//span[@class='register-link']")
     public WebElement createOneNowButton;
 
-<<<<<<< HEAD
+
     //Tour date is required
     @FindBy(xpath = "//div[normalize-space()='Tour date is required']")
     public WebElement tourDateIsRequired;
@@ -85,7 +85,7 @@ public class DashBoardPage {
     //Tour time is required
     @FindBy(xpath = "//div[normalize-space()='Tour time is required']")
     public WebElement tourTimeIsRequired;
-=======
+
 
     // Contact
     @FindBy(xpath= "//*[@id='offcanvas-menu']/div[2]/div[1]/a[4]")
@@ -136,6 +136,6 @@ public class DashBoardPage {
     public WebElement successMessage;
 
 
->>>>>>> master
+
 
 }
