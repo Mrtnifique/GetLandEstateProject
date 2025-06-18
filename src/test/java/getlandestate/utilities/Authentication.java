@@ -7,12 +7,12 @@ import static io.restassured.RestAssured.given;
 
 public class Authentication {
 
-    public static String generateToken() {
-        String credentials = "{\n" +
-                             "  \"password\": \"Techpro123.\",\n" +
-                             "  \"rememberMe\": true,\n" +
-                             "  \"username\": \"techproed\"\n" +
-                             "}";
+    public static String generateToken(){
+        String credentials ="{\n" +
+                "  \"password\": \"Techpro123.\",\n" +
+                "  \"rememberMe\": true,\n" +
+                "  \"username\": \"techproed\"\n" +
+                "}";
 
         Response response = given()
                 .body(credentials)
