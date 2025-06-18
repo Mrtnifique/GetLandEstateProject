@@ -38,21 +38,5 @@ public class LogInPageStepDefs {
     }
 
 
-    @Given("siteye manager olarak giriş yapılır")
-    public void siteyeManagerOlarakGirişYapılır() {
-
-        Driver.getDriver().get("http://64.227.123.49");
-
-        DashBoardPage dashBoardPage = new DashBoardPage();
-        LogInPage logInPage = new LogInPage();
-
-        dashBoardPage.loginButton.click();
-        logInPage.emailBox.sendKeys("cemsit@gmail.com");
-        logInPage.passwordBox.sendKeys("123Cemsit.");
-        logInPage.loginButton.click();
-
-
-
-    }
 }
 

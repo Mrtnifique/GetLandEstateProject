@@ -98,4 +98,10 @@ public class ControlPanelPage {
     //Users/User Role Text
     @FindBy(xpath = "//span[@data-pc-section='value']")
     public WebElement userRoleText;
+
+    //Control Panel//Back to site button
+    @FindBy(xpath = "//a[@title='Back to Site' and @href='/']")
+    public WebElement backToSiteButton;
+
+
 }

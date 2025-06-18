@@ -51,7 +51,7 @@ public class DashBoardPageStepDefs {
         Assert.assertTrue(dashBoardPage.randevuListesi.isDisplayed());
     }
 
-
+   
 
     @Then("İlan adı, tarih ve kullanıcı bilgileri görünmelidir")
     public void ilanAdıTarihVeKullanıcıBilgileriGörünmelidir() {
@@ -73,36 +73,18 @@ public class DashBoardPageStepDefs {
         dashBoardPage.kabulEtButton.click();
     }
 
+    //US_13 TC02
     @Then("Talep durumu \"Onaylandi\" olarak güncellenmelidir")
     public void istekBasariylaKabulEdildiMesajiGorunmelidir() {
         Assert.assertTrue(dashBoardPage.Onaylandi.isDisplayed());
     }
 
 
-
-    //US_13 TC02
-
-    @When("Tur Taleplerim sekmesine tiklar")
+    @And("Tur Taleplerim sekmesine tiklar")
     public void ilanlarimSekmesineTiklar() {
         dashBoardPage.ilanlarimButton.click();
     }
 
-
-    @When("Pasif durumdaki bir ilana ait randevu talebi görüntülenir")
-    public void pasifDurumdakiIlanaAitRandevuTalebiGoruntulenir() {
-        List<WebElement> randevuListesi = dashBoardPage.randevuListesi.findElements(By.tagName("tr"));
-        boolean pasifRandevuBulundu = false;
-
-        for (WebElement randevu : randevuListesi) {
-            String ilanDurumu = randevu.findElement(By.className("ilan-durumu")).getText();
-            if (ilanDurumu.equals("Beklemede") || ilanDurumu.equals("Reddedilmiş")) {
-                pasifRandevuBulundu = true;
-                break;
-            }
-        }
-
-        Assert.assertTrue("Pasif durumda bir randevu bulunamadı", pasifRandevuBulundu);
-    }
 
 
     @Then("Pasif ilan görüntülenebilmeli ve \"Randevu Al\" butonu aktif olmamalı veya görünmemeli")

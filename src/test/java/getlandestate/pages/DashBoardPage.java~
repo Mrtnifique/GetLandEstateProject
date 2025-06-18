@@ -55,14 +55,12 @@ public class DashBoardPage {
     @FindBy(xpath = "//span[contains(text(),'Onaylandi')]")
     public WebElement Onaylandi;
 
-
-
     @FindBy(xpath = "//a[@href='/my-adverts']")
     public WebElement ilanlarimButton;
 
 
     @FindBy(xpath = "//body[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/div[1]/span[2]")
-    public WebElement pasifIlanaAitRandevuTalebi;
+    public WebElement pasifIlaniAitRandevuTalebi;
 
     @FindBy(xpath = "//button[contains(text(), 'Randevu Al')]")
     public WebElement randevuAlButton;
