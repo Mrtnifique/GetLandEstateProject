@@ -29,3 +29,5 @@ Background:
 
        Scenario:TC05 Ilanlarim sayfasinda arama ozelligi eksik(negatif test)
          And Arama butonu bulunmamalidir
+
+         And
