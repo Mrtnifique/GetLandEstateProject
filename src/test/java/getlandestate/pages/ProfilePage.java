@@ -27,57 +27,42 @@ public class ProfilePage {
     @FindBy(xpath = "//span[normalize-space()='My Profile']")
     public WebElement myProfileSection;
 
-    @FindBy(xpath = "//h1[contains(text(),'PROFİLİM')]")
+    @FindBy(xpath = "//h1[normalize-space()='MY PROFILE']")
     public WebElement profilePageTitle;
 
-    // Profile Information Fields
-    @FindBy(id = "name")
+    // =====Profile Information Fields=====
+    @FindBy(xpath = "//input[@placeholder='First Name']")
     public WebElement nameField;
 
-    @FindBy(id = "phoneNumber")
+    @FindBy(xpath = "//input[@name='lastName']")
+    public WebElement lastnameField;
+
+    @FindBy(xpath = "//input[@placeholder='(XXX) XXX-XXXX']")
     public WebElement phoneNumberField;
 
-    @FindBy(id = "email")
+    @FindBy(xpath = "//input[@placeholder='Email']")
     public WebElement emailField;
 
     // Update Profile Elements
-    @FindBy(xpath = "//button[contains(text(),'UPDATE')]")
+    @FindBy(xpath = "//button[normalize-space()='UPDATE']")
     public WebElement updateButton;
 
-    @FindBy(xpath = "//div[@class='success-message']")
+    @FindBy(xpath = "//span[@class='p-toast-summary']")
     public WebElement successMessage;
 
-    // Change Password Elements
-    @FindBy(xpath = "//div[contains(text(),'Change Password')]")
-    public WebElement changePasswordSection;
-
-    @FindBy(id = "currentPassword")
-    public WebElement currentPasswordField;
-
-    @FindBy(id = "newPassword")
-    public WebElement newPasswordField;
-
-    @FindBy(id = "confirmPassword")
-    public WebElement confirmPasswordField;
-
-    @FindBy(xpath = "//button[contains(text(),'CHANGE')]")
-    public WebElement changePasswordButton;
-
-    @FindBy(xpath = "//div[@class='password-strength']")
-    public WebElement passwordStrengthIndicator;
-
-    @FindBy(xpath = "//span[contains(text(),'STRONG')]")
-    public WebElement strongPasswordIndicator;
-
-    // Profile Photo Elements
-    @FindBy(xpath = "//div[contains(text(),'Profile Photo')]")
+    // =====Profile Photo Elements=====
+    @FindBy(xpath = "//p[normalize-space()='Profile Photo']")
     public WebElement profilePhotoSection;
 
-    @FindBy(xpath = "//button[contains(text(),'SELECT')]")
+    @FindBy(xpath = "//button[normalize-space()='SELECT']")
     public WebElement selectPhotoButton;
 
     @FindBy(xpath = "//input[@type='file']")
     public WebElement fileInput;
+
+    @FindBy(xpath = "//button[normalize-space()='DONE']")
+    public WebElement fileSelectDoneButton;
+
 
     @FindBy(xpath = "//img[@class='photo-preview']")
     public WebElement photoPreview;
@@ -85,8 +70,45 @@ public class ProfilePage {
     @FindBy(xpath = "//button[contains(text(),'EDIT')]")
     public WebElement editPhotoButton;
 
-    @FindBy(xpath = "//button[contains(text(),'SAVE')]")
+    @FindBy(xpath = "//button[normalize-space()='SAVE']")
     public WebElement savePhotoButton;
+
+    // =====Change Password Elements======0
+    @FindBy(xpath = "//button[.//p[text()='Change Password']]")
+    public WebElement changePasswordSection;
+
+    @FindBy(xpath = "//input[@placeholder='Current Password']")
+    public WebElement currentPasswordField;
+
+    @FindBy(xpath = "//input[@name='newPassword']")
+    public WebElement newPasswordField;
+
+    @FindBy(xpath = "//input[@name='repeatNewPassword']")
+    public WebElement confirmPasswordField;
+
+    @FindBy(xpath = "//button[normalize-space()='CHANGE']")
+    public WebElement changePasswordButton;
+
+    @FindBy(xpath = "//div[@class='strength-label']")
+    public WebElement passwordStrengthIndicator;
+
+    @FindBy(xpath = "//span[contains(text(),'STRONG')]")
+    public WebElement strongPasswordIndicator;
+
+    @FindBy(xpath = "//div[contains(text(),'First')]")
+    public WebElement nameFieldError;
+
+    @FindBy(xpath = "//div[contains(text(),'profileFormTranslations.invalidEmail')]")
+    public WebElement emailFormatError;
+
+    @FindBy(xpath = "//div[contains(text(),'Last')]")
+    public WebElement lastNameFieldError;
+
+    @FindBy(xpath = "//div[contains(text(),'phone')]")
+    public WebElement phoneFormatError;
+
+
+    //Şifre değişttikten sonra tekrar giriş sayfasına yönlendiriyor
 /*
     // Delete Account Elements
     @FindBy(xpath = "//div[contains(text(),'Delete Account')]")
@@ -134,124 +156,6 @@ public class ProfilePage {
         updateButton.click();
     }
 
-    public boolean isSuccessMessageDisplayed() {
-        try {
-            wait.until(ExpectedConditions.visibilityOf(successMessage));
-            return successMessage.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
     }
 
-    public void clickChangePasswordSection() {
-        wait.until(ExpectedConditions.elementToBeClickable(changePasswordSection));
-        changePasswordSection.click();
-    }
 
-    public void enterCurrentPassword(String password) {
-        wait.until(ExpectedConditions.visibilityOf(currentPasswordField));
-        currentPasswordField.clear();
-        currentPasswordField.sendKeys(password);
-    }
-
-    public void enterNewPassword(String password) {
-        wait.until(ExpectedConditions.visibilityOf(newPasswordField));
-        newPasswordField.clear();
-        newPasswordField.sendKeys(password);
-    }
-
-    public void enterConfirmPassword(String password) {
-        wait.until(ExpectedConditions.visibilityOf(confirmPasswordField));
-        confirmPasswordField.clear();
-        confirmPasswordField.sendKeys(password);
-    }
-
-    public void clickChangePasswordButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(changePasswordButton));
-        changePasswordButton.click();
-    }
-
-    public boolean isStrongPasswordIndicatorDisplayed() {
-        try {
-            wait.until(ExpectedConditions.visibilityOf(strongPasswordIndicator));
-            return strongPasswordIndicator.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    public void clickProfilePhotoSection() {
-        wait.until(ExpectedConditions.elementToBeClickable(profilePhotoSection));
-        profilePhotoSection.click();
-    }
-
-    public void clickSelectPhotoButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(selectPhotoButton));
-        selectPhotoButton.click();
-    }
-
-    public void selectPhoto(String filePath) {
-        wait.until(ExpectedConditions.presenceOfElementLocated(
-                org.openqa.selenium.By.xpath("//input[@type='file']")));
-        fileInput.sendKeys(filePath);
-    }
-
-    public boolean isPhotoPreviewDisplayed() {
-        try {
-            wait.until(ExpectedConditions.visibilityOf(photoPreview));
-            return photoPreview.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    public void clickEditPhotoButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(editPhotoButton));
-        editPhotoButton.click();
-    }
-
-    public void clickSavePhotoButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(savePhotoButton));
-        savePhotoButton.click();
-    }
-
-  /*  public void clickDeleteAccountSection() {
-        wait.until(ExpectedConditions.elementToBeClickable(deleteAccountSection));
-        deleteAccountSection.click();
-    }
-
-    public boolean isWarningMessageDisplayed() {
-        try {
-            wait.until(ExpectedConditions.visibilityOf(warningMessage));
-            return warningMessage.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-    }
-*/
-    public void updateProfileFields(String name, String phone, String email) {
-        if (name != null && !name.isEmpty()) {
-            wait.until(ExpectedConditions.visibilityOf(nameField));
-            nameField.clear();
-            nameField.sendKeys(name);
-        }
-        if (phone != null && !phone.isEmpty()) {
-            wait.until(ExpectedConditions.visibilityOf(phoneNumberField));
-            phoneNumberField.clear();
-            phoneNumberField.sendKeys(phone);
-        }
-        if (email != null && !email.isEmpty()) {
-            wait.until(ExpectedConditions.visibilityOf(emailField));
-            emailField.clear();
-            emailField.sendKeys(email);
-        }
-    }
-
-  /*  public boolean isFormValidationWorking() {
-        try {
-            wait.until(ExpectedConditions.visibilityOf(formValidation));
-            return formValidation.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }*/
-    }
