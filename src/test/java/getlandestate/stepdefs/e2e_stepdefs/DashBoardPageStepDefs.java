@@ -6,25 +6,36 @@ import getlandestate.pages.DashBoardPage;
 import getlandestate.utilities.Driver;
 import getlandestate.utilities.WaitUtils;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertTrue;
 
-public class DashBoardPageStepDefs {
+public class
+
+
+
+
+DashBoardPageStepDefs {
     DashBoardPage dashBoardPage = new DashBoardPage();
     Faker faker = new Faker();
     Random random = new Random();
@@ -116,7 +127,46 @@ public class DashBoardPageStepDefs {
         String actualUrl = Driver.getDriver().getCurrentUrl();
         String expectedUrl = "http://64.227.123.49/register";
         Assert.assertEquals(expectedUrl, actualUrl);
+
     }
+
+
+
+    @When("Back To Site butonuna tıklanır")
+    public void backToSiteButonunaTıklanır() {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(dashBoardPage.backToSiteButton)
+                .click()
+                .build()
+                .perform();
+    }
+
+    @And("Profile butonuna tıklanır")
+    public void profileButonunaTiklanir() {
+        dashBoardPage.profileButton.click();
+    }
+
+
+    @And("My Adverts butonuna tıklanır")
+    public void myAdvertsButonunaTıklanır() {
+        dashBoardPage.myAdvertsButton.click();
+    }
+
+    @Then("Verilen ilanların listelendiği görülür")
+    public void verilenIlanlarinListelendigiGorulur() {
+        Assert.assertTrue("İlan listesi boş!", DashBoardPage.advertListElements.size() > 0);
+    }
+
+//    @And("Her ilanda Date Published, Status ve View-Like-Tour bilgileri doğrulanır")
+//    public void herIlandaBilgilerDogrulanir() {
+//        for (int i = 0; i < dashBoardPage.advertListElements.size(); i++) {
+//            assertTrue(dashBoardPage.datePublishedList.get(i).isDisplayed(), "Date Published görünmüyor!");
+//            assertTrue(dashBoardPage.statusList.get(i).isDisplayed(), "Status görünmüyor!");
+//            assertTrue(dashBoardPage.viewLikeTourList.get(i).isDisplayed(), "View-Like-Tour görünmüyor!");
+
+
+        }
+
 
 
     @And("Tarih ve saat boş bırakılarak submit butonuna tıklanır")
