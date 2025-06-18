@@ -18,9 +18,7 @@ import org.junit.runner.RunWith;
         glue = {"getlandestate/stepdefs", "getlandestate/hooks"},
 
 
-
         tags = "@US012",
-
 
 
     
