@@ -77,4 +77,12 @@ public class DashBoardPage {
     @FindBy(xpath = "//span[@class='register-link']")
     public WebElement createOneNowButton;
 
+    //Tour date is required
+    @FindBy(xpath = "//div[normalize-space()='Tour date is required']")
+    public WebElement tourDateIsRequired;
+
+    //Tour time is required
+    @FindBy(xpath = "//div[normalize-space()='Tour time is required']")
+    public WebElement tourTimeIsRequired;
+
 }

@@ -12,6 +12,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.LocalDate;
@@ -27,12 +28,14 @@ public class DashBoardPageStepDefs {
     DashBoardPage dashBoardPage = new DashBoardPage();
     Faker faker = new Faker();
     Random random = new Random();
-    Actions actions = new Actions( Driver.getDriver() );
+    Actions actions = new Actions(Driver.getDriver());
 
 
     @When("Search butonuna tıklanır")
     public void searchButonunaTiklanir() {
         dashBoardPage.searchBox.click();
+        WaitUtils.waitFor(2);
+
     }
 
 
@@ -63,12 +66,13 @@ public class DashBoardPageStepDefs {
     @Then("Aranan ilanın listelenmesi test edilir")
     public void arananIlanınListelenmesiTestEdilir() {
         assertTrue(dashBoardPage.houseDisplayed.isDisplayed());
+        dashBoardPage.houseClick.click();
 
     }
 
     @Then("İletisim bilgilerine tıklayarak uyarı mesajı alınır")
     public void iletisimBilgilerineTıklayarakUyarıMesajıAlınır() {
-        dashBoardPage.houseClick.click();
+
         dashBoardPage.contactNumberEyesButton.click();
 
         Assert.assertTrue(dashBoardPage.contactAlert.isEnabled());
@@ -97,7 +101,7 @@ public class DashBoardPageStepDefs {
     public void randevuIcinUyarıMesajıGörünürlüğüTestEdilir() {
         WaitUtils.waitFor(3);
 
-     Assert.assertTrue(dashBoardPage.contactAlert2.isDisplayed());
+        Assert.assertTrue(dashBoardPage.contactAlert2.isDisplayed());
     }
 
 
@@ -107,7 +111,6 @@ public class DashBoardPageStepDefs {
     }
 
 
-
     @Then("Register sayfasına gidildiği test edilir")
     public void registerSayfasınaGidildiğiTestEdilir() {
         String actualUrl = Driver.getDriver().getCurrentUrl();
@@ -115,15 +118,17 @@ public class DashBoardPageStepDefs {
         Assert.assertEquals(expectedUrl, actualUrl);
     }
 
-    @And("Tarih ve saat boş bırakılır")
-    public void tarihVeSaatBoşBırakılır() {
-        dashBoardPage.tourDate.sendKeys(" ");
-        dashBoardPage.tourTime.sendKeys(" ");
+    @And("Tarih ve saat boş bırakılarak submit butonuna tıklanır")
+    public void tarihVeSaatBoşBırakılarakSubmitButonunaTıklanır() {
+        actions.moveToElement(dashBoardPage.submitTourRequestButton).click().perform();
     }
+
 
     @Then("Randevu icin tarih ve saat girmeden uyarı mesajı görünürlüğü test edilir")
     public void randevuIcinTarihVeSaatGirmedenUyarıMesajıGörünürlüğüTestEdilir() {
-        WaitUtils.waitFor(3);
-        Assert.assertTrue(dashBoardPage.contactAlert2.isDisplayed());
+        Assert.assertTrue(dashBoardPage.tourDateIsRequired.isDisplayed());
+        Assert.assertTrue(dashBoardPage.tourTimeIsRequired.isDisplayed());
     }
+
+
 }
