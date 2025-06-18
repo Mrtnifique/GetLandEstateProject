@@ -91,7 +91,7 @@ public class ControlPanelStepDefs {
         WaitUtils.waitFor(2);
     }
 
-    @Then("Kullanıcı bilgilerinin güncellenebilirliği test edilir")
+    @Then("Kullanıcı bilgilerinin güncellendiği doğrulanır")
     public void kullanıcıBilgilerininGüncellenebilirliğiTestEdilir() {
         Driver.getDriver().navigate().refresh();
         controlPanelPage.categoriesSearchBox.sendKeys("Agent47");
@@ -120,7 +120,7 @@ public class ControlPanelStepDefs {
 
     }
 
-    @Then("Kategorinin eklenmemiş olması test edilir")
+    @Then("Kategorinin eklenemiyor olması doğrulanır")
     public void kategorininEklenmemişOlmasıTestEdilir() {
         Assert.assertFalse(controlPanelPage.categoriesAddNewCreateButton.isEnabled());
     }
