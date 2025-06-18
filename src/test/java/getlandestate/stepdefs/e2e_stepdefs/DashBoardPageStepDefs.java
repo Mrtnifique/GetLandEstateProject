@@ -114,4 +114,16 @@ public class DashBoardPageStepDefs {
         String expectedUrl = "http://64.227.123.49/register";
         Assert.assertEquals(expectedUrl, actualUrl);
     }
+
+    @And("Tarih ve saat boş bırakılır")
+    public void tarihVeSaatBoşBırakılır() {
+        dashBoardPage.tourDate.sendKeys(" ");
+        dashBoardPage.tourTime.sendKeys(" ");
+    }
+
+    @Then("Randevu icin tarih ve saat girmeden uyarı mesajı görünürlüğü test edilir")
+    public void randevuIcinTarihVeSaatGirmedenUyarıMesajıGörünürlüğüTestEdilir() {
+        WaitUtils.waitFor(3);
+        Assert.assertTrue(dashBoardPage.contactAlert2.isDisplayed());
+    }
 }
