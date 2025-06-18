@@ -21,7 +21,5 @@ public class LogInPage {
     @FindBy(xpath = "//button[contains(@class,'submit-button btn')]")
     public WebElement loginButton;
 
-    //Register button
-    @FindBy(xpath = "//a[@data-rr-ui-event-key='6']")
-    public WebElement registerButtonunaDaxilOlmali;
+
 }
