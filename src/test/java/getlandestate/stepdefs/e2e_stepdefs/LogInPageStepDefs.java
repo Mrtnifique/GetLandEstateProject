@@ -5,9 +5,6 @@ import getlandestate.pages.LogInPage;
 import getlandestate.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-
-import io.cucumber.java.en.Then;
-
 import io.cucumber.java.en.When;
 
 public class LogInPageStepDefs {
@@ -54,42 +51,6 @@ public class LogInPageStepDefs {
 
 }
 
-
-    @Given("Web seyfesine get")
-    public void webSeyfesineGet() {
-        Driver.getDriver().get("http://64.227.123.49");
-    }
-
-    @When("Register seyfesine daxil olmali")
-    public void registerSeyfesineDaxilOlmali() {
-
-    }
-
-    @Then("Ad, Soyad ve telefon nomresi yazmali")
-    public void adSoyadVeTelefonNomresiYazmali() {
-
-    }
-
-    @Then("Dogru password yazmali")
-    public void dogruPasswordYazmali() {
-
-    }
-
-    @Then("Dogru email yazmali")
-    public void dogruEmailYazmali() {
-
-    }
-
-    @And("Register buttonuna daxil olmali")
-    public void registerButtonunaDaxilOlmali() {
-
-    }
-
-    @And("Customer olaraq qeyd olmali")
-    public void customerOlaraqQeydOlmali() {
-
-    }
-
     @Given("Customer olarak sayfaya giris yapılır")
     public void customerOlarakSayfayaGirisYapılır() {
         LogInPage logInPage = new LogInPage();
@@ -106,7 +67,6 @@ public class LogInPageStepDefs {
         LogInPage logInPage = new LogInPage();
         logInPage.loginButton.click();
     }
-
 
 }
 
