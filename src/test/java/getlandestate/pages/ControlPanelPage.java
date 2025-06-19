@@ -526,7 +526,9 @@ public class ControlPanelPage {
 
     //Pinar Yuzer baslangic 527
 
-
+    //Control Panel//Back to site button
+    @FindBy(xpath = "//a[@title='Back to Site' and @href='/']")
+    public WebElement backToSiteButton;
 
 
 
