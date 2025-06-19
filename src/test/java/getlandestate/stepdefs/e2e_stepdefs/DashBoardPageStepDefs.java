@@ -15,6 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -39,6 +40,7 @@ public class DashBoardPageStepDefs {
     @And("Filtreleme yapılarak arama yapılır")
     public void filtrelemeYapılarakAramaYapılır() {
         dashBoardPage.categoryFilter.click();
+        WaitUtils.waitFor(1);
         Select selectCategory = new Select(dashBoardPage.categoryFilter);
         selectCategory.selectByVisibleText("House");
 
@@ -82,7 +84,12 @@ public class DashBoardPageStepDefs {
     public void tarihVeSaatGirilerekRandevuOlusturulur() {
         // Rastgele tarih
 
-        dashBoardPage.tourDate.sendKeys(faker.date().toString());
+        //dashBoardPage.tourDate.sendKeys(faker.date().toString());
+        Date futureDate = faker.date().future(10, TimeUnit.DAYS);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = sdf.format(futureDate);
+
+        dashBoardPage.tourDate.sendKeys(formattedDate);
 
         // Rastgele saat
 
