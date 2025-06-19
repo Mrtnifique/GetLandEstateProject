@@ -771,8 +771,41 @@ public class DashBoardPage {
 
     //Selin Onal baslangic 772
 
+    // Tour Reqeuest1
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/a[6]")
+    public WebElement tourRequest18;
 
+    // First Properties (ilk ilan)
+    @FindBy(xpath="//*[@id=\"root\"]/div[1]/div[2]/div[2]/div/div[2]/div/div/div[1]/table/tbody/tr[1]/td[1]")
+    public WebElement firstProperties18;
 
+    //Adverts Button
+    @FindBy(xpath = "//*[@id=\"subMenu\"]/div/a[2]/span[1]")
+    public WebElement advertsButton18;
+
+    // My Properties (kendi verdiğim ilan)
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div/div[3]/div/div/div/div[1]/table")
+    public WebElement myProperties18;
+
+    // Tour Request
+    @FindBy(xpath="//*[@id=\"subMenu\"]/div/a[4]")
+    public WebElement tourRequestButton18;
+
+    // Manager my Response
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/div/div[3]/ul/li[2]")
+    public WebElement managerResponses18;
+
+    // manager username
+    @FindBy(xpath = "//*[@id=\"root\"]/div[1]/nav/div/div[2]/div/div")
+    public WebElement username18;
+
+    //manager log out
+    @FindBy(xpath = "//*[@id=\"subMenu\"]/div/a[6]")
+    public WebElement logout18;
+
+    // manager log out submit button
+    @FindBy(xpath = "//*[@id=\"pr_id_2\"]/div[3]/button[2]/span")
+    public WebElement logoutsubmitbutton18;
 
 
 
