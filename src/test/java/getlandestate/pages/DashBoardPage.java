@@ -542,6 +542,87 @@ public class DashBoardPage {
     //Sumeyye Niyet bitis 542
 
     //Pinar Yuzer baslangic 544
+    @FindBy(xpath = "//div[@class='user-logo-nav navbar-nav']")
+    public WebElement dashboardButton;
+
+    @FindBy(xpath = "//span[normalize-space()='My Tour Requests']")
+    public WebElement MyTourRequestsButton;
+
+    @FindBy(xpath = "//button[@class='nav-link active']")
+    public WebElement MyResponseButton;
+    // Randevu listesini tutan ana container
+
+    @FindBy(xpath = "//div[@class='tr-datatable-wrapper']//div[contains(@class, 'card')]")
+    public WebElement randevuListesi;
+
+
+    @FindBy(xpath = "(//p[contains(text(),'Sahibinden Satılık Uygun Daire')])[1]")
+    public WebElement ilanAdi;
+
+    @FindBy(xpath = "(//div[contains(text(),'azra yılmaz')])[1]")
+    public WebElement talepEden;
+
+    @FindBy(xpath = "//td[contains(., '04.08.3205')]")
+    public WebElement turTarihi;
+
+    @FindBy(xpath = "//td[contains(., 'PM') or contains(., 'AM')]")
+    public WebElement turSaati;
+
+    @FindBy(xpath = "(//button[@type='button'])[16]")
+    public WebElement onayButton;
+
+    @FindBy(xpath = "(//button[@aria-label='Evet'])[1]")
+    public WebElement yesButton;
+
+    @FindBy(xpath = "(//*[name()='svg'][@stroke='currentColor'])[21]")
+    public WebElement kabulEtButton;
+
+    @FindBy(xpath = "(//button[@type='button'])[17]")
+    public WebElement redButton;
+
+    @FindBy(xpath = "//span[contains(text(),'Onaylandi')]")
+    public WebElement Onaylandi;
+
+    @FindBy(xpath = "//tr[@draggable='false']//span[@class='p-tag-value'][normalize-space()='DECLINED']")
+    public WebElement pasifIlanaAitRandevuTalebi;
+    //US14-TC01 icin lazım locate'ler---------------------------------------------
+    // Aktif ilan için randevu
+    @FindBy(xpath = "//tr[@draggable='false']//td[@role='cell']//div//div//div[@class='getproperty']")
+    public WebElement aktifIlani;
+    //tur ayarla formu
+    @FindBy(xpath = "//h3[normalize-space()='Tur Ayarla']")
+    public WebElement turAyarlaFormu;
+    //tarih secme
+    @FindBy(xpath = "//input[@id='tourDate']")
+    public WebElement tarihSecme;
+    //saat secme
+    @FindBy(xpath = "//select[@id='tourTime']")
+    public WebElement saatSecme;
+    //tur talebi gonder butonu
+    @FindBy(xpath = "//button[normalize-space()='Tur talebi gönder']")
+    public WebElement turTalebiGonderButton;
+    //talebiniz gonderildi
+    @FindBy(xpath = "//div[@class='p-toast-message-text']")
+    public WebElement talebinizGonderildi;
+    //tur talebi beklemede olarak listelenir
+    @FindBy(xpath = "(//td[@role='cell'])[3]")
+    public WebElement turTalebiBeklemede;
+    //US14-TC02 icin lazım locate'ler---------------------------------------------
+    @FindBy(xpath = "//a[@href='/my-adverts']")
+    public WebElement ilanlarimButton;
+    //ilan listesi
+    @FindBy(xpath = "//div[@class='advert-container container']")
+    public WebElement ilanListesi;
+    //ilan detay sayfasi
+    @FindBy(xpath = "(//div[@class='text'])[1]")
+    public WebElement ilanDetay;
+    //detay sayfasi
+    @FindBy(xpath = "//div[@class='user-layout-spacer']")
+    public WebElement detaySayfasi;
+    //Durum butonu
+    @FindBy(xpath = "//div[@id='react-aria8364566776-:r5:-tabpane-response']//thead[@class='p-datatable-thead']//span[@class='p-column-title'][normalize-space()='Durum']")
+    public WebElement durumElement;
+
 
 
 

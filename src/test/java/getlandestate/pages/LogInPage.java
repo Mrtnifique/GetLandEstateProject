@@ -425,7 +425,9 @@ public class LogInPage {
 
     //Pinar Yuzer baslangic 430
 
-
+    //login button
+    @FindBy(xpath = "//a[normalize-space()='Login']")
+    public WebElement loginButton1;
 
 
 

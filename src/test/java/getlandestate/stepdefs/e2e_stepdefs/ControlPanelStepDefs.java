@@ -183,4 +183,10 @@ public class ControlPanelStepDefs {
         controlPanelPage.categoriesSearchBoxSearchButton.click();
         Assert.assertTrue(controlPanelPage.muratAssertionData4.isDisplayed());
     }
+
+
+    @When("Control Panel sekmesindeki siteye geri dön tiklanir")
+    public void controlPanelSekmesindekiSiteyeGeriDönTiklanir() {
+        controlPanelPage.backToSiteButton.click();
+    }
 }

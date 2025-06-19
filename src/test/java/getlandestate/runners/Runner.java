@@ -16,8 +16,8 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features/e2e_features",
         glue = {"getlandestate/stepdefs", "getlandestate/hooks"},
-
-        tags = "@US01",
+  
+        tags = "@US015",
 
     
 
