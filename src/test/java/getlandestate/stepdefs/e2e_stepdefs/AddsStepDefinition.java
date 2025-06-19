@@ -21,15 +21,6 @@ public class AddsStepDefinition {
     AddsPage addsPage = new AddsPage();
     private By driver;
 
-    @Given("Siteye admin olarak giriş yapılır")
-    public void siteyeAdminGirisYapilir() {
-        Driver.getDriver().get("http://64.227.123.49");
-
-        dashBoardPage.loginButton.click();
-        logInPage.emailBox.sendKeys("b307admin@gmail.com");
-        logInPage.passwordBox.sendKeys("B307admin@");
-        logInPage.loginButton.click();
-    }
 
     @When("Profilime tiklar")
     public void ProfilimeTiklar() {
@@ -60,7 +51,7 @@ public class AddsStepDefinition {
 
     }
 
-    @Then("{guncelleme basarili yazisini goruntuler.")
+    @Then("guncelleme basarili yazisini goruntuler.")
     public void guncellemeBasariliYazisiniGoruntuler() {
 
     }
