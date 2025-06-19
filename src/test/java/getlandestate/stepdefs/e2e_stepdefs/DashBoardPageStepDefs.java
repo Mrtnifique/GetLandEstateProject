@@ -223,6 +223,62 @@ public class DashBoardPageStepDefs {
         Assert.assertTrue(dashBoardPage.tourDateIsRequired.isDisplayed());
         Assert.assertTrue(dashBoardPage.tourTimeIsRequired.isDisplayed());
     }
+
+
+
+
+    @And( "Manager tour request tıklar")
+    public void managertourRequestTıklar() {
+        dashBoardPage.tourRequest18.click();
+    }
+
+    @And("Sayfadaki bir ilana tıklar")
+    public void sayfadakBirİlanaTıklar() {
+        dashBoardPage.firstProperties18.click();
+        WaitUtils.waitFor(2);
+    }
+
+    @And("Tarih {int} ve Saat {int} girilerek randevu oluşturulur ")
+    public void tarihVeSaatGirilerekRandevuOluşturulur(int tourDate, int tourtime) {
+        dashBoardPage.tourDate.sendKeys("18.09.2025");
+        dashBoardPage.tourTime.sendKeys("13:00");
+        dashBoardPage.submitTourRequestButton.click();
+
+
+    }
+
+    @When("Manager menüye gelip adverts tıklar")
+    public void managerMenuyeGelipAdvertsTıklar() {
+        dashBoardPage.username18.click();
+        dashBoardPage.advertsButton18.click();
+    }
+
+    @Then("Kendi verdiği ilanların isteklerini görebilmeli")
+    public void kendiVerdiğiİlanlarınİstekleriniGörebilmeli() {
+        Assert.assertTrue(dashBoardPage.myProperties18.isDisplayed());
+        WaitUtils.waitFor(2);
+    }
+
+    @When("Manager menüye gelip tour request tıklar")
+    public void managerMenuyeGelipTourRequestTıklar() {
+        dashBoardPage.username18.click();
+        dashBoardPage.tourRequestButton18.click();
+
+    }
+
+    @Then("Manager responses tıklayıp gelen gezme isteklerini yönetebilmeli")
+    public void managerResponsesTıklayıpGelenGezmeİstekleriniYönetebilmeli() {
+        dashBoardPage.managerResponses18.isEnabled();
+        Assert.assertTrue(dashBoardPage.managerResponses18.isDisplayed());
+        WaitUtils.waitFor(2);
+        dashBoardPage.username18.click();
+        dashBoardPage.logout18.click();
+        WaitUtils.waitFor(2);
+        dashBoardPage.logoutsubmitbutton18.click();
+    }
+
+
+
     }
 
 
