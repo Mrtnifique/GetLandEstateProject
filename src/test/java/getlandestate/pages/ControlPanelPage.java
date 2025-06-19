@@ -118,4 +118,72 @@ public class ControlPanelPage {
     //Categories/Edit/Back Button
     @FindBy(xpath = "(//button[@type='button'])[1]")
     public WebElement categoriesEditBackButton;
+
+    //Reports Page
+    @FindBy(xpath = "//span[normalize-space()='Reports']")
+    public WebElement reportsButton;
+
+
+
+    //Reports Adverts Start date
+    @FindBy(xpath = "//div[@class='admin-report-form-col col-xxl col-xl-3 col-12']//input[@id='startDate']")
+    public WebElement startDateBox;
+
+    //Reports Adverts End date
+    @FindBy(xpath = "//div[@class='admin-report-form-col col-xxl col-xl-3 col-12']//input[@id='endDate']")
+    public WebElement endDateBox;
+
+
+    //Reports Adverts Category Box
+    @FindBy(xpath = "//select[@id='category']")
+    public WebElement categoryBox;
+
+
+    //Reports Adverts Advert Type Box
+    @FindBy(xpath = "//select[@id='type']")
+    public WebElement advertTypeBox;
+
+
+    //Reports Adverts Status Box
+    @FindBy(xpath = "//div[@class='admin-report-form-col col-xxl col-xl-6 col-12']//select[@id='status']")
+    public WebElement statusBox;
+
+
+    //Reports Adverts Status Box
+    @FindBy(xpath = "//body/div[@id='root']/div[@class='admin-layout-container']/div[@class='admin-contents-wrapper']/div[@class='admin-spacer']/div[@class='admin-report-container']/div[1]/div[2]//*[name()='svg']//*[name()='path' and contains(@d,'M23 1.5q.4')]")
+    public WebElement advertExcellButton;
+
+    //Reports Adverts Amount Box
+    @FindBy(xpath = "//input[@id='amount']")
+    public WebElement amountBox;
+
+
+    //Reports Adverts Status Box
+    @FindBy(xpath = "//body/div[@id='root']/div[@class='admin-layout-container']/div[@class='admin-contents-wrapper']/div[@class='admin-spacer']/div[@class='admin-report-container']/div[2]/div[2]//*[name()='svg']//*[name()='path' and contains(@d,'M23 1.5q.4')]")
+    public WebElement amountExcellButton;
+
+    //Reports Users Role Box
+    @FindBy(xpath = "//select[@id='role']")
+    public WebElement roleBox;
+
+    //Reports users Status Box
+    @FindBy(xpath = "//body/div[@id='root']/div[@class='admin-layout-container']/div[@class='admin-contents-wrapper']/div[@class='admin-spacer']/div[@class='admin-report-container']/div[3]/div[2]//*[name()='svg']//*[name()='path' and contains(@d,'M23 1.5q.4')]")
+    public WebElement usersExcellButton;
+
+    //Reports Tour Request Start date
+    @FindBy(xpath = "//div[@class='admin-report-form-col col-xl col-12']//input[@id='startDate']")
+    public WebElement tourStartDateBox;
+
+    //Reports Tour Request End date
+    @FindBy(xpath = "//div[@class='admin-report-form-col col-xl col-12']//input[@id='endDate']")
+    public WebElement tourEndDateBox;
+
+    //Reports Tour request Status Box
+    @FindBy(xpath = "//div[@class='admin-report-form-col col-xl col-12']//select[@id='status']")
+    public WebElement tourRequeststatusBox;
+
+    //Reports users Status Box
+    @FindBy(xpath = "//body/div[@id='root']/div[@class='admin-layout-container']/div[@class='admin-contents-wrapper']/div[@class='admin-spacer']/div[@class='admin-report-container']/div[4]/div[2]//*[name()='svg']//*[name()='path' and contains(@d,'M23 1.5q.4')]")
+    public WebElement tourExcellButton;
 }
+
