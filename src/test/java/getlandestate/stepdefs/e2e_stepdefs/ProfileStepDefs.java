@@ -330,6 +330,14 @@ public class ProfileStepDefs {
                 profilePage.photoPreview.isDisplayed());
     }
 
+    @Given("Web sitesine erişim sağlanabilmeli")
+    public void webSitesineErişimSağlanabilmeli() {
+    }
+
+
+
+
+
 
 
 

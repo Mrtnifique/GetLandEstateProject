@@ -949,4 +949,25 @@ public class LogInPage {
 
 
     //Fatih Üstünyer bitis 953
+
+    @FindBy(xpath = "//button[@class='mail-button']")
+    public WebElement bizeMailAtinBox;
+
+    @FindBy(xpath = "//input[@id='firstName']")
+    public WebElement bizeMailAd;
+
+    @FindBy(xpath = "//input[@id='lastName']")
+    public WebElement bizeMailSoyad;
+
+    @FindBy(xpath = "//input[@id='email']")
+    public WebElement bizeMailEmail;
+
+    @FindBy(xpath = "//textarea[@id='message']")
+    public WebElement bizeMailMesaj;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement bizeMailGonderButonu;
+
+
+
 }
