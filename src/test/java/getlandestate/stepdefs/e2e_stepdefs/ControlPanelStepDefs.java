@@ -30,6 +30,7 @@ public class ControlPanelStepDefs {
 
     @When("Categories butonuna tıklanır")
     public void categoriesButonunaTiklanir() {
+        // Categories butonuna tıklanır
         controlPanelPage.categoriesButton.click();
     }
 
@@ -181,5 +182,11 @@ public class ControlPanelStepDefs {
         controlPanelPage.categoriesSearchBox.sendKeys("gupguzel");
         controlPanelPage.categoriesSearchBoxSearchButton.click();
         Assert.assertTrue(controlPanelPage.muratAssertionData4.isDisplayed());
+    }
+
+
+    @When("Control Panel sekmesindeki siteye geri dön tiklanir")
+    public void controlPanelSekmesindekiSiteyeGeriDönTiklanir() {
+        controlPanelPage.backToSiteButton.click();
     }
 }
