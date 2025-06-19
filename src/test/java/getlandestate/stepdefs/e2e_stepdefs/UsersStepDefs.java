@@ -1,15 +1,26 @@
 package getlandestate.stepdefs.e2e_stepdefs;
 
 import getlandestate.pages.ControlPanelPage;
+import getlandestate.pages.DashBoardPage;
+import getlandestate.pages.LogInPage;
+import getlandestate.utilities.Driver;
 import getlandestate.utilities.WaitUtils;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class UsersStepDefs {
 
     ControlPanelPage controlPanelPage = new ControlPanelPage();
+    DashBoardPage dashBoardPage = new DashBoardPage();
+    LogInPage logInPage = new LogInPage();
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
 
     @And("Arama kutusuna yildiz isilti yazilir")
     public void aramaKutusunaYildizIsiltiYazilir() {
@@ -89,5 +100,34 @@ public class UsersStepDefs {
         selectRole.selectByIndex(2);
         controlPanelPage.userEditUpdateButton.click();
         WaitUtils.waitFor(2);
+    }
+
+    @Given("Siteye manager olarak giris yapilir")
+    public void siteyeManagerOlarakGirisYapilir() {
+        Driver.getDriver().get("http://64.227.123.49");
+        dashBoardPage.loginButton.click();
+        logInPage.emailBox.sendKeys("venusnonova@gmail.com");
+        logInPage.passwordBox.sendKeys("Venus11Nova*");
+        logInPage.loginButton.click();
+    }
+
+    @And("Search boxtan ilgili admin kullanici aranir")
+    public void searchBoxtanIlgiliAdminKullaniciAranir() {
+        WaitUtils.waitFor(3);
+        controlPanelPage.categoriesSearchBox.sendKeys("scarlett");
+        controlPanelPage.categoriesSearchBoxSearchButton.click();
+        WaitUtils.waitFor(2);
+        Assert.assertTrue(controlPanelPage.scarlettDisplayed.isDisplayed());
+    }
+
+    @And("Roles kismindan customer secilir")
+    public void rolesKismindanCustomerSecilir() {
+        controlPanelPage.userRole.sendKeys("CUSTOMER");
+    }
+
+    @Then("Kullanicinin rolunun customer olarak guncellenmedigi dogrulanir")
+    public void kullanicininRolununCustomerOlarakGuncellenmedigiDogrulanir() {
+        wait.until(ExpectedConditions.visibilityOf(controlPanelPage.errorMessage));
+        Assert.assertTrue(controlPanelPage.errorMessage.isDisplayed());
     }
 }

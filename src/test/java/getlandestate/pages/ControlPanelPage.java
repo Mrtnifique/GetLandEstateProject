@@ -844,6 +844,14 @@ public class ControlPanelPage {
     @FindBy(xpath = "//tbody/tr[1]/td[1]/div[1]")
     public WebElement ladyYildizDisplayed;
 
+    //Erva data assert
+    @FindBy(xpath = "//tbody/tr[@role='row']/td[2]/div[1]")
+    public WebElement scarlettDisplayed;
+
+    //Erva assert data
+    @FindBy(xpath = "//div[@class='p-toast-message-text']")
+    public WebElement errorMessage;
+
 
 
 

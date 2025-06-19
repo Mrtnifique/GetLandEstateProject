@@ -22,3 +22,14 @@
         And Update butonuna tiklanir
         Then Kullanicinin rolunun basariyla manager olarak guncellendigi assert edilir
         And Sayfa kapatılır
+
+    @US05TC03
+      Scenario: Manager olusturulan admin kullanicisini customer yapamamali
+        Given Siteye manager olarak giris yapilir
+        When Users butonuna tıklanır
+        And Search boxtan ilgili admin kullanici aranir
+        And Ilgili kullanicinin yanindaki pen kutucuguna tiklanir
+        And Roles kismindan customer secilir
+        And Update butonuna tiklanir
+        Then Kullanicinin rolunun customer olarak guncellenmedigi dogrulanir
+        And Sayfa kapatılır
