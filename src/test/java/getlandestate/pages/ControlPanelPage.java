@@ -828,7 +828,21 @@ public class ControlPanelPage {
     //Selin Onal bitis 828
 
     //Rezzan Erva Odabaşı 830
+    //Pen button
+    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[5]/div[1]/div[1]/button[2]")
+    public WebElement penButton;
 
+    //User update button
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement userUpdateButton;
+
+    //Erva data doogrulama
+    @FindBy(xpath = "//tbody/tr[1]/td[1]/div[1]")
+    public WebElement yildizDisplayed;
+
+    //Erva data assert
+    @FindBy(xpath = "//tbody/tr[1]/td[1]/div[1]")
+    public WebElement ladyYildizDisplayed;
 
 
 
