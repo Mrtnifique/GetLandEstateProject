@@ -3,25 +3,24 @@
 
     Background:
       Given Web adresine gidilir
+      When Manager hesabı ile sisteme giriş yapılır18
+      And Manager tour request tıklar
+      And Sayfadaki bir ilana tıklar
 
     @positive18
     Scenario: Manager ilan işlemlerini başarılı bir şekilde yapabilmeli
-      When Manager hesabı ile sisteme giriş yapılır
-      And Manager properties tıklar
-      And Sayfadaki bir ilana tıklar
+
       And Tarih ve saat girilerek randevu olusturulur
       When Manager menüye gelip adverts tıklar
       Then Kendi verdiği ilanların isteklerini görebilmeli
-      When Manager münüye gelip tour request tıklar
+      When Manager menüye gelip tour request tıklar
       Then Manager responses tıklayıp gelen gezme isteklerini yönetebilmeli
 
       @negative18
       Scenario: Manager ilan işlemlerini başarılı bir şekilde yapabilmeli
-        When Manager hesabı ile sisteme giriş yapılır
-        And  Manager properties tıklar
-        And Sayfadaki bir ilana tıklar
-        And Tarih ve saat boş bıraklır
-        And Tarih ve saat alanı zorunlu uyarısı çıkar
+
+        And Tarih ve saat boş bırakılarak submit butonuna tıklanır
+        And Randevu icin tarih ve saat girmeden uyarı mesajı görünürlüğü test edilir
         When Manager menüye gelip tour request tıklar
         Then Manager responses tıklayıp gelen gezme isteklerini yönetebilmeli
 
