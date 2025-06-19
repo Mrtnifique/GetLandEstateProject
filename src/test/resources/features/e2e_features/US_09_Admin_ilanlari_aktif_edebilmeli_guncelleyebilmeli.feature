@@ -9,7 +9,7 @@ Background:
   Scenario: TC01 Admin ilanlari guncelleyebilmeli
 
     And Kayitli ilanlarim'da duzenleme islemi yapar
-    Then Guncelleme basarili  yazisini goruntuler.
+    Then guncelleme basarili yazisini goruntuler.
 
     Scenario: TC02 Admin ilanlari silebilmeli
 
