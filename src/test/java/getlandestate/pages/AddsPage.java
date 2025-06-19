@@ -18,15 +18,15 @@ public class AddsPage {
 
     //ilanlarim butonu
     @FindBy(xpath="//*[@id=\"subMenu\"]/div/a[2]/span[1]/span")
-                public WebElement addsButon;
+                public static WebElement addsButon;
 
     //Ilan beklemede butonu
     @FindBy(xpath="(//*[@class='p-tag-value'])[1]")
                 public WebElement waitingButtonVerify;
 
     //Degisim-guncelleme ana butonu
-    @FindBy(xpath="(//*[@stroke-linejoin='round'])[3]")
-                public WebElement addsChangeButton;
+    @FindBy(xpath="(//*[@stroke-linejoin='round'])[3]") //chams elysees
+                public static WebElement addsChangeButton;
 
     //Silme butonu
     @FindBy(xpath="(//*[@stroke-linejoin='round'])[4]")
@@ -34,7 +34,7 @@ public class AddsPage {
 
     //Aktiflestirme butonu
     @FindBy(xpath="//*[@id='custom-switch']")
-                public WebElement addsActivateButton; //(champs elysses)
+                public static WebElement addsActivateButton;
 
     //Guncelleme butonu
     @FindBy(xpath="(//*[@type='submit'])[1]")
@@ -42,7 +42,7 @@ public class AddsPage {
 
     //Guncelleme Basarili Mesaji
     @FindBy(xpath="//button[contains(@class,'p-toast-detail')] ")
-                public WebElement addsUpdateVerifyButton;//(kontrol edilecek )
+                public static WebElement addsUpdateVerifyButton;//(kontrol edilecek )
 
     //Ilan basariyla silindi mesaji
     @FindBy(xpath=" ")
