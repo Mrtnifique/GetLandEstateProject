@@ -1,6 +1,7 @@
 @US09
 Feature: US09 Admin ilanlarla ilgili islemleri yapar
 Background:
+
   Given Siteye admin olarak giriş yapılır
   When Profilime  tiklar
   Then Ilanlarima tiklar
@@ -29,4 +30,3 @@ Background:
 
        Scenario:TC05 Ilanlarim sayfasinda arama ozelligi eksik(negatif test)
          And Arama butonu bulunmamalidir
-

@@ -33,6 +33,15 @@ public class AddsStepDefinition {
     @When("Profilime tiklar")
     public void ProfilimeTiklar(){
         AddsPage.ProfileButton.click();
+
+public class AddsStepDefinition {
+    @Given("Kullanici {string} olarak giris yapar")
+    public void kullaniciOlarakGirisYapar(String arg0) {
+    }
+
+    @When("{string}e tiklar")
+    public void eTiklar(String arg0) {
+      
     }
 
     @Then("Ilanlarima tiklar")
