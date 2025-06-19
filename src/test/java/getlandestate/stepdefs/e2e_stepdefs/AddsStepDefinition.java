@@ -15,10 +15,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 public class AddsStepDefinition {
-    Actions actions = new Actions( Driver.getDriver() );
+    Actions actions = new Actions(Driver.getDriver());
     DashBoardPage dashBoardPage = new DashBoardPage();
     LogInPage logInPage = new LogInPage();
-    AddsPage addsPage=new AddsPage();
+    AddsPage addsPage = new AddsPage();
     private By driver;
 
     @Given("Siteye admin olarak giriş yapılır")
@@ -30,18 +30,20 @@ public class AddsStepDefinition {
         logInPage.passwordBox.sendKeys("B307admin@");
         logInPage.loginButton.click();
     }
-    @When("Profilime tiklar")
-    public void ProfilimeTiklar(){
-        AddsPage.ProfileButton.click();
 
-public class AddsStepDefinition {
+    @When("Profilime tiklar")
+    public void ProfilimeTiklar() {
+        AddsPage.ProfileButton.click();
+    }
+
+
     @Given("Kullanici {string} olarak giris yapar")
     public void kullaniciOlarakGirisYapar(String arg0) {
     }
 
     @When("{string}e tiklar")
     public void eTiklar(String arg0) {
-      
+
     }
 
     @Then("Ilanlarima tiklar")
@@ -51,10 +53,10 @@ public class AddsStepDefinition {
 
     @And("Kayitli ilanlarim'da duzenleme islemi yapar")
     public void kayitliIlanlarimDaDuzenlemeIslemiYapar() {
-      AddsPage.addsChangeButton.click();
-      AddsPage.addsActivateButton.click();
+        AddsPage.addsChangeButton.click();
+        AddsPage.addsActivateButton.click();
         WebElement addsUpdateButton = driver.findElement((SearchContext) By.xpath("(//*[@type='submit'])[1]"));
-        actions.moveToElement( addsUpdateButton).click().perform();
+        actions.moveToElement(addsUpdateButton).click().perform();
 
     }
 
@@ -88,7 +90,7 @@ public class AddsStepDefinition {
     @And("Guncelle butonuna tiklar")
     public void guncelleButonunaTiklar() {
         WebElement addsUpdateButton = driver.findElement((SearchContext) By.xpath("(//*[@type='submit'])[1]"));
-        actions.moveToElement( addsUpdateButton).click().perform();
+        actions.moveToElement(addsUpdateButton).click().perform();
 
 
     }
@@ -100,7 +102,7 @@ public class AddsStepDefinition {
 
     @When("Guncellenen sayfada butonun aktif oldugu goruntulenir")
     public void guncellenenSayfadaButonunAktifOlduguGoruntulenir() {
-      Boolean ButonDogrulama=  driver.getClass(ConfigReader.getProperty(AddsPage.addsUpdateVerifyButton.getText()));
+        //Boolean ButonDogrulama = driver.getClass(ConfigReader.getProperty(AddsPage.addsUpdateVerifyButton.getText()));
     }
 
     @And("Arama yapar")
@@ -111,3 +113,4 @@ public class AddsStepDefinition {
     public void aramaButonuBulunmamalidir() {
     }
 }
+
