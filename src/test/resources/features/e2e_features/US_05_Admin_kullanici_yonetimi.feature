@@ -25,7 +25,7 @@
 
     @US05TC03
       Scenario: Manager olusturulan admin kullanicisini customer yapamamali
-        Given Siteye "venusnonova@gmail.com" username "Venus11Nova*" password ile giriş yapılır
+        Given Siteye "venusnonova@gmail.com" email "Venus11Nova*" password ile giriş yapılır
         When Users butonuna tıklanır
         And Search boxtan ilgili admin kullanici aranir
         And Ilgili kullanicinin yanindaki pen kutucuguna tiklanir
