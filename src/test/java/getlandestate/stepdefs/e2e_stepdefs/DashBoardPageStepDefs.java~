@@ -303,7 +303,20 @@ public class DashBoardPageStepDefs {
     public void kendiIlanlarinaAitRandevuIstekleriniListeler() {
         Assert.assertTrue(dashBoardPage.randevuListesi.isDisplayed());
     }
+    @Then("İlan adı, tarih ve kullanıcı bilgileri görünmelidir")
+    public void ilanAdıTarihVeKullanıcıBilgileriGörünmelidir() {
+        // İlan Adı kontrolü
+        Assert.assertTrue("İlan adı görünmüyor!", dashBoardPage.ilanAdi.getText().contains("Sahibinden Satılık Uygun Daire"));
 
+        // Tur Tarihi kontrolü
+        Assert.assertTrue("Tur tarihi görünmüyor!", dashBoardPage.turTarihi.getText().matches("(//div[contains(text(),'azra yılmaz')])[1]")); // örn: 04.08.3205
+
+        // Talep Eden kullanıcı adı kontrolü
+        Assert.assertTrue("Talep eden kullanıcı görünmüyor!", dashBoardPage.talepEden.getText().length() > 0);
+
+        // Tur Saati kontrolü
+        Assert.assertTrue("Tur saati görünmüyor!", dashBoardPage.turSaati.getText().matches("\\d{1,2}:\\d{2} [AP]M"));
+    }
     @When("Bir randevu istegini secer ve onay butonuna basar")
     public void birRandevuIsteğiSeçer() {
 

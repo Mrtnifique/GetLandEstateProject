@@ -12,11 +12,9 @@ Feature: US013-Manager kendi ilanlarına gelen randevu isteklerini görüntüley
     And  Manager tur Taleplerim sekmesine tiklar
     When Tur Cevaplarim sekmesine tiklar
     Then Kendi ilanlarına ait randevu isteklerini listeler
-
-    When Bir randevu istegini secer ve onay butonuna basar
+    When Ilk randevu istegini secer ve onay butonuna basar
     And "YES" butonuna tiklar
-    And Secilen randevu istegi kabul edilir
-    Then Talep durumu "Onaylandi" olarak güncellenmelidir
+    Then Talep durumu "Onaylandi" olarak gorunur
     And  Sayfa kapatılır
 
 

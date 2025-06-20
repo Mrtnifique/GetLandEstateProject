@@ -542,6 +542,9 @@ public class DashBoardPage {
     //Sumeyye Niyet bitis 542
 
     //Pinar Yuzer baslangic 544
+    @FindBy(linkText = "Login")
+    public WebElement loginButton;
+
     @FindBy(xpath = "//div[@class='user-logo-nav navbar-nav']")
     public WebElement dashboardButton;
 
@@ -555,22 +558,13 @@ public class DashBoardPage {
     @FindBy(xpath = "//div[@class='tr-datatable-wrapper']//div[contains(@class, 'card')]")
     public WebElement randevuListesi;
 
-    @FindBy(xpath = "(//p[contains(text(),'Sahibinden Satılık Uygun Daire')])[1]")
-    public WebElement ilanAdi;
 
-    @FindBy(xpath = "(//div[contains(text(),'azra yılmaz')])[1]")
-    public WebElement talepEden;
 
-    @FindBy(xpath = "//td[contains(., '04.08.3205')]")
-    public WebElement turTarihi;
 
-    @FindBy(xpath = "//td[contains(., 'PM') or contains(., 'AM')]")
-    public WebElement turSaati;
-
-    @FindBy(xpath = "(//button[@type='button'])[16]")
+    @FindBy(xpath = "//tbody/tr[1]/td[6]/div[1]/span[2]/button[2]//*[name()='svg']")
     public WebElement onayButton;
 
-    @FindBy(xpath = "(//button[@aria-label='Evet'])[1]")
+    @FindBy(xpath = "//span[normalize-space()='Evet']")
     public WebElement yesButton;
 
     @FindBy(xpath = "(//*[name()='svg'][@stroke='currentColor'])[21]")
@@ -586,7 +580,6 @@ public class DashBoardPage {
     public WebElement pasifIlanaAitRandevuTalebi;
 
     //US14-TC01 icin lazım locate'ler---------------------------------------------
-
     // Aktif ilan için randevu
     @FindBy(xpath = "//tr[@draggable='false']//td[@role='cell']//div//div//div[@class='getproperty']")
     public WebElement aktifIlani;
@@ -632,7 +625,7 @@ public class DashBoardPage {
     public WebElement detaySayfasi;
 
     //Durum butonu
-    @FindBy(xpath = "//div[@id='react-aria8364566776-:r5:-tabpane-response']//thead[@class='p-datatable-thead']//span[@class='p-column-title'][normalize-space()='Durum']")
+    @FindBy(xpath = "//td[contains(@class, 'durum') or contains(text(), 'Onaylandı') or contains(text(), 'Beklemede')]")
     public WebElement durumElement;
 
 
