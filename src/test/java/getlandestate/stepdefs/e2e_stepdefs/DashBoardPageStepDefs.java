@@ -56,7 +56,7 @@ public class DashBoardPageStepDefs {
         Select selectCity = new Select(dashBoardPage.cityFilter);
         selectCity.selectByVisibleText("Ankara");
 
-        WaitUtils.waitFor(1);
+
 
         actions.moveToElement(dashBoardPage.districtFilter).click().perform();
 
@@ -73,10 +73,12 @@ public class DashBoardPageStepDefs {
         assertTrue(dashBoardPage.houseDisplayed.isDisplayed());
         dashBoardPage.houseClick.click();
 
+
     }
 
     @Then("İletisim bilgilerine tıklayarak uyarı mesajı alınır")
     public void iletisimBilgilerineTıklayarakUyarıMesajıAlınır() {
+        WaitUtils.waitFor(3);
 
         dashBoardPage.contactNumberEyesButton.click();
 
