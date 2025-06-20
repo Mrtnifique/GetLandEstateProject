@@ -56,6 +56,8 @@ public class DashBoardPageStepDefs {
         Select selectCity = new Select(dashBoardPage.cityFilter);
         selectCity.selectByVisibleText("Ankara");
 
+        WaitUtils.waitFor(1);
+
         actions.moveToElement(dashBoardPage.districtFilter).click().perform();
 
         Select selectDistrict = new Select(dashBoardPage.districtFilter);
