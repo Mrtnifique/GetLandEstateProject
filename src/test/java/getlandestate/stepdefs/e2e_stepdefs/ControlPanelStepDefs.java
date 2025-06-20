@@ -57,6 +57,7 @@ public class ControlPanelStepDefs {
         controlPanelPage.categoriesAddNewButton.click();
         controlPanelPage.categoriesAddNewTitleBox.sendKeys(randomWord);
         controlPanelPage.advertTypeCreateButton.click();
+        WaitUtils.waitFor(2);
 
     }
 
