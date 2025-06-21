@@ -57,6 +57,7 @@ public class ControlPanelStepDefs {
         controlPanelPage.categoriesAddNewButton.click();
         controlPanelPage.categoriesAddNewTitleBox.sendKeys(randomWord);
         controlPanelPage.advertTypeCreateButton.click();
+        WaitUtils.waitFor(2);
 
     }
 
@@ -182,5 +183,11 @@ public class ControlPanelStepDefs {
         controlPanelPage.categoriesSearchBox.sendKeys("gupguzel");
         controlPanelPage.categoriesSearchBoxSearchButton.click();
         Assert.assertTrue(controlPanelPage.muratAssertionData4.isDisplayed());
+    }
+
+
+    @When("Control Panel sekmesindeki siteye geri dön tiklanir")
+    public void controlPanelSekmesindekiSiteyeGeriDönTiklanir() {
+        controlPanelPage.backToSiteButton.click();
     }
 }

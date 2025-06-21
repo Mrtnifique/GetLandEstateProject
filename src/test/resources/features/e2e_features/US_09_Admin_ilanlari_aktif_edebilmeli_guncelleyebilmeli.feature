@@ -1,14 +1,15 @@
 @US09
 Feature: US09 Admin ilanlarla ilgili islemleri yapar
 Background:
-  Given Kullanici "admin" olarak giris yapar
-  When "Profilim"e tiklar
-  Then "Ilanlarim" a tiklar
+
+  Given Siteye admin olarak giriş yapılır
+  When Profilime  tiklar
+  Then Ilanlarima tiklar
 
   Scenario: TC01 Admin ilanlari guncelleyebilmeli
 
     And Kayitli ilanlarim'da duzenleme islemi yapar
-    Then 'Guncelleme basarili ' yazisini goruntuler.
+    Then guncelleme basarili yazisini goruntuler.
 
     Scenario: TC02 Admin ilanlari silebilmeli
 

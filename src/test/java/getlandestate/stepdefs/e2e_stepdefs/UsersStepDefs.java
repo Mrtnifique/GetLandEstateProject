@@ -1,35 +1,135 @@
 package getlandestate.stepdefs.e2e_stepdefs;
 
+import getlandestate.pages.ControlPanelPage;
+import getlandestate.pages.DashBoardPage;
+import getlandestate.pages.LogInPage;
+import getlandestate.utilities.Driver;
+import getlandestate.utilities.WaitUtils;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class UsersStepDefs {
-    //@Given("Siteye admin olarak giriş yapılır")
-    //public void siteyeAdminGirisYapilir() {
-    //}
-    @When("Users butonuna tiklanir")
-    public void users_butonuna_tiklanir() {
 
-    }
-    @When("Arama kutusuna yildiz isilti yazilir")
-    public void arama_kutusuna_yildiz_isilti_yazilir() {
+    ControlPanelPage controlPanelPage = new ControlPanelPage();
+    DashBoardPage dashBoardPage = new DashBoardPage();
+    LogInPage logInPage = new LogInPage();
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
 
+    @And("Arama kutusuna yildiz isilti yazilir")
+    public void aramaKutusunaYildizIsiltiYazilir() {
+        //controlPanelPage.userSearchBox.click();
+        WaitUtils.waitFor(3);
+        controlPanelPage.categoriesSearchBox.sendKeys("yildiz");
+        controlPanelPage.categoriesSearchBoxSearchButton.click();
+        WaitUtils.waitFor(2);
+        Assert.assertTrue(controlPanelPage.yildizDisplayed.isDisplayed());
     }
-    @When("Ilgili kullanicinin yanindaki kalem kutucuguna tiklanir")
-    public void ilgili_kullanicinin_yanindaki_kalem_kutucuguna_tiklanir() {
 
+    @And("Ilgili kullanicinin yanindaki kalem kutucuguna tiklanir")
+    public void ılgiliKullanicininYanindakiKalemKutucugunaTiklanir() {
+        controlPanelPage.penButton.click();
     }
-    @When("Roles kismindan admin secilir")
-    public void roles_kismindan_admin_secilir() {
 
+    @And("Roles kismindan admin secilir")
+    public void rolesKismindanAdminSecilir() {
+        controlPanelPage.userRole.sendKeys("ADMIN");
     }
-    @When("Update butonuna basilir")
-    public void update_butonuna_basilir() {
 
+    @And("Update butonuna tiklanir")
+    public void updateButonunaTiklanir() {
+        controlPanelPage.userUpdateButton.click();
     }
+
     @Then("Kullanicinin rolunun basariyla admin olarak guncellendigi dogrulanir")
-    public void kullanicinin_rolunun_basariyla_admin_olarak_guncellendigi_dogrulanir() {
+    public void kullanicininRolununBasariylaAdminOlarakGuncellendigiDogrulanir() {
+        controlPanelPage.categoriesSearchBox.sendKeys("yildiz");
+        controlPanelPage.categoriesSearchBoxSearchButton.click();
+        WaitUtils.waitFor(2);
 
+        String actualResult = controlPanelPage.userRoleText.getText();
+        String expectedResult = "ADMIN";
+        Assert.assertEquals(expectedResult, actualResult);
+        WaitUtils.waitFor(2);
+
+        //Teardown
+        controlPanelPage.usersEditButton.click();
+        Select selectRole = new Select(controlPanelPage.userRole);
+        selectRole.selectByIndex(2);
+        controlPanelPage.userEditUpdateButton.click();
+        WaitUtils.waitFor(2);
+    }
+    @And("Arama kutusuna Lady Yildiz yazilir")
+    public void aramaKutusunaLadyYildizYazilir() {
+        controlPanelPage.categoriesSearchBox.sendKeys("Lady");
+        controlPanelPage.categoriesSearchBoxSearchButton.click();
+        WaitUtils.waitFor(2);
+        Assert.assertTrue(controlPanelPage.ladyYildizDisplayed.isDisplayed());
+}
+    @And("Ilgili kullanicinin yanindaki pen kutucuguna tiklanir")
+    public void ılgiliKullanicininYanindakiPenKutucugunaTiklanir() {
+        Assert.assertTrue(controlPanelPage.ladyYildizDisplayed.isDisplayed());
+        controlPanelPage.penButton.click();
+    }
+
+    @And("Roles kismindan manager secilir")
+    public void rolesKismindanManagerSecilir() {
+        controlPanelPage.userRole.sendKeys("MANAGER");
+    }
+
+    @Then("Kullanicinin rolunun basariyla manager olarak guncellendigi assert edilir")
+    public void kullanicininRolununBasariylaManagerOlarakGuncellendigiAssertEdilir() {
+        controlPanelPage.categoriesSearchBox.sendKeys("Lady");
+        controlPanelPage.categoriesSearchBoxSearchButton.click();
+        WaitUtils.waitFor(2);
+
+        String actualResult = controlPanelPage.userRoleText.getText();
+        String expectedResult = "MANAGER";
+        Assert.assertEquals(expectedResult, actualResult);
+        WaitUtils.waitFor(2);
+
+        //Teardown
+        controlPanelPage.usersEditButton.click();
+        Select selectRole = new Select(controlPanelPage.userRole);
+        selectRole.selectByIndex(2);
+        controlPanelPage.userEditUpdateButton.click();
+        WaitUtils.waitFor(2);
+    }
+
+    @Given("Siteye {string} email {string} password ile giriş yapılır")
+    public void siteyeEmailPasswordIleGirişYapılır(String email, String password) {
+        Driver.getDriver().get("http://64.227.123.49");
+        WaitUtils.waitFor(2);
+        dashBoardPage.loginButton.click();
+
+        logInPage.emailBox.sendKeys(email);
+        logInPage.passwordBox.sendKeys(password);
+        logInPage.loginButton.click();
+    }
+
+    @And("Search boxtan ilgili admin kullanici aranir")
+    public void searchBoxtanIlgiliAdminKullaniciAranir() {
+        WaitUtils.waitFor(3);
+        controlPanelPage.categoriesSearchBox.sendKeys("scarlett");
+        controlPanelPage.categoriesSearchBoxSearchButton.click();
+        WaitUtils.waitFor(2);
+        Assert.assertTrue(controlPanelPage.scarlettDisplayed.isDisplayed());
+    }
+
+    @And("Roles kismindan customer secilir")
+    public void rolesKismindanCustomerSecilir() {
+        controlPanelPage.userRole.sendKeys("CUSTOMER");
+    }
+
+    @Then("Kullanicinin rolunun customer olarak guncellenmedigi dogrulanir")
+    public void kullanicininRolununCustomerOlarakGuncellenmedigiDogrulanir() {
+        wait.until(ExpectedConditions.visibilityOf(controlPanelPage.errorMessage));
+        Assert.assertTrue(controlPanelPage.errorMessage.isDisplayed());
     }
 }

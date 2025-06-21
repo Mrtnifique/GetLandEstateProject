@@ -544,6 +544,87 @@ public class DashBoardPage {
     //Sumeyye Niyet bitis 542
 
     //Pinar Yuzer baslangic 544
+    @FindBy(xpath = "//div[@class='user-logo-nav navbar-nav']")
+    public WebElement dashboardButton;
+
+    @FindBy(xpath = "//span[normalize-space()='My Tour Requests']")
+    public WebElement MyTourRequestsButton;
+
+    @FindBy(xpath = "//button[@class='nav-link active']")
+    public WebElement MyResponseButton;
+    // Randevu listesini tutan ana container
+
+    @FindBy(xpath = "//div[@class='tr-datatable-wrapper']//div[contains(@class, 'card')]")
+    public WebElement randevuListesi;
+
+
+    @FindBy(xpath = "(//p[contains(text(),'Sahibinden Satılık Uygun Daire')])[1]")
+    public WebElement ilanAdi;
+
+    @FindBy(xpath = "(//div[contains(text(),'azra yılmaz')])[1]")
+    public WebElement talepEden;
+
+    @FindBy(xpath = "//td[contains(., '04.08.3205')]")
+    public WebElement turTarihi;
+
+    @FindBy(xpath = "//td[contains(., 'PM') or contains(., 'AM')]")
+    public WebElement turSaati;
+
+    @FindBy(xpath = "(//button[@type='button'])[16]")
+    public WebElement onayButton;
+
+    @FindBy(xpath = "(//button[@aria-label='Evet'])[1]")
+    public WebElement yesButton;
+
+    @FindBy(xpath = "(//*[name()='svg'][@stroke='currentColor'])[21]")
+    public WebElement kabulEtButton;
+
+    @FindBy(xpath = "(//button[@type='button'])[17]")
+    public WebElement redButton;
+
+    @FindBy(xpath = "//span[contains(text(),'Onaylandi')]")
+    public WebElement Onaylandi;
+
+    @FindBy(xpath = "//tr[@draggable='false']//span[@class='p-tag-value'][normalize-space()='DECLINED']")
+    public WebElement pasifIlanaAitRandevuTalebi;
+    //US14-TC01 icin lazım locate'ler---------------------------------------------
+    // Aktif ilan için randevu
+    @FindBy(xpath = "//tr[@draggable='false']//td[@role='cell']//div//div//div[@class='getproperty']")
+    public WebElement aktifIlani;
+    //tur ayarla formu
+    @FindBy(xpath = "//h3[normalize-space()='Tur Ayarla']")
+    public WebElement turAyarlaFormu;
+    //tarih secme
+    @FindBy(xpath = "//input[@id='tourDate']")
+    public WebElement tarihSecme;
+    //saat secme
+    @FindBy(xpath = "//select[@id='tourTime']")
+    public WebElement saatSecme;
+    //tur talebi gonder butonu
+    @FindBy(xpath = "//button[normalize-space()='Tur talebi gönder']")
+    public WebElement turTalebiGonderButton;
+    //talebiniz gonderildi
+    @FindBy(xpath = "//div[@class='p-toast-message-text']")
+    public WebElement talebinizGonderildi;
+    //tur talebi beklemede olarak listelenir
+    @FindBy(xpath = "(//td[@role='cell'])[3]")
+    public WebElement turTalebiBeklemede;
+    //US14-TC02 icin lazım locate'ler---------------------------------------------
+    @FindBy(xpath = "//a[@href='/my-adverts']")
+    public WebElement ilanlarimButton;
+    //ilan listesi
+    @FindBy(xpath = "//div[@class='advert-container container']")
+    public WebElement ilanListesi;
+    //ilan detay sayfasi
+    @FindBy(xpath = "(//div[@class='text'])[1]")
+    public WebElement ilanDetay;
+    //detay sayfasi
+    @FindBy(xpath = "//div[@class='user-layout-spacer']")
+    public WebElement detaySayfasi;
+    //Durum butonu
+    @FindBy(xpath = "//div[@id='react-aria8364566776-:r5:-tabpane-response']//thead[@class='p-datatable-thead']//span[@class='p-column-title'][normalize-space()='Durum']")
+    public WebElement durumElement;
+
 
 
 
@@ -621,39 +702,48 @@ public class DashBoardPage {
     //Pinar Yuzer bitis 619
 
     //Semih Oner baslangic 621
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //Anasayfa Rent Button
+    @FindBy (xpath = "//button[text()='Rent']")
+    public WebElement homePageRentButton;
+    //Ilanda cikan 2. ilan
+    @FindBy (xpath = "(//div[@class='property-card card'])[3]")
+    public WebElement semihTest1;
+    //Ilanda ki RENT yazisi
+    @FindBy (xpath = "//div[text()='RENT']")
+    public WebElement rentYazisi;
+    //Anasayfs Properties Butonu
+    @FindBy (xpath = "//a[@data-rr-ui-event-key='2']")
+    public WebElement homePagePropertiesButton;
+    //Advert Type Button
+    @FindBy  (xpath = "//select[@name='at']")
+    public WebElement advertTypeButton;
+    //Filter Search Box
+    @FindBy (xpath = "//input[@placeholder='Search']")
+    public WebElement filterSearchBox;
+    //Bulunan ilan sayisi 0
+    @FindBy (xpath = "//span[text()='0']")
+    public WebElement totalFound0;
+    //Price Range min
+    @FindBy (xpath = "//input[@placeholder='min']")
+    public WebElement priceRangeMin;
+    //Price Range max
+    @FindBy (xpath = "//input[@placeholder='max']")
+    public WebElement priceRangeMax;
+    //Start price must be less than end price
+    @FindBy (xpath = "//div[@class='p-toast-message-text']")
+    public WebElement priceHataMesaji;
+    //Category Button
+    @FindBy (xpath = "//select[@name='c']")
+    public WebElement categoryButton;
+    //TC06 Test Data
+    @FindBy (xpath = "//div[@class='property-card card']")
+    public WebElement semihTest2;
+    //Anasayfa Sale Button
+    @FindBy (xpath = "//button[text()='Sale']")
+    public WebElement homePageSaleButton;
+    //Ilandaki Sale Yazisi
+    @FindBy (xpath = "//div[text()='SALE']")
+    public WebElement saleYazisi;
 
 
 
