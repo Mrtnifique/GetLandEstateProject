@@ -31,7 +31,7 @@ public class LogInPageStepDefs {
         Driver.getDriver().get("http://64.227.123.49");
 
 
-}
+    }
 
     @Given("Customer olarak sayfaya giris yapılır")
     public void customerOlarakSayfayaGirisYapılır() {
@@ -50,7 +50,7 @@ public class LogInPageStepDefs {
         logInPage.loginButton.click();
     }
 
-    @When( "Manager hesabı ile sisteme giriş yapılır18")
+    @When("Manager hesabı ile sisteme giriş yapılır18")
     public void managerHesabıileSistemeGirişYapılır18() {
         LogInPage logInPage = new LogInPage();
         DashBoardPage dashBoardPage = new DashBoardPage();
@@ -62,9 +62,22 @@ public class LogInPageStepDefs {
         WaitUtils.waitFor(3);
 
 
+    }
+
+    //Emine
+    @When("Siteye Manager olarak giriş yapılır")
+    public void siteyeManagerGirisYapılır() {
+        LogInPage logInPage = new LogInPage();
+        DashBoardPage dashBoardPage = new DashBoardPage();
+        Driver.getDriver().get("http://64.227.123.49");
+
+        dashBoardPage.loginButton.click();
+        logInPage.emailBox.sendKeys("rose83@gmail.com");
+        logInPage.passwordBox.sendKeys("123123Rose?");
+        logInPage.loginButton.click();
+        WaitUtils.waitFor(3);
 
 
     }
-
 }
 

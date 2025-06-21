@@ -1,7 +1,6 @@
 package getlandestate.stepdefs.e2e_stepdefs;
 
 import com.github.javafaker.Faker;
-import getlandestate.pages.ControlPanelPage;
 import getlandestate.pages.DashBoardPage;
 import getlandestate.utilities.Driver;
 import getlandestate.utilities.WaitUtils;
@@ -9,18 +8,12 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertTrue;
 
@@ -103,6 +96,8 @@ public class DashBoardPageStepDefs {
 
         Assert.assertTrue(dashBoardPage.contactAlert2.isDisplayed());
     }
+
+
 
 
     @And("Create one now butonuna tıklanır")
@@ -279,7 +274,109 @@ public class DashBoardPageStepDefs {
 
 
 
+    //Emine
+    @When("Back To Site butonuna tıklanır")
+    public void backToSiteButonunaTıklanır() {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(dashBoardPage.backToSiteButton)
+                .click()
+                .build()
+                .perform();
     }
+
+    @And("Profile butonuna tıklanır")
+    public void profileButonunaTiklanir() {
+        dashBoardPage.profileButton.click();
+    }
+
+    @And("My Adverts butonuna tıklanır")
+    public void myAdvertsButonunaTıklanır() {
+        dashBoardPage.myAdvertsButton.click();
+
+    }
+
+    @Then("Verilen ilanların listelendiği görülür")
+    public void verilenIlanlarinListelendigiGorulur() {
+
+        Assert.assertTrue(dashBoardPage.villageHouse01.isDisplayed());
+    }
+
+    //TC02
+
+    @Then("Edit Advert butonuna tıklanır")
+    public void editAdvertButonunaTıklar() {
+        WaitUtils.waitFor(5);
+        dashBoardPage.editAdvertButton.click();
+//
+//        And My Adverts butonuna tıklanır
+//        Then  Edit Advert butonuna tıklanır
+//        And Yeni bilgilerle ilan güncellenir(Fiyat 900000 yapılır)
+//        And Update butonuna tıklanır
+//        Then Günceleme basarıyla tamamlanmıstır mesajı gorulur.
+//        And Sayfa kapatılır
+
+    }
+
+    @And("Fiyat 950000 yapılır")
+    public void yeniBilgilerleIlanGuncellenir() {
+
+       WaitUtils.waitFor(3);
+       WebElement input = dashBoardPage.priceButton;
+        input.sendKeys(Keys.CONTROL + "a");
+        input.sendKeys(Keys.DELETE);
+        input.sendKeys("900000");
+
+
+    }
+
+    @And("Update butonuna tıklanır")
+    public void updateButonunaTiklanir() {
+        dashBoardPage.updateButton.click();
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(dashBoardPage.updateButton)
+                .click()
+                .build()
+                .perform();
+
+
+    }
+
+
+    @Then("Başarı mesajı gorulur")
+    public void guncellemeBasariylaTamamlanmistirMesajiGorulur() {
+
+        Assert.assertTrue("Başarı mesajı görünmedi.", dashBoardPage.mesageButton.isEnabled());
+
+
+    }
+
+   @And("Fiyat alanına -900000 yazılır")
+    public void negatifDegerGirilir() {
+
+       WebElement input = dashBoardPage.priceButton;
+       input.sendKeys(Keys.CONTROL + "a");
+       input.sendKeys(Keys.DELETE);
+       input.sendKeys("-900000");
+
+   }
+    @And("Uyarı mesajı gorulur")
+    public void uyarıMesajıGorulur() {
+
+        Assert.assertTrue("Başarı mesajı görünmedi.", dashBoardPage.mustBePositive.isEnabled());
+
+
+
+
+    }
+
+
+   }
+
+
+
+
+
+
 
 
 
