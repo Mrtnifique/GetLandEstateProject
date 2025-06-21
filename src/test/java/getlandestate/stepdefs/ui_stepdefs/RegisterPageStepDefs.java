@@ -1,13 +1,11 @@
-package getlandestate.stepdefs.e2e_stepdefs;
+package getlandestate.stepdefs.ui_stepdefs;
 
 import com.github.javafaker.Faker;
 import getlandestate.pages.LogInPage;
 import getlandestate.utilities.Driver;
-import getlandestate.utilities.WaitUtils;
 import io.cucumber.java.en.*;
 import io.cucumber.java.ParameterType;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 

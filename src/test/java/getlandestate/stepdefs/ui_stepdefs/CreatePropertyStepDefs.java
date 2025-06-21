@@ -1,22 +1,14 @@
-package getlandestate.stepdefs.e2e_stepdefs;
+package getlandestate.stepdefs.ui_stepdefs;
 
 import com.github.javafaker.Faker;
 import getlandestate.pages.DashBoardPage;
 import getlandestate.pages.CreatePropertyPage;
-import getlandestate.utilities.BrowserUtils;
 import getlandestate.utilities.Driver;
 import getlandestate.utilities.WaitUtils;
 import getlandestate.utilities.ActionsUtils;
-import io.cucumber.java.en_old.Ac;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
