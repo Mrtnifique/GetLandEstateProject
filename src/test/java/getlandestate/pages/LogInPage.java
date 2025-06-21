@@ -875,12 +875,35 @@ public class LogInPage {
 
     //Fatih Üstünyer baslangic 878
 
+    @FindBy(xpath = "//button[@class='mail-button']")
+    public WebElement bizeMailAtinBox;
 
+    @FindBy(xpath = "//input[@id='firstName']")
+    public WebElement bizeMailAd;
 
+    @FindBy(xpath = "//input[@id='lastName']")
+    public WebElement bizeMailSoyad;
 
+    @FindBy(xpath = "//input[@id='email']")
+    public WebElement bizeMailEmail;
 
+    @FindBy(xpath = "//textarea[@id='message']")
+    public WebElement bizeMailMesaj;
 
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement bizeMailGonderButonu;
 
+    @FindBy(xpath = "//span[normalize-space()='ContactMessages']")
+    public WebElement contactMessgeButonu;
+
+    @FindBy(xpath = "//input[@placeholder='Type Something']")
+    public WebElement contactMessageAramaButonu;
+
+    @FindBy(xpath = "//button[@class='search-button btn btn-primary']")
+    public WebElement contactMesssageSearchButonu;
+
+    @FindBy(xpath = "//div[@class='admin-contact-message-container']//div[1]//h2[1]//button[1]")
+    public  WebElement aradıgimizMesaj;
 
 
 
@@ -949,24 +972,6 @@ public class LogInPage {
 
 
     //Fatih Üstünyer bitis 953
-
-    @FindBy(xpath = "//button[@class='mail-button']")
-    public WebElement bizeMailAtinBox;
-
-    @FindBy(xpath = "//input[@id='firstName']")
-    public WebElement bizeMailAd;
-
-    @FindBy(xpath = "//input[@id='lastName']")
-    public WebElement bizeMailSoyad;
-
-    @FindBy(xpath = "//input[@id='email']")
-    public WebElement bizeMailEmail;
-
-    @FindBy(xpath = "//textarea[@id='message']")
-    public WebElement bizeMailMesaj;
-
-    @FindBy(xpath = "//button[@type='submit']")
-    public WebElement bizeMailGonderButonu;
 
 
 

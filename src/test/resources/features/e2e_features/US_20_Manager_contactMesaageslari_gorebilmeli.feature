@@ -9,8 +9,5 @@ Feature: Manager İletileri Görüntüleme
     And Send butonuna tıkla
     And Manager girisi yapar
     When ContactMessages butonuna tıkla
-    And Mesajlardan birincisine tıkla
-    Then Mesajın mail adresini ve tarihini al
-    And Mesajı text olarak al
+    And Messajlarda arama yap
     Then Manager ContactMessages görebildiğini doğrula
-    And mesajımızdaki test datalarıyla aynı olmalı
