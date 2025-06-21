@@ -36,8 +36,8 @@ public class LogInPageStepDefs {
     public void webAdresineGidilir() {
         Driver.getDriver().get("http://64.227.123.49");
 
+    }
 
-}
 
     @Given("Customer olarak sayfaya giris yapılır")
     public void customerOlarakSayfayaGirisYapılır() {
@@ -85,5 +85,29 @@ public class LogInPageStepDefs {
         logInPage.loginButton.click();
 
     }
+
+    @Given("Manager olarak sayfaya giris yapılır")
+    public void siteyeManagerGirisYapilir() {
+        DashBoardPage dashBoardPage = new DashBoardPage();
+        LogInPage logInPage = new LogInPage();
+        Driver.getDriver().get("http://64.227.123.49");
+
+        dashBoardPage.loginButton.click();
+        logInPage.emailBox.sendKeys("davidbeckham@gmail.com");
+        logInPage.passwordBox.sendKeys("Davidbeckham35.");
+        logInPage.loginButton.click();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
