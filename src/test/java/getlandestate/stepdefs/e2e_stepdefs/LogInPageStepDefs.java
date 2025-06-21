@@ -78,7 +78,7 @@ public class LogInPageStepDefs {
     }
 
 
-    @Given("siteye manager olarak giriş yapılır")
+   /* @Given("siteye manager olarak giriş yapılır")
     public void siteyeManagerOlarakGirişYapılır() {
 
         Driver.getDriver().get("http://64.227.123.49");
@@ -91,7 +91,7 @@ public class LogInPageStepDefs {
         logInPage.passwordBox.sendKeys("123Cemsit.");
         logInPage.loginButton.click();
 
-    }
+    }*/
 
 }
 

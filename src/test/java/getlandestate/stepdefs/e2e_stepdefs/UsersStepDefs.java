@@ -102,14 +102,14 @@ public class UsersStepDefs {
         WaitUtils.waitFor(2);
     }
 
-    @Given("Siteye manager olarak giris yapilir")
+   /* @Given("Siteye manager olarak giris yapilir")
     public void siteyeManagerOlarakGirisYapilir() {
         Driver.getDriver().get("http://64.227.123.49");
         dashBoardPage.loginButton.click();
         logInPage.emailBox.sendKeys("venusnonova@gmail.com");
         logInPage.passwordBox.sendKeys("Venus11Nova*");
         logInPage.loginButton.click();
-    }
+    }*/
 
     @And("Search boxtan ilgili admin kullanici aranir")
     public void searchBoxtanIlgiliAdminKullaniciAranir() {
