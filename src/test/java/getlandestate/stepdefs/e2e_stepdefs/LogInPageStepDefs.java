@@ -78,7 +78,7 @@ public class LogInPageStepDefs {
     @Given("Siteye {string} username {string} password ile giriş yapılır")
     public void siteyeUsernamePasswordIleGirişYapılır(String username, String password) {
         Driver.getDriver().get("http://64.227.123.49");
-        logInPage.loginButton.click();
+        dashBoardPage.loginButton.click();
 
         logInPage.emailBox.sendKeys(username);
         logInPage.passwordBox.sendKeys(password);

@@ -38,9 +38,6 @@ public class DashBoardPageStepDefs {
     Actions actions = new Actions(Driver.getDriver());
 
 
-
-
-
     @And("Filtreleme yapılarak arama yapılır")
     public void filtrelemeYapılarakAramaYapılır() {
         dashBoardPage.categoryFilter.click();
@@ -55,7 +52,6 @@ public class DashBoardPageStepDefs {
         dashBoardPage.cityFilter.click();
         Select selectCity = new Select(dashBoardPage.cityFilter);
         selectCity.selectByVisibleText("Ankara");
-
 
 
         actions.moveToElement(dashBoardPage.districtFilter).click().perform();
@@ -136,98 +132,95 @@ public class DashBoardPageStepDefs {
         actions.moveToElement(dashBoardPage.submitTourRequestButton).click().perform();
     }
 
-        @When("Kullanıcı iletişim formuna tıklar")
-        public void kullanıcı_iletişim_formuna_tıklar () {
-            dashBoardPage.contact.click();
-        }
+    @When("Kullanıcı iletişim formuna tıklar")
+    public void kullanıcı_iletişim_formuna_tıklar() {
+        dashBoardPage.contact.click();
+    }
 
-        @And("Kullanıcı First Name alanına {string} yazar")
-        public void kullanıcı_first_name_alanına_yazar (String firstName){
-            dashBoardPage.firstName.sendKeys(firstName);
-        }
+    @And("Kullanıcı First Name alanına {string} yazar")
+    public void kullanıcı_first_name_alanına_yazar(String firstName) {
+        dashBoardPage.firstName.sendKeys(firstName);
+    }
 
-        @And("Kullanıcı Last Name alanına {string} yazar")
-        public void kullanıcı_last_name_alanına_yazar (String lastName){
-            dashBoardPage.lastName.sendKeys(lastName);
-        }
+    @And("Kullanıcı Last Name alanına {string} yazar")
+    public void kullanıcı_last_name_alanına_yazar(String lastName) {
+        dashBoardPage.lastName.sendKeys(lastName);
+    }
 
-        @And("Kullanıcı geçersiz bir email adresi {string} yazar")
-        public void kullanıcı_geçersiz_bir_email_adresi_yazar (String invalidEmail){
-            dashBoardPage.email.sendKeys(invalidEmail);
-            dashBoardPage.message.click();
-        }
+    @And("Kullanıcı geçersiz bir email adresi {string} yazar")
+    public void kullanıcı_geçersiz_bir_email_adresi_yazar(String invalidEmail) {
+        dashBoardPage.email.sendKeys(invalidEmail);
+        dashBoardPage.message.click();
+    }
 
-        @Then("Geçersiz email uyarısı görüntülenir")
-        public void geçersiz_email_uyarısı_görüntülenir () {
-            Assert.assertTrue(dashBoardPage.invalidEmailWarning.isDisplayed());
-        }
-
-
-        @When("Kullanıcı geçerli bir email adresi {string} yazar")
-        public void kullanıcı_geçerli_bir_email_adresi_yazar (String email){
-            dashBoardPage.email.clear();
-            dashBoardPage.email.sendKeys(email);
-        }
+    @Then("Geçersiz email uyarısı görüntülenir")
+    public void geçersiz_email_uyarısı_görüntülenir() {
+        Assert.assertTrue(dashBoardPage.invalidEmailWarning.isDisplayed());
+    }
 
 
-        @And("Kullanıcı mesaj kutusuna {string} yazar")
-        public void kullanıcı_mesaj_kutusuna_yazar (String message){
-            dashBoardPage.message.sendKeys(message);
-        }
-
-        @And("Kullanıcı mesaj kutusunu boş bırakır")
-        public void kullanıcı_mesaj_kutusunu_boş_bırakır () {
-            dashBoardPage.message.clear();
-        }
-
-        @And("Kullanıcı gönder butonuna tıklar")
-        public void kullanıcı_gönder_butonuna_tıklar () {
-            dashBoardPage.submitButton.click();
-            WaitUtils.waitFor(2);
-        }
-
-        @Then("Mesaj başarıyla gönderildi uyarısı görüntülenir")
-        public void mesaj_başarıyla_gönderildi_uyarısı_görüntülenir () {
-            Assert.assertTrue(dashBoardPage.successMessage.isDisplayed());
-        }
-
-        @Then("First Name minimum 2 karakter uyarısı görüntülenir")
-        public void first_name_minimum_2_karakter_uyarısı_görüntülenir () {
-            Assert.assertTrue(dashBoardPage.firstNameWarning.isDisplayed());
-        }
-
-        @And("Last Name minimum 2 karakter uyarısı görüntülenir")
-        public void last_name_minimum_2_karakter_uyarısı_görüntülenir () {
-            Assert.assertTrue(dashBoardPage.lastNameWarning.isDisplayed());
-        }
-
-        @And("Kullanıcı email alanına {string} yazar")
-        public void kullanıcıEmailAlanınaYazar (String messenger){
-            dashBoardPage.message.sendKeys(messenger);
-
-        }
-
-        @Then("Email zorunlu alan uyarısı görüntülenir")
-        public void email_zorunlu_alan_uyarısı_görüntülenir () {
-            Assert.assertTrue(dashBoardPage.requiredEmailWarning.isDisplayed());
-        }
+    @When("Kullanıcı geçerli bir email adresi {string} yazar")
+    public void kullanıcı_geçerli_bir_email_adresi_yazar(String email) {
+        dashBoardPage.email.clear();
+        dashBoardPage.email.sendKeys(email);
+    }
 
 
-        @And("Mesaj gönderilemez")
-        public void mesaj_gönderilemez () {
-            Assert.assertFalse(dashBoardPage.submitButton01.isEnabled());
-        }
+    @And("Kullanıcı mesaj kutusuna {string} yazar")
+    public void kullanıcı_mesaj_kutusuna_yazar(String message) {
+        dashBoardPage.message.sendKeys(message);
+    }
+
+    @And("Kullanıcı mesaj kutusunu boş bırakır")
+    public void kullanıcı_mesaj_kutusunu_boş_bırakır() {
+        dashBoardPage.message.clear();
+    }
+
+    @And("Kullanıcı gönder butonuna tıklar")
+    public void kullanıcı_gönder_butonuna_tıklar() {
+        dashBoardPage.submitButton.click();
+        WaitUtils.waitFor(2);
+    }
+
+    @Then("Mesaj başarıyla gönderildi uyarısı görüntülenir")
+    public void mesaj_başarıyla_gönderildi_uyarısı_görüntülenir() {
+        Assert.assertTrue(dashBoardPage.successMessage.isDisplayed());
+    }
+
+    @Then("First Name minimum 2 karakter uyarısı görüntülenir")
+    public void first_name_minimum_2_karakter_uyarısı_görüntülenir() {
+        Assert.assertTrue(dashBoardPage.firstNameWarning.isDisplayed());
+    }
+
+    @And("Last Name minimum 2 karakter uyarısı görüntülenir")
+    public void last_name_minimum_2_karakter_uyarısı_görüntülenir() {
+        Assert.assertTrue(dashBoardPage.lastNameWarning.isDisplayed());
+    }
+
+    @And("Kullanıcı email alanına {string} yazar")
+    public void kullanıcıEmailAlanınaYazar(String messenger) {
+        dashBoardPage.message.sendKeys(messenger);
+
+    }
+
+    @Then("Email zorunlu alan uyarısı görüntülenir")
+    public void email_zorunlu_alan_uyarısı_görüntülenir() {
+        Assert.assertTrue(dashBoardPage.requiredEmailWarning.isDisplayed());
+    }
 
 
-        @And("Tarih ve saat boş bırakılır")
-        public void tarihVeSaatBoşBırakılır () {
-            dashBoardPage.tourDate.sendKeys("  ");
-            dashBoardPage.tourTime.sendKeys(" ");
-
-        }
+    @And("Mesaj gönderilemez")
+    public void mesaj_gönderilemez() {
+        Assert.assertFalse(dashBoardPage.submitButton01.isEnabled());
+    }
 
 
+    @And("Tarih ve saat boş bırakılır")
+    public void tarihVeSaatBoşBırakılır() {
+        dashBoardPage.tourDate.sendKeys("  ");
+        dashBoardPage.tourTime.sendKeys(" ");
 
+    }
 
 
     @Then("Randevu icin tarih ve saat girmeden uyarı mesajı görünürlüğü test edilir")
@@ -237,9 +230,7 @@ public class DashBoardPageStepDefs {
     }
 
 
-
-
-    @And( "Manager tour request tıklar")
+    @And("Manager tour request tıklar")
     public void managertourRequestTıklar() {
         dashBoardPage.tourRequest18.click();
     }
@@ -290,28 +281,32 @@ public class DashBoardPageStepDefs {
     }
 
 
-
     @When("Search butonuna tıklanır")
     public void searchButonunaTiklanir() {
         dashBoardPage.searchBox.click();
     }
+
     @When("Dashboard'a tıklar")
     public void dashboardATıklar() {
         dashBoardPage.dashboardButton.click();
     }
+
     @And("Manager tur Taleplerim sekmesine tiklar")
     public void managerTurTaleplerimSekmesineTiklar() {
         dashBoardPage.MyTourRequestsButton.click();
     }
+
     @When("Tur Cevaplarim sekmesine tiklar")
     public void MyResponsebutonunaTiklar() {
         WaitUtils.waitFor(3);
         dashBoardPage.MyResponseButton.click();
     }
+
     @Then("Kendi ilanlarına ait randevu isteklerini listeler")
     public void kendiIlanlarinaAitRandevuIstekleriniListeler() {
         Assert.assertTrue(dashBoardPage.randevuListesi.isDisplayed());
     }
+
     @Then("İlan adı, tarih ve kullanıcı bilgileri görünmelidir")
     public void ilanAdıTarihVeKullanıcıBilgileriGörünmelidir() {
         // İlan Adı kontrolü
@@ -326,29 +321,35 @@ public class DashBoardPageStepDefs {
         // Tur Saati kontrolü
         Assert.assertTrue("Tur saati görünmüyor!", dashBoardPage.turSaati.getText().matches("\\d{1,2}:\\d{2} [AP]M"));
     }
+
     @When("Bir randevu istegini secer ve onay butonuna basar")
     public void birRandevuIsteğiSeçer() {
 
         WaitUtils.waitFor(2);
         dashBoardPage.onayButton.click();
     }
+
     @And("\"YES\" butonuna tiklar")
     public void yesButonunaTiklar() {
         dashBoardPage.yesButton.click();
     }
+
     @And("Secilen randevu istegi kabul edilir")
     public void secilenRandevuIstegiKabulEdilir() {
         dashBoardPage.kabulEtButton.click();
     }
+
     @Then("Talep durumu \"Onaylandi\" olarak güncellenmelidir")
     public void istekBasariylaKabulEdildiMesajiGorunmelidir() {
         Assert.assertTrue(dashBoardPage.Onaylandi.isDisplayed());
     }
+
     //US_13 TC02
     @When("Tur Taleplerim sekmesine tiklar")
     public void turTaleplerimSekmesineTiklar() {
         dashBoardPage.MyTourRequestsButton.click();
     }
+
     @Then("Pasif durumdaki bir ilana ait randevu talebi görüntülenir")
     public void pasifDurumdakiIlanaAitRandevuTalebiGoruntulenir() {
         // "DECLINED" rozeti içeren satırı bul
@@ -368,6 +369,7 @@ public class DashBoardPageStepDefs {
         // Doğrulama
         Assert.assertTrue("DECLINED rozetli ilan bulunamadı!", pasifIlanSatiri.isDisplayed());
     }
+
     @Then("Randevu talebi için onay  ve reddet  butonları görünmemeli veya tıklanamaz olmalı")
     public void randevuTalebiIçinOnay️VeReddetButonlarıGörünmemeliVeyaTıklanamazOlmalı() {
         try {
@@ -379,6 +381,7 @@ public class DashBoardPageStepDefs {
             Assert.assertTrue(true);
         }
     }
+
     @And("Onay butonuna tıklanmaya çalışıldığında sistem işlem yapmamalı ve onay gerçekleşmemelidir")
     public void onayButonunaTıklanmayaÇalışıldığındaSistemIşlemYapmamalıVeOnayGerçekleşmemelidir() {
         try {
@@ -398,6 +401,7 @@ public class DashBoardPageStepDefs {
         }
 
     }
+
     @And("Reddet butonuna tıklanmaya çalışıldığında sistem işlem yapmamalı ve reddet gerçekleşmemelidir")
     public void reddetButonunaTıklanmayaÇalışıldığındaSistemIşlemYapmamalıVeReddetGerçekleşmemelidir() {
         try {
@@ -416,20 +420,24 @@ public class DashBoardPageStepDefs {
             Assert.assertTrue(true);
         }
     }
+
     //US_14 TC01
     @When("Başka bir manager’a ait aktif ilan aranır")
     public void başkaBirManagerAAitAktifIlanAranır() {
 
         dashBoardPage.aktifIlani.click();
     }
+
     @When("Bir ilan seçilip detay sayfası açılır")
     public void birIlanSeçilipDetaySayfasıAçılır() {
         dashBoardPage.aktifIlani.click();
     }
+
     @Then("\"Tur Ayarla\" formu görünür")
     public void turAyarlaFormuGörünür() {
         Assert.assertTrue(dashBoardPage.turAyarlaFormu.isDisplayed());
     }
+
     @When("Geçerli bir tur tarihi ve saati girilerek form eksiksiz doldurulur")
     public void geçerliBirTurTarihiVeSaatiGirilerekFormEksiksizDoldurulur() {
         Faker faker = new Faker();
@@ -441,37 +449,45 @@ public class DashBoardPageStepDefs {
         dashBoardPage.saatSecme.sendKeys(turSaati);
 
     }
+
     @And("\"Tur Talebi Gönder\" butonuna tıklanır")
     public void turTalebiGonderButonunaTıklanır() {
         dashBoardPage.turTalebiGonderButton.click();
     }
+
     @Then("\"Talebiniz gönderildi\" mesajı görülür")
     public void talebinizGonderildiMesajıGörülür() {
         Assert.assertTrue(dashBoardPage.talebinizGonderildi.isDisplayed());
     }
+
     @When("\"Tur Taleplerim\" sekmesine tıklanır")
     public void turTaleplerimSekmesineTıklanır() {
         dashBoardPage.dashboardButton.click();
         dashBoardPage.MyTourRequestsButton.click();
     }
+
     @Then("\"Tur Talebi\" beklemede olarak listelenir")
     public void turTalebiBeklemedeOlarakListelenir() {
         Assert.assertTrue(dashBoardPage.turTalebiBeklemede.isDisplayed());
     }
+
     //US_14 TC02-------------------------------------------------------------------
     @When("\"İlanlarım\" sekmesine tıklanır")
     public void ilanlarimSekmesineGirilir() {
         dashBoardPage.dashboardButton.click();
         dashBoardPage.ilanlarimButton.click();
     }
+
     @Then("Kendi ilanları listelenir")
     public void kendiIlanlarıListelenir() {
         Assert.assertTrue(dashBoardPage.ilanListesi.isDisplayed());
     }
+
     @When("Kendi ilana ait detay sayfası açılır")
     public void kendiIlanaAitDetaySayfasıAçılır() {
         dashBoardPage.ilanDetay.click();
     }
+
     @Then("Detay sayfası goruntulenmeli")
     public void detaySayfasıAçılmalıdır() {
 
@@ -482,6 +498,7 @@ public class DashBoardPageStepDefs {
 
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("/advert/"));
     }
+
     @Then("\"Randevu Al\" butonu görünmemeli ya da devre dışı olmalıdır")
     public void butonuGörünmemeliYaDaDevreDışıOlmalıdır() {
         List<WebElement> randevuAlButonListesi = Driver.getDriver().findElements(By.xpath("//button[normalize-space()='Tur talebi gönder']"));
@@ -496,11 +513,13 @@ public class DashBoardPageStepDefs {
             Assert.assertFalse(buton.isDisplayed() && buton.isEnabled());
         }
     }
+
     @When("URL üzerinden doğrudan randevu formu açılmaya çalışılır")
     public void urlÜzerindenDoğrudanRandevuFormuAçılmayaÇalışılır() {
 
         Driver.getDriver().get("http://64.227.123.49/my-adverts");
     }
+
     @Then("\"İşlem yapılamaz\" mesajı ya da başka bir sayfaya yönlendirme gerçekleşmelidir")
     public void mesajıYaDaBaşkaBirSayfayaYönlendirmeGerçekleşmelidir() {
         List<WebElement> randevuListesi = Driver.getDriver().findElements(By.xpath("//div[contains(@class,'card')]"));
@@ -514,44 +533,44 @@ public class DashBoardPageStepDefs {
     }
 
     @And("Anasayfa Rent Butonuna Tikla")
-    public void anasayfaRentButonunaTikla(){
+    public void anasayfaRentButonunaTikla() {
         dashBoardPage.homePageRentButton.click();
     }
 
     @Then("Rent ilan kontrol edilir")
-    public void rentIlanKontrolEdilir(){
+    public void rentIlanKontrolEdilir() {
         dashBoardPage.semihTest1.click();
         WaitUtils.waitFor(3);
         Assert.assertTrue(dashBoardPage.rentYazisi.getText().contains("RENT"));
     }
 
     @And("Anasayfa Properties butonuna tikla")
-    public void anasayfaPropertiesButonunaTikla(){
+    public void anasayfaPropertiesButonunaTikla() {
         dashBoardPage.homePagePropertiesButton.click();
-        WaitUtils.waitForVisibility(dashBoardPage.semihTest1,20);
+        WaitUtils.waitForVisibility(dashBoardPage.semihTest1, 20);
     }
 
     @And("Advert Type butonuna tikla ve Rent sec")
-    public void advertTypeButonunaTiklaVeRentSec(){
+    public void advertTypeButonunaTiklaVeRentSec() {
         Select select = new Select(dashBoardPage.advertTypeButton);
         select.selectByVisibleText("Rent");
         WaitUtils.waitFor(5);
     }
 
     @When("Filter Search Arama Butonuna Tikla")
-    public void filterSearchAramaButonunaTikla(){
+    public void filterSearchAramaButonunaTikla() {
         WaitUtils.waitFor(3);
         dashBoardPage.filterSearchButton.click();
     }
 
     @And("Sitede olmayan bir ilan adi aratilir")
-    public void sitedeOlmayanBirIlanAdiAratilir(){
+    public void sitedeOlmayanBirIlanAdiAratilir() {
         dashBoardPage.filterSearchBox.sendKeys("qweqweqwe");
         WaitUtils.waitFor(2);
     }
 
     @Then("Bulunan ilan sayisi kontrol edilir")
-    public void bulunanIlanSayisiKontrolEdilir(){
+    public void bulunanIlanSayisiKontrolEdilir() {
         ReusableMethods.scroll(dashBoardPage.totalFound0);
         WaitUtils.waitFor(4);
         Assert.assertTrue(dashBoardPage.totalFound0.getText().contains("0"));
@@ -559,7 +578,7 @@ public class DashBoardPageStepDefs {
     }
 
     @And("Filter Search Box temizlenir")
-    public void filterSearchBoxTemizlenir(){
+    public void filterSearchBoxTemizlenir() {
         ReusableMethods.scrollHome();
         WaitUtils.waitFor(2);
         dashBoardPage.filterSearchBox.click();
@@ -569,12 +588,12 @@ public class DashBoardPageStepDefs {
     }
 
     @And("Sitede bulunan bir ilan adi aratilir")
-    public void sitedeOlanBirIlanAdiAratilir(){
+    public void sitedeOlanBirIlanAdiAratilir() {
         dashBoardPage.filterSearchBox.sendKeys("House");
     }
 
     @Then("Ilan adi kontrol edilir")
-    public void ilanAdiKontrolEdilir(){
+    public void ilanAdiKontrolEdilir() {
         dashBoardPage.semihTest1.click();
 
         String actualTitle = Driver.getDriver().findElement(By.xpath("//div[@class='advert-title']")).getText();
@@ -582,13 +601,13 @@ public class DashBoardPageStepDefs {
     }
 
     @When("Fiyat kismina sayi disinda veri girisi denenir")
-    public void fiyatKisminaSayiDisindaVeriGirisiDenenir(){
+    public void fiyatKisminaSayiDisindaVeriGirisiDenenir() {
         dashBoardPage.priceRangeMin.sendKeys("asd");
         dashBoardPage.priceRangeMax.sendKeys("asd");
     }
 
     @Then("Fiyat kisminin bos oldugu test edilir")
-    public void fiyatKismininBosOlduguTestEdilir(){
+    public void fiyatKismininBosOlduguTestEdilir() {
         String actualMinPriceValue = dashBoardPage.priceRangeMin.getAttribute("value");
         Assert.assertNotNull(actualMinPriceValue);
         Assert.assertTrue(actualMinPriceValue.isEmpty());
@@ -599,20 +618,20 @@ public class DashBoardPageStepDefs {
     }
 
     @And("Min kismi Max kismindan buyuk yazilmasi denenir")
-    public void minKismiMaxKismindanBuyukYazilmasiDenenir(){
+    public void minKismiMaxKismindanBuyukYazilmasiDenenir() {
         dashBoardPage.priceRangeMin.sendKeys("5");
         dashBoardPage.priceRangeMax.sendKeys("1");
     }
 
     @Then("Start price must be less than end price. hatasi kontrol edilir")
-    public void startPriceMustBeLessThanEndPriceHatasiKontrolEdilir(){
-        WaitUtils.waitForVisibility(dashBoardPage.priceHataMesaji,5);
+    public void startPriceMustBeLessThanEndPriceHatasiKontrolEdilir() {
+        WaitUtils.waitForVisibility(dashBoardPage.priceHataMesaji, 5);
         Assert.assertTrue(dashBoardPage.priceHataMesaji.isDisplayed());
         WaitUtils.waitFor(3);
     }
 
     @And("Pricelar temizlenir")
-    public void pricelarTemizlenir(){
+    public void pricelarTemizlenir() {
         dashBoardPage.priceRangeMin.click();
         dashBoardPage.priceRangeMin.sendKeys(Keys.CONTROL + "a");
         dashBoardPage.priceRangeMin.sendKeys(Keys.BACK_SPACE);
@@ -624,14 +643,14 @@ public class DashBoardPageStepDefs {
     }
 
     @And("Dogru Fiyat araligi yapilir")
-    public void dogruFiyatAraligiYapilir(){
+    public void dogruFiyatAraligiYapilir() {
         dashBoardPage.priceRangeMin.sendKeys("1000");
         dashBoardPage.priceRangeMax.sendKeys("50000");
     }
 
     @Then("Fiyatlar kontrol edilir")
-    public void fiyatlarKontrolEdilir(){
-        WaitUtils.waitForVisibility(dashBoardPage.semihTest1,20);
+    public void fiyatlarKontrolEdilir() {
+        WaitUtils.waitForVisibility(dashBoardPage.semihTest1, 20);
         dashBoardPage.semihTest1.click();
         WaitUtils.waitFor(2);
         String actualIlanPrice = Driver.getDriver().findElement(By.xpath("//div[@class='price']")).getText();
@@ -643,41 +662,41 @@ public class DashBoardPageStepDefs {
     }
 
     @And("Category butonuna tikla ve house sec")
-    public void categoryButonunaTiklaVeHouseSec(){
+    public void categoryButonunaTiklaVeHouseSec() {
         Select select = new Select(dashBoardPage.categoryButton);
         select.selectByVisibleText("House");
         WaitUtils.waitFor(5);
     }
 
     @Then("Ilanin categorysi kontrol edilir")
-    public void ilaninCategorysiKontrolEdilir(){
-        ReusableMethods.visibleWait(dashBoardPage.semihTest1,15);
+    public void ilaninCategorysiKontrolEdilir() {
+        ReusableMethods.visibleWait(dashBoardPage.semihTest1, 15);
         dashBoardPage.semihTest1.click();
         String actualCategory = Driver.getDriver().findElement(By.xpath("//div[@class='advert-category-title']")).getText();
         Assert.assertTrue(actualCategory.contains("House"));
     }
 
     @And("Countrye tikla ve France sec")
-    public void countryeTiklaVeFranceSec(){
+    public void countryeTiklaVeFranceSec() {
         Select select = new Select(dashBoardPage.countryFilter);
         select.selectByVisibleText("France");
     }
 
     @And("Citye tikla ve Allier sec")
-    public void cityeTiklaVeAllierSec(){
+    public void cityeTiklaVeAllierSec() {
         Select select = new Select(dashBoardPage.cityFilter);
         select.selectByVisibleText("Allier");
     }
 
     @And("Districte tikla ve Vichy sec")
-    public void districteTiklaVeVichySec(){
+    public void districteTiklaVeVichySec() {
         Select select = new Select(dashBoardPage.districtFilter);
         select.selectByVisibleText("Vichy");
     }
 
     @Then("Ilanin konumu kontrol edilir")
-    public void ilaninKonumuKontrolEdilir(){
-        ReusableMethods.visibleWait(dashBoardPage.semihTest2,10);
+    public void ilaninKonumuKontrolEdilir() {
+        ReusableMethods.visibleWait(dashBoardPage.semihTest2, 10);
         dashBoardPage.semihTest2.click();
 
         String actualCountry = Driver.getDriver().findElement(By.xpath("(//span[@class='location-value'])[1]")).getText();
@@ -689,25 +708,116 @@ public class DashBoardPageStepDefs {
     }
 
     @And("Anasayfa Sale Butonuna Tikla")
-    public void anasayfaSaleButonunaTikla(){
-        WaitUtils.waitForVisibility(dashBoardPage.homePageSaleButton,10);
+    public void anasayfaSaleButonunaTikla() {
+        WaitUtils.waitForVisibility(dashBoardPage.homePageSaleButton, 10);
         dashBoardPage.homePageSaleButton.click();
     }
 
     @Then("Sale ilan kontrol edilir")
-    public void saleIlanKontrolEdilir(){
+    public void saleIlanKontrolEdilir() {
         dashBoardPage.semihTest1.click();
         WaitUtils.waitFor(3);
         Assert.assertTrue(dashBoardPage.saleYazisi.getText().contains("SALE"));
     }
 
     @And("Advert Type butonuna tikla ve Sale sec")
-    public void advertTypeButonunaTiklaVeSaleSec(){
+    public void advertTypeButonunaTiklaVeSaleSec() {
         Select select = new Select(dashBoardPage.advertTypeButton);
         select.selectByVisibleText("Sale");
         WaitUtils.waitFor(5);
     }
 
+    //Emine
+    @When("Back To Site butonuna tıklanır")
+    public void backToSiteButonunaTıklanır() {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(dashBoardPage.backToSiteButton)
+                .click()
+                .build()
+                .perform();
+    }
+
+    @And("Profile butonuna tıklanır")
+    public void profileButonunaTiklanir() {
+        dashBoardPage.profileButton.click();
+    }
+
+    @And("My Adverts butonuna tıklanır")
+    public void myAdvertsButonunaTıklanır() {
+        dashBoardPage.myAdvertsButton.click();
+
+    }
+
+    @Then("Verilen ilanların listelendiği görülür")
+    public void verilenIlanlarinListelendigiGorulur() {
+
+        Assert.assertTrue(dashBoardPage.villageHouse01.isDisplayed());
+    }
+
+    //TC02
+
+    @Then("Edit Advert butonuna tıklanır")
+    public void editAdvertButonunaTıklar() {
+        WaitUtils.waitFor(5);
+        dashBoardPage.editAdvertButton.click();
+//
+//        And My Adverts butonuna tıklanır
+//        Then  Edit Advert butonuna tıklanır
+//        And Yeni bilgilerle ilan güncellenir(Fiyat 900000 yapılır)
+//        And Update butonuna tıklanır
+//        Then Günceleme basarıyla tamamlanmıstır mesajı gorulur.
+//        And Sayfa kapatılır
+
+    }
+
+    @And("Fiyat 950000 yapılır")
+    public void yeniBilgilerleIlanGuncellenir() {
+
+        WaitUtils.waitFor(3);
+        WebElement input = dashBoardPage.priceButton;
+        input.sendKeys(Keys.CONTROL + "a");
+        input.sendKeys(Keys.DELETE);
+        input.sendKeys("900000");
+
+
+    }
+
+    @And("Update butonuna tıklanır")
+    public void updateButonunaTiklanir() {
+        dashBoardPage.updateButton.click();
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(dashBoardPage.updateButton)
+                .click()
+                .build()
+                .perform();
+
+    }
+
+    @Then("Başarı mesajı gorulur")
+    public void guncellemeBasariylaTamamlanmistirMesajiGorulur() {
+
+        Assert.assertTrue("Başarı mesajı görünmedi.", dashBoardPage.mesageButton.isEnabled());
+
+
+    }
+
+    @And("Fiyat alanına -900000 yazılır")
+    public void negatifDegerGirilir() {
+
+        WebElement input = dashBoardPage.priceButton;
+        input.sendKeys(Keys.CONTROL + "a");
+        input.sendKeys(Keys.DELETE);
+        input.sendKeys("-900000");
+
+    }
+
+    @And("Uyarı mesajı gorulur")
+    public void uyarıMesajıGorulur() {
+
+        Assert.assertTrue("Başarı mesajı görünmedi.", dashBoardPage.mustBePositive.isEnabled());
+
+
+    }
 }
 
 
