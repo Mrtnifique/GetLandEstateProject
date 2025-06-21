@@ -1,4 +1,4 @@
-package getlandestate.stepdefs.e2e_stepdefs;
+package getlandestate.stepdefs.ui_stepdefs;
 
 import com.github.javafaker.Faker;
 import getlandestate.pages.ControlPanelPage;
@@ -57,6 +57,7 @@ public class ControlPanelStepDefs {
         controlPanelPage.categoriesAddNewButton.click();
         controlPanelPage.categoriesAddNewTitleBox.sendKeys(randomWord);
         controlPanelPage.advertTypeCreateButton.click();
+        WaitUtils.waitFor(2);
 
     }
 

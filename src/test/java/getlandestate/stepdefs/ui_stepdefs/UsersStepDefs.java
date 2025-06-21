@@ -1,4 +1,4 @@
-package getlandestate.stepdefs.e2e_stepdefs;
+package getlandestate.stepdefs.ui_stepdefs;
 
 import getlandestate.pages.ControlPanelPage;
 import getlandestate.pages.DashBoardPage;
@@ -102,12 +102,14 @@ public class UsersStepDefs {
         WaitUtils.waitFor(2);
     }
 
-    @Given("Siteye manager olarak giris yapilir")
-    public void siteyeManagerOlarakGirisYapilir() {
+    @Given("Siteye {string} email {string} password ile giriş yapılır")
+    public void siteyeEmailPasswordIleGirişYapılır(String email, String password) {
         Driver.getDriver().get("http://64.227.123.49");
+        WaitUtils.waitFor(2);
         dashBoardPage.loginButton.click();
-        logInPage.emailBox.sendKeys("venusnonova@gmail.com");
-        logInPage.passwordBox.sendKeys("Venus11Nova*");
+
+        logInPage.emailBox.sendKeys(email);
+        logInPage.passwordBox.sendKeys(password);
         logInPage.loginButton.click();
     }
 

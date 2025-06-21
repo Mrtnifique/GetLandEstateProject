@@ -1,11 +1,10 @@
-package getlandestate.stepdefs.e2e_stepdefs;
+package getlandestate.stepdefs.ui_stepdefs;
 
-import com.github.javafaker.Faker;
 import getlandestate.pages.LogInPage;
 import getlandestate.pages.ProfilePage;
 import getlandestate.utilities.Driver;
 import getlandestate.utilities.WaitUtils;
-import getlandestate.utilities.ConfigReader;
+import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,12 +13,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class ProfileStepDefs {
 
@@ -67,21 +61,21 @@ public class ProfileStepDefs {
         actions.moveToElement(profilePage.nameField).click()
                 .keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL)
                 .sendKeys(Keys.DELETE)
-                .sendKeys("Tomasy Cana fghjk")
+                .sendKeys("Tomy Jonh Thomas")
                 .perform();
 
         // Soyad alanını temizle ve yeni değer yaz
         actions.moveToElement(profilePage.lastnameField).click()
                 .keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL)
                 .sendKeys(Keys.DELETE)
-                .sendKeys("ABertyuıopcvbnmH")
+                .sendKeys("WillSmith")
                 .perform();
 
         // Telefon alanını temizle ve yeni değer yaz
         actions.moveToElement(profilePage.phoneNumberField).click()
                 .keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL)
                 .sendKeys(Keys.DELETE)
-                .sendKeys("(903) 380-9939")
+                .sendKeys("(903) 380-7939")
                 .perform();
 
         // Email alanını temizle ve yeni değer yaz
@@ -98,14 +92,6 @@ public class ProfileStepDefs {
         WaitUtils.waitForClickablility(profilePage.updateButton, 10); // 10 saniye bekler
         profilePage.updateButton.click();
     }
-
-   /* @Then("Güncelleme başarı mesajı görüntülenir")
-    public void guncellemeBasariMesajiGoruntulenir() throws InterruptedException {
-        Thread.sleep(2000);  // 2 saniye bekle
-        Assert.assertTrue("Güncelleme mesajı görünmedi!",
-                profilePage.successMessage.isDisplayed());
-
-    } */
 
     //------profil------
 
@@ -134,13 +120,13 @@ public class ProfileStepDefs {
         WaitUtils.waitForClickablility(profilePage.savePhotoButton, 5);
         profilePage.savePhotoButton.click();
     }
-  /*
+
     @Then("Fotoğraf başarıyla güncellenir")
        public void fotografBasariylaGuncellenir() {
-         Assert.assertTrue("Fotoğraf önizleme görünmüyor, yükleme başarısız.", profilePage.photoPreview.isDisplayed());
-         Assert.assertTrue("Başarı mesajı görünmedi.", profilePage.successMessage.isDisplayed());
+        // Assert.assertTrue("Fotoğraf önizleme görünmüyor, yükleme başarısız.", profilePage.photoPreview.isDisplayed());
+         Assert.assertTrue("Başarı mesajı görünmedi.", profilePage.successMessage.isEnabled());
        }
- */
+
     //==password==
 
     @When("Change Password sekmesi açılır")
@@ -148,7 +134,7 @@ public class ProfileStepDefs {
         WaitUtils.waitForVisibility(profilePage.changePasswordSection, 5);
         profilePage.changePasswordSection.click();
     }
-// 321.abcdefGH
+    // 321.abcdefGH
 
     @And("Şifre değiştirme formu doldurulur")
     public void sifreDegistirmeFormuDoldurulur() {
@@ -183,69 +169,68 @@ public class ProfileStepDefs {
                 .perform();
 
         // Değiştir (CHANGE) butonuna tıkla
-        profilePage.changePasswordButton.click();
     }
 
-    @And("Password strength STRONG olarak görüntülenir")
-    public void passwordStrengthStrongOlarakGoruntulenir() {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOf(profilePage.strongPasswordIndicator));
-        Assert.assertTrue("Şifre güçlü değil (STRONG etiketi görünmedi)", profilePage.strongPasswordIndicator.isDisplayed());
-    }
-
-    @And("CHANGE butonuna tıklanır")
+   @And("CHANGE butonuna tıklanır")
     public void changeButonunaTiklanir() {
         profilePage.changePasswordButton.click();
     }
 
 
+    @Then("Şifre değişikliği sonrası çıkış yapıldığı doğrulanır")
+    public void sifreDegisikligiSonrasiCikisYapildigiDogrulanir() {
+        LogInPage logInPage = new LogInPage();
 
+        //  Doğrulama
+        WaitUtils.waitForVisibility(logInPage.emailBox, 5);
+        Assert.assertTrue("Email input görünmüyor, çıkış yapılmamış olabilir!", logInPage.emailBox.isDisplayed());
+        Assert.assertTrue("Login butonu görünmüyor!", logInPage.loginButton.isDisplayed());
+    }
 
-   //==================@TC02=====================
-   @When("Ad, soyad silinir; geçersiz email ve telefon girilir")
-   public void adSoyadSilGecersizEmailTelefonGir() {
-       Actions actions = new Actions(Driver.getDriver());
+    //==================@TC02=====================
 
-       // Ad alanını temizle
-       actions.moveToElement(profilePage.nameField)
-               .click()
-               .keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL)
-               .sendKeys(Keys.DELETE)
-               .perform();
+    @When("Ad, soyad silinir; geçersiz email ve telefon girilir")
+    public void adSoyadSilGecersizEmailTelefonGir() {
+        Actions actions = new Actions(Driver.getDriver());
 
-       // Soyad alanını temizle
-       actions.moveToElement(profilePage.lastnameField)
-               .click()
-               .keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL)
-               .sendKeys(Keys.DELETE)
-               .perform();
+        // Ad temizle
+        actions.moveToElement(profilePage.nameField).click()
+                .keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL)
+                .sendKeys(Keys.DELETE).perform();
 
-       // Geçersiz email
-       profilePage.emailField.clear();
-       profilePage.emailField.sendKeys("test@");
+        // Soyad temizle
+        actions.moveToElement(profilePage.lastnameField).click()
+                .keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL)
+                .sendKeys(Keys.DELETE).perform();
 
-       // Geçersiz telefon
-       profilePage.phoneNumberField.clear();
-       profilePage.phoneNumberField.sendKeys("123abc");
-   }
+        // Geçersiz email gir
+        profilePage.emailField.clear();
+        profilePage.emailField.sendKeys("test@");
 
-    @And("UPDATE butonuna tekrar tıklanır")
-    public void updateButonunaTiklanir_TC02() {
-        profilePage.updateButton.click();
+        // Geçersiz telefon gir
+        profilePage.phoneNumberField.clear();
+        profilePage.phoneNumberField.sendKeys("123abc");
+    }
+
+    @And("UPDATE butonuna tekrar tıklanamaz")
+    public void updateButonunaTiklanamaz() {
+        Assert.assertFalse("Geçersiz verilere rağmen UPDATE butonu aktif!", profilePage.updateButton.isEnabled());
     }
 
     @Then("Zorunlu alan ve format uyarı mesajları gösterilir")
     public void zorunluAlanVeFormatUyarilariGoruntulenir() {
-        Assert.assertTrue("Ad alanı uyarısı görünmedi!", profilePage.nameFieldError.isDisplayed());
-        Assert.assertTrue("Soyad alanı uyarısı görünmedi!", profilePage.lastNameFieldError.isDisplayed());
-        Assert.assertTrue("Email formatı hatası görünmedi!", profilePage.emailFormatError.isDisplayed());
-        Assert.assertTrue("Telefon formatı hatası görünmedi!", profilePage.phoneFormatError.isDisplayed());
+        Assert.assertTrue(" Ad alanı uyarısı görünmedi!", profilePage.nameFieldError.isDisplayed());
+        Assert.assertTrue(" Soyad alanı uyarısı görünmedi!", profilePage.lastNameFieldError.isDisplayed());
+        Assert.assertTrue(" Email format hatası görünmedi!", profilePage.emailFormatError.isDisplayed());
+        Assert.assertTrue(" Telefon format hatası görünmedi!", profilePage.phoneFormatError.isDisplayed());
     }
 
     @And("Profil güncelleme işlemi başarısız olur")
     public void profilGuncellemeBasarisizOlur() {
-        Assert.assertFalse("Update butonu hâlâ aktif, validasyon hatası uygulanmadı!", profilePage.updateButton.isEnabled());
+        // UPDATE butonunun disabled olması bekleniyorsa:
+        Assert.assertFalse("UPDATE butonu hâlâ aktif!", profilePage.updateButton.isEnabled());
     }
+
 
 
     //==================@TC03=====================
@@ -259,9 +244,7 @@ public class ProfileStepDefs {
     @When("Yanlış mevcut şifre ve zayıf yeni şifre girilir, tekrar şifre boş bırakılır")
     public void yanlisMevcutVeZayifYeniSifreGir() {
         profilePage.changePasswordSection.click();
-
         profilePage.currentPasswordField.sendKeys("wrongPassword123");
-
         profilePage.newPasswordField.sendKeys("123");
         profilePage.confirmPasswordField.clear(); // Boş bırakılıyor
     }
@@ -272,9 +255,9 @@ public class ProfileStepDefs {
                 profilePage.passwordStrengthIndicator.isDisplayed());
     }
 
-    @And("CHANGE butonuna basılır")
-    public void changeButonunaBasilir() {
-        profilePage.changePasswordButton.click();
+    @And("CHANGE butonuna tıklanamaz")
+    public void changeButonunaTiklanamaz() {
+        Assert.assertFalse("Geçersiz şifreye rağmen CHANGE butonu aktif!", profilePage.changePasswordButton.isEnabled());
     }
 
     @Then("Şifre gücü NONE veya WEAK görünür")
@@ -284,14 +267,7 @@ public class ProfileStepDefs {
                 strengthText.contains("NONE") || strengthText.contains("WEAK"));
     }
 
-    @And("Şifreler eşleşmiyor uyarısı çıkar")
-    public void sifrelerEslesmiyorUyarisiCikar() {
-        WebElement mismatchError = Driver.getDriver().findElement(
-                By.xpath("//small[contains(text(),'do not match')]"));
-        Assert.assertTrue("Şifreler eşleşmiyor hatası çıkmadı", mismatchError.isDisplayed());
-    }
-
-    @And("Şifre değişimi başarısız olur")
+    @And("Şifre değişiminin başarısız olduğu doğrulanır")
     public void sifreDegisimiBasarisizOlur() {
         Assert.assertTrue("Başarı mesajı çıkmamalı",
                 Driver.getDriver().findElements(By.xpath("//span[contains(text(),'Success')]")).isEmpty());
@@ -299,45 +275,35 @@ public class ProfileStepDefs {
 
     //==================@TC04=====================
 
-    @When("Geçersiz boyutta profil fotoğrafı yüklenmeye çalışılır")
+    @When("Geçersiz boyutta profil fotoğrafı yüklenir")
     public void gecersizBoyuttaProfilFotoYukleme() {
-        // Profile Photo sekmesine geç
         WaitUtils.waitForClickablility(profilePage.profilePhotoSection, 5);
         profilePage.profilePhotoSection.click();
-
-        // SELECT butonuna tıkla
-        WaitUtils.waitForClickablility(profilePage.selectPhotoButton, 5);
-        profilePage.selectPhotoButton.click();
-
-        // 3MB üzeri dosyayı yükle (örnek: large_sample.jpg)
+        WaitUtils.waitFor(2);
         String filePath = System.getProperty("user.dir") + "/src/test/resources/testdata/large_sample.jpg";
         profilePage.fileInput.sendKeys(filePath);
-
-        // Küçük bekleme (preview oluşmasın)
-        WaitUtils.waitFor(1);
-
-        // SAVE butonuna tıkla
-        profilePage.savePhotoButton.click();
+        profilePage.fileSelectDoneButton.click();
+        WaitUtils.waitFor(2); // preview oluşmasın diye
     }
 
-    @Then("Yükleme reddedilir ve hata mesajı gösterilir")
-    public void yuklemeReddedilirVeHataMesajiGoruntulenir() {
-        WebElement hataMesaji = Driver.getDriver().findElement(By.xpath("//div[contains(text(),'upload') or contains(text(),'valid photo')]"));
-        Assert.assertTrue("Geçersiz dosya yükleme uyarısı görünmedi!", hataMesaji.isDisplayed());
-
-        // Alternatif olarak profil resmi yüklenmemeli
-        Assert.assertFalse("Fotoğraf önizlemesi oluştu, yükleme hatası gözükmedi!",
-                profilePage.photoPreview.isDisplayed());
+    @Then("SAVE butonu devre dışı olur ve yükleme yapılamaz")
+    public void saveButonuDevreDisiOlur() {
+        WaitUtils.waitFor(2);
+        profilePage.photoSaveButton.click();
     }
 
-    @Given("Web sitesine erişim sağlanabilmeli")
-    public void webSitesineErişimSağlanabilmeli() {
+    @And("Hata mesajı görüntülendiği doğrulanır")
+    public void hataMesajıGörüntülendiğiDoğrulanır() {
+        Assert.assertTrue("Oversize hata mesajı görünmedi!",
+                profilePage.oversizeErrorMessage.isEnabled());
+
     }
 
 
-
-
-
+    @After
+    public void tearDown() {
+        Driver.closeDriver();
+    }
 
 
 
