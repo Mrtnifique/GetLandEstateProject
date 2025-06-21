@@ -700,39 +700,48 @@ public class DashBoardPage {
     //Pinar Yuzer bitis 619
 
     //Semih Oner baslangic 621
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //Anasayfa Rent Button
+    @FindBy (xpath = "//button[text()='Rent']")
+    public WebElement homePageRentButton;
+    //Ilanda cikan 2. ilan
+    @FindBy (xpath = "(//div[@class='property-card card'])[3]")
+    public WebElement semihTest1;
+    //Ilanda ki RENT yazisi
+    @FindBy (xpath = "//div[text()='RENT']")
+    public WebElement rentYazisi;
+    //Anasayfs Properties Butonu
+    @FindBy (xpath = "//a[@data-rr-ui-event-key='2']")
+    public WebElement homePagePropertiesButton;
+    //Advert Type Button
+    @FindBy  (xpath = "//select[@name='at']")
+    public WebElement advertTypeButton;
+    //Filter Search Box
+    @FindBy (xpath = "//input[@placeholder='Search']")
+    public WebElement filterSearchBox;
+    //Bulunan ilan sayisi 0
+    @FindBy (xpath = "//span[text()='0']")
+    public WebElement totalFound0;
+    //Price Range min
+    @FindBy (xpath = "//input[@placeholder='min']")
+    public WebElement priceRangeMin;
+    //Price Range max
+    @FindBy (xpath = "//input[@placeholder='max']")
+    public WebElement priceRangeMax;
+    //Start price must be less than end price
+    @FindBy (xpath = "//div[@class='p-toast-message-text']")
+    public WebElement priceHataMesaji;
+    //Category Button
+    @FindBy (xpath = "//select[@name='c']")
+    public WebElement categoryButton;
+    //TC06 Test Data
+    @FindBy (xpath = "//div[@class='property-card card']")
+    public WebElement semihTest2;
+    //Anasayfa Sale Button
+    @FindBy (xpath = "//button[text()='Sale']")
+    public WebElement homePageSaleButton;
+    //Ilandaki Sale Yazisi
+    @FindBy (xpath = "//div[text()='SALE']")
+    public WebElement saleYazisi;
 
 
 

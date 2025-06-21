@@ -47,7 +47,7 @@ public class ProfilePage {
     @FindBy(xpath = "//button[normalize-space()='UPDATE']")
     public WebElement updateButton;
 
-    @FindBy(xpath = "//span[@class='p-toast-summary']")
+    @FindBy(xpath = "//*[@class='p-toast-message-text']")
     public WebElement successMessage;
 
     // =====Profile Photo Elements=====
@@ -106,6 +106,13 @@ public class ProfilePage {
 
     @FindBy(xpath = "//div[contains(text(),'phone')]")
     public WebElement phoneFormatError;
+    //span[@class='p-toast-summary']
+    @FindBy(xpath = "//span[@class='p-toast-summary']")
+    public WebElement oversizeErrorMessage;
+
+    @FindBy(xpath = "//button[@Class='save-button btn btn-secondary']")
+    public WebElement photoSaveButton;
+
 
 
     //Şifre değişttikten sonra tekrar giriş sayfasına yönlendiriyor

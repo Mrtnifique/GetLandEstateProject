@@ -4,17 +4,21 @@ import com.github.javafaker.Faker;
 import getlandestate.pages.ControlPanelPage;
 import getlandestate.pages.DashBoardPage;
 import getlandestate.utilities.Driver;
+import getlandestate.utilities.ReusableMethods;
 import getlandestate.utilities.WaitUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en_scouse.An;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
+import javax.swing.text.Utilities;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -52,6 +56,8 @@ public class DashBoardPageStepDefs {
         Select selectCity = new Select(dashBoardPage.cityFilter);
         selectCity.selectByVisibleText("Ankara");
 
+
+
         actions.moveToElement(dashBoardPage.districtFilter).click().perform();
 
         Select selectDistrict = new Select(dashBoardPage.districtFilter);
@@ -67,10 +73,12 @@ public class DashBoardPageStepDefs {
         assertTrue(dashBoardPage.houseDisplayed.isDisplayed());
         dashBoardPage.houseClick.click();
 
+
     }
 
     @Then("İletisim bilgilerine tıklayarak uyarı mesajı alınır")
     public void iletisimBilgilerineTıklayarakUyarıMesajıAlınır() {
+        WaitUtils.waitFor(3);
 
         dashBoardPage.contactNumberEyesButton.click();
 
@@ -285,6 +293,7 @@ public class DashBoardPageStepDefs {
 
     @When("Search butonuna tıklanır")
     public void searchButonunaTiklanir() {
+        dashBoardPage.searchBox.click();
     }
     @When("Dashboard'a tıklar")
     public void dashboardATıklar() {
@@ -504,7 +513,200 @@ public class DashBoardPageStepDefs {
         }
     }
 
+    @And("Anasayfa Rent Butonuna Tikla")
+    public void anasayfaRentButonunaTikla(){
+        dashBoardPage.homePageRentButton.click();
+    }
 
+    @Then("Rent ilan kontrol edilir")
+    public void rentIlanKontrolEdilir(){
+        dashBoardPage.semihTest1.click();
+        WaitUtils.waitFor(3);
+        Assert.assertTrue(dashBoardPage.rentYazisi.getText().contains("RENT"));
+    }
+
+    @And("Anasayfa Properties butonuna tikla")
+    public void anasayfaPropertiesButonunaTikla(){
+        dashBoardPage.homePagePropertiesButton.click();
+        WaitUtils.waitForVisibility(dashBoardPage.semihTest1,20);
+    }
+
+    @And("Advert Type butonuna tikla ve Rent sec")
+    public void advertTypeButonunaTiklaVeRentSec(){
+        Select select = new Select(dashBoardPage.advertTypeButton);
+        select.selectByVisibleText("Rent");
+        WaitUtils.waitFor(5);
+    }
+
+    @When("Filter Search Arama Butonuna Tikla")
+    public void filterSearchAramaButonunaTikla(){
+        WaitUtils.waitFor(3);
+        dashBoardPage.filterSearchButton.click();
+    }
+
+    @And("Sitede olmayan bir ilan adi aratilir")
+    public void sitedeOlmayanBirIlanAdiAratilir(){
+        dashBoardPage.filterSearchBox.sendKeys("qweqweqwe");
+        WaitUtils.waitFor(2);
+    }
+
+    @Then("Bulunan ilan sayisi kontrol edilir")
+    public void bulunanIlanSayisiKontrolEdilir(){
+        ReusableMethods.scroll(dashBoardPage.totalFound0);
+        WaitUtils.waitFor(4);
+        Assert.assertTrue(dashBoardPage.totalFound0.getText().contains("0"));
+        WaitUtils.waitFor(2);
+    }
+
+    @And("Filter Search Box temizlenir")
+    public void filterSearchBoxTemizlenir(){
+        ReusableMethods.scrollHome();
+        WaitUtils.waitFor(2);
+        dashBoardPage.filterSearchBox.click();
+        dashBoardPage.filterSearchBox.sendKeys(Keys.CONTROL + "a");
+        dashBoardPage.filterSearchBox.sendKeys(Keys.BACK_SPACE);
+        WaitUtils.waitFor(3);
+    }
+
+    @And("Sitede bulunan bir ilan adi aratilir")
+    public void sitedeOlanBirIlanAdiAratilir(){
+        dashBoardPage.filterSearchBox.sendKeys("House");
+    }
+
+    @Then("Ilan adi kontrol edilir")
+    public void ilanAdiKontrolEdilir(){
+        dashBoardPage.semihTest1.click();
+
+        String actualTitle = Driver.getDriver().findElement(By.xpath("//div[@class='advert-title']")).getText();
+        Assert.assertTrue(actualTitle.contains("House"));
+    }
+
+    @When("Fiyat kismina sayi disinda veri girisi denenir")
+    public void fiyatKisminaSayiDisindaVeriGirisiDenenir(){
+        dashBoardPage.priceRangeMin.sendKeys("asd");
+        dashBoardPage.priceRangeMax.sendKeys("asd");
+    }
+
+    @Then("Fiyat kisminin bos oldugu test edilir")
+    public void fiyatKismininBosOlduguTestEdilir(){
+        String actualMinPriceValue = dashBoardPage.priceRangeMin.getAttribute("value");
+        Assert.assertNotNull(actualMinPriceValue);
+        Assert.assertTrue(actualMinPriceValue.isEmpty());
+
+        String actualMaxPriceValue = dashBoardPage.priceRangeMax.getAttribute("value");
+        Assert.assertNotNull(actualMaxPriceValue);
+        Assert.assertTrue(actualMaxPriceValue.isEmpty());
+    }
+
+    @And("Min kismi Max kismindan buyuk yazilmasi denenir")
+    public void minKismiMaxKismindanBuyukYazilmasiDenenir(){
+        dashBoardPage.priceRangeMin.sendKeys("5");
+        dashBoardPage.priceRangeMax.sendKeys("1");
+    }
+
+    @Then("Start price must be less than end price. hatasi kontrol edilir")
+    public void startPriceMustBeLessThanEndPriceHatasiKontrolEdilir(){
+        WaitUtils.waitForVisibility(dashBoardPage.priceHataMesaji,5);
+        Assert.assertTrue(dashBoardPage.priceHataMesaji.isDisplayed());
+        WaitUtils.waitFor(3);
+    }
+
+    @And("Pricelar temizlenir")
+    public void pricelarTemizlenir(){
+        dashBoardPage.priceRangeMin.click();
+        dashBoardPage.priceRangeMin.sendKeys(Keys.CONTROL + "a");
+        dashBoardPage.priceRangeMin.sendKeys(Keys.BACK_SPACE);
+        WaitUtils.waitFor(2);
+        dashBoardPage.priceRangeMax.click();
+        dashBoardPage.priceRangeMax.sendKeys(Keys.CONTROL + "a");
+        dashBoardPage.priceRangeMax.sendKeys(Keys.BACK_SPACE);
+        WaitUtils.waitFor(2);
+    }
+
+    @And("Dogru Fiyat araligi yapilir")
+    public void dogruFiyatAraligiYapilir(){
+        dashBoardPage.priceRangeMin.sendKeys("1000");
+        dashBoardPage.priceRangeMax.sendKeys("50000");
+    }
+
+    @Then("Fiyatlar kontrol edilir")
+    public void fiyatlarKontrolEdilir(){
+        WaitUtils.waitForVisibility(dashBoardPage.semihTest1,20);
+        dashBoardPage.semihTest1.click();
+        WaitUtils.waitFor(2);
+        String actualIlanPrice = Driver.getDriver().findElement(By.xpath("//div[@class='price']")).getText();
+        actualIlanPrice = actualIlanPrice.replace("$", "");
+        actualIlanPrice = actualIlanPrice.replace(".", "");
+        actualIlanPrice = actualIlanPrice.trim();
+        int fiyat = Integer.parseInt(actualIlanPrice);
+        Assert.assertTrue(fiyat >= 1000 && fiyat <= 50000);
+    }
+
+    @And("Category butonuna tikla ve house sec")
+    public void categoryButonunaTiklaVeHouseSec(){
+        Select select = new Select(dashBoardPage.categoryButton);
+        select.selectByVisibleText("House");
+        WaitUtils.waitFor(5);
+    }
+
+    @Then("Ilanin categorysi kontrol edilir")
+    public void ilaninCategorysiKontrolEdilir(){
+        ReusableMethods.visibleWait(dashBoardPage.semihTest1,15);
+        dashBoardPage.semihTest1.click();
+        String actualCategory = Driver.getDriver().findElement(By.xpath("//div[@class='advert-category-title']")).getText();
+        Assert.assertTrue(actualCategory.contains("House"));
+    }
+
+    @And("Countrye tikla ve France sec")
+    public void countryeTiklaVeFranceSec(){
+        Select select = new Select(dashBoardPage.countryFilter);
+        select.selectByVisibleText("France");
+    }
+
+    @And("Citye tikla ve Allier sec")
+    public void cityeTiklaVeAllierSec(){
+        Select select = new Select(dashBoardPage.cityFilter);
+        select.selectByVisibleText("Allier");
+    }
+
+    @And("Districte tikla ve Vichy sec")
+    public void districteTiklaVeVichySec(){
+        Select select = new Select(dashBoardPage.districtFilter);
+        select.selectByVisibleText("Vichy");
+    }
+
+    @Then("Ilanin konumu kontrol edilir")
+    public void ilaninKonumuKontrolEdilir(){
+        ReusableMethods.visibleWait(dashBoardPage.semihTest2,10);
+        dashBoardPage.semihTest2.click();
+
+        String actualCountry = Driver.getDriver().findElement(By.xpath("(//span[@class='location-value'])[1]")).getText();
+        String actualCity = Driver.getDriver().findElement(By.xpath("(//span[@class='location-value'])[2]")).getText();
+        String actualDistrict = Driver.getDriver().findElement(By.xpath("(//span[@class='location-value'])[3]")).getText();
+
+        Assert.assertTrue(actualCountry.contains("France") && actualCity.contains("Allier") && actualDistrict.contains("Vichy"));
+
+    }
+
+    @And("Anasayfa Sale Butonuna Tikla")
+    public void anasayfaSaleButonunaTikla(){
+        WaitUtils.waitForVisibility(dashBoardPage.homePageSaleButton,10);
+        dashBoardPage.homePageSaleButton.click();
+    }
+
+    @Then("Sale ilan kontrol edilir")
+    public void saleIlanKontrolEdilir(){
+        dashBoardPage.semihTest1.click();
+        WaitUtils.waitFor(3);
+        Assert.assertTrue(dashBoardPage.saleYazisi.getText().contains("SALE"));
+    }
+
+    @And("Advert Type butonuna tikla ve Sale sec")
+    public void advertTypeButonunaTiklaVeSaleSec(){
+        Select select = new Select(dashBoardPage.advertTypeButton);
+        select.selectByVisibleText("Sale");
+        WaitUtils.waitFor(5);
+    }
 
 }
 
