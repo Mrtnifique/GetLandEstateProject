@@ -117,6 +117,8 @@ public class DashBoardPageStepDefs {
     }
 
 
+
+
     @And("Create one now butonuna tıklanır")
     public void createOneNowButonunaTıklanır() {
         dashBoardPage.createOneNowButton.click();
@@ -289,7 +291,69 @@ public class DashBoardPageStepDefs {
         dashBoardPage.logoutsubmitbutton18.click();
     }
 
+    //Emine
+    @When("Back To Site butonuna tıklanır")
+    public void backToSiteButonunaTıklanır() {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(dashBoardPage.backToSiteButton)
+                .click()
+                .build()
+                .perform();
+    }
 
+    @And("Profile butonuna tıklanır")
+    public void profileButonunaTiklanir() {
+        dashBoardPage.profileButton.click();
+    }
+
+    @And("My Adverts butonuna tıklanır")
+    public void myAdvertsButonunaTıklanır() {
+        dashBoardPage.myAdvertsButton.click();
+
+    }
+
+    @Then("Verilen ilanların listelendiği görülür")
+    public void verilenIlanlarinListelendigiGorulur() {
+
+        Assert.assertTrue(dashBoardPage.villageHouse01.isDisplayed());
+    }
+
+    //TC02
+
+    @Then("Edit Advert butonuna tıklanır")
+    public void editAdvertButonunaTıklar() {
+        WaitUtils.waitFor(5);
+        dashBoardPage.editAdvertButton.click();
+//
+//        And My Adverts butonuna tıklanır
+//        Then  Edit Advert butonuna tıklanır
+//        And Yeni bilgilerle ilan güncellenir(Fiyat 900000 yapılır)
+//        And Update butonuna tıklanır
+//        Then Günceleme basarıyla tamamlanmıstır mesajı gorulur.
+//        And Sayfa kapatılır
+
+    }
+
+    @And("Fiyat 950000 yapılır")
+    public void yeniBilgilerleIlanGuncellenir() {
+
+       WaitUtils.waitFor(3);
+       WebElement input = dashBoardPage.priceButton;
+        input.sendKeys(Keys.CONTROL + "a");
+        input.sendKeys(Keys.DELETE);
+        input.sendKeys("900000");
+
+
+    }
+
+    @And("Update butonuna tıklanır")
+    public void updateButonunaTiklanir() {
+        dashBoardPage.updateButton.click();
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(dashBoardPage.updateButton)
+                .click()
+                .build()
+                .perform();
 
     @When("Search butonuna tıklanır")
     public void searchButonunaTiklanir() {
@@ -335,6 +399,7 @@ public class DashBoardPageStepDefs {
     @And("\"YES\" butonuna tiklar")
     public void yesButonunaTiklar() {
         dashBoardPage.yesButton.click();
+
     }
     @And("Secilen randevu istegi kabul edilir")
     public void secilenRandevuIstegiKabulEdilir() {
@@ -709,6 +774,43 @@ public class DashBoardPageStepDefs {
     }
 
 }
+
+
+    @Then("Başarı mesajı gorulur")
+    public void guncellemeBasariylaTamamlanmistirMesajiGorulur() {
+
+        Assert.assertTrue("Başarı mesajı görünmedi.", dashBoardPage.mesageButton.isEnabled());
+
+
+    }
+
+   @And("Fiyat alanına -900000 yazılır")
+    public void negatifDegerGirilir() {
+
+       WebElement input = dashBoardPage.priceButton;
+       input.sendKeys(Keys.CONTROL + "a");
+       input.sendKeys(Keys.DELETE);
+       input.sendKeys("-900000");
+
+   }
+    @And("Uyarı mesajı gorulur")
+    public void uyarıMesajıGorulur() {
+
+        Assert.assertTrue("Başarı mesajı görünmedi.", dashBoardPage.mustBePositive.isEnabled());
+
+
+
+
+    }
+
+
+   }
+
+
+
+
+
+
 
 
 
