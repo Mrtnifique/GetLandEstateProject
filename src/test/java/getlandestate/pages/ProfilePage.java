@@ -788,8 +788,6 @@ public class ProfilePage {
 
 
 
-
-
     //Emine Gurses bitis 791
 
     //Selin Onal baslangic 793
