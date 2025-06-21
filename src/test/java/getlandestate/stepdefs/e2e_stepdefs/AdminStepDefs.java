@@ -1,4 +1,4 @@
-package getlandestate.stepdefs.ui_stepdefs;
+package getlandestate.stepdefs.e2e_stepdefs;
 import getlandestate.pages.ControlPanelPage;
 import getlandestate.pages.DashBoardPage;
 import getlandestate.pages.LogInPage;

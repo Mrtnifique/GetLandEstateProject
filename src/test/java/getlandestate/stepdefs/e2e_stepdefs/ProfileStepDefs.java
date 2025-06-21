@@ -1,4 +1,4 @@
-package getlandestate.stepdefs.ui_stepdefs;
+package getlandestate.stepdefs.e2e_stepdefs;
 
 import getlandestate.pages.LogInPage;
 import getlandestate.pages.ProfilePage;
