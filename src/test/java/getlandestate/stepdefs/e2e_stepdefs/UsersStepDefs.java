@@ -85,6 +85,7 @@ public class UsersStepDefs {
 
     @Then("Kullanicinin rolunun basariyla manager olarak guncellendigi assert edilir")
     public void kullanicininRolununBasariylaManagerOlarakGuncellendigiAssertEdilir() {
+        WaitUtils.waitFor(2);
         controlPanelPage.categoriesSearchBox.sendKeys("Lady");
         controlPanelPage.categoriesSearchBoxSearchButton.click();
         WaitUtils.waitFor(2);
