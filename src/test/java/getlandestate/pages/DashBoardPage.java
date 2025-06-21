@@ -715,7 +715,7 @@ public class DashBoardPage {
 
 
     //@TC02E
-    //tbody/tr[1]/td[5]/div[1]/div[1]/button[2]//*[name()='svg']
+
 
     // Edit butonuna tıkla
     @FindBy(xpath = "//tbody/tr[1]/td[5]/div[1]/div[1]/button[2]//*[name()='svg']")
@@ -738,17 +738,6 @@ public class DashBoardPage {
 
 
 
-
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
