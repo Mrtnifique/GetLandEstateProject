@@ -275,7 +275,34 @@ public class LogInPage {
 
     //Merve Subas bitis 280
 
+
+
+
+
     //Ruhin Bey baslangic 282
+    //Register Button
+    @FindBy(xpath = "//a[@data-rr-ui-event-key='6']")
+    public WebElement RegisterButton;
+
+    //Firstname
+    @FindBy(name = "firstName")
+    public WebElement firstname;
+
+    //Lastname
+    @FindBy(name = "lastName")
+    public WebElement lastname;
+
+    //Phone
+    @FindBy(name = "phone")
+    public WebElement phone;
+
+    //ConfirmPassword
+    @FindBy(name = "confirmPassword")
+    public WebElement confirmPassword;
+
+    //Add Register
+    @FindBy(xpath = "//*[@class='form-submit-button']")
+    public WebElement Register;
 
 
 
