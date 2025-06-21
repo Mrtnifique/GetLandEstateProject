@@ -104,7 +104,7 @@ public class LogInPageStepDefs {
     }
 
 
-    //Ruhin US02
+    //Ruhin US02 Customer registerle Login olmalı
     //Customer registerle Login olmalı
     Faker faker = new Faker();
     LogInPage registerLogin = new LogInPage();
