@@ -103,6 +103,8 @@ public class LogInPageStepDefs {
         logInPage.loginButton.click();
     }
 
+
+    //Ruhin US02
     //Customer registerle Login olmalı
     Faker faker = new Faker();
     LogInPage registerLogin = new LogInPage();
@@ -175,15 +177,5 @@ public class LogInPageStepDefs {
     public void customerOlaraqQeydOlmamali() {
         Assert.assertTrue("Customer olaraq qeyd olmamali",registerLogin.Register.isDisplayed());
     }
-
-
-
-
-
-
-
-
-
-
 }
 
