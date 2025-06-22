@@ -103,16 +103,14 @@ public class UsersStepDefs {
         WaitUtils.waitFor(2);
     }
 
-    @Given("Siteye {string} email {string} password ile giriş yapılır")
-    public void siteyeEmailPasswordIleGirişYapılır(String email, String password) {
+   /* @Given("Siteye manager olarak giris yapilir")
+    public void siteyeManagerOlarakGirisYapilir() {
         Driver.getDriver().get("http://64.227.123.49");
-        WaitUtils.waitFor(2);
         dashBoardPage.loginButton.click();
-
-        logInPage.emailBox.sendKeys(email);
-        logInPage.passwordBox.sendKeys(password);
+        logInPage.emailBox.sendKeys("venusnonova@gmail.com");
+        logInPage.passwordBox.sendKeys("Venus11Nova*");
         logInPage.loginButton.click();
-    }
+    }*/
 
     @And("Search boxtan ilgili admin kullanici aranir")
     public void searchBoxtanIlgiliAdminKullaniciAranir() {

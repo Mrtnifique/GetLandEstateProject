@@ -1,6 +1,7 @@
 package getlandestate.pages;
 
 import getlandestate.utilities.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -931,6 +932,23 @@ public class LogInPage {
 
     @FindBy(xpath = "//div[@class='admin-contact-message-container']//div[1]//h2[1]//button[1]")
     public  WebElement aradıgimizMesaj;
+
+    @FindBy(xpath = "//body/div[@id='root']/div[@class='user-layout-container']/nav[@class='top-nav-menu bg-default navbar navbar-expand-lg navbar-light sticky-top']/div[@class='container']/div[@class='menu-wrapper']/div[@class='hero']/div[@class='user-logo-nav navbar-nav']/img[1]")
+    public WebElement customerMenuButonu;
+
+    @FindBy(xpath = "//span[normalize-space()='My Profile']")
+    public WebElement customerMenuMyProfile;
+
+    @FindBy(xpath = "//span[normalize-space()='My Adverts']")
+    public WebElement customerMenuMyAdverts;
+
+    @FindBy(xpath = "//span[normalize-space()='My Favorites']")
+    public WebElement customerMenuMyFavorites;
+
+    @FindBy(xpath = "//span[normalize-space()='My Tour Requests']")
+    public WebElement customerMenuMyTourRequest;
+
+
 
 
 

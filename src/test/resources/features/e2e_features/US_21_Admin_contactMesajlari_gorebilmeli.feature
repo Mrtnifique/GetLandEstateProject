@@ -13,3 +13,12 @@ Feature: Admin İletileri Görüntüleme
     Then Manager ContactMessages görebildiğini doğrula
 
 
+  @TC02_Negatif
+  Scenario: Customer ileti mesajlarını goruntuleyememeli
+    When sitesiye git
+    And Customer girisi yap
+    And customer profil menusune tıkla
+    Then Control panel seçeneğinin olmadığını doğrula
+
+
+
