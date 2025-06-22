@@ -18,7 +18,6 @@ Feature: Admin İletileri Görüntüleme
     When sitesiye git
     And Customer girisi yap
     And customer profil menusune tıkla
-    And tüm seçenekleri al
     Then Control panel seçeneğinin olmadığını doğrula
 
 
