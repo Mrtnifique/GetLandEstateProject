@@ -784,6 +784,46 @@ public class DashBoardPage {
 
     //Emine Gurses baslangic 695
 
+    //TC01E
+
+    //Back to Site butonuna  tıklanır
+    @FindBy(xpath = "//a[@class='side-menu-link back-site nav-link' and @title='Back to Site']")
+    public WebElement backToSiteButton;
+
+    //Profile Button
+    @FindBy(xpath ="//html[1]/body[1]/div[1]/div[1]/nav[1]/div[1]/div[2]/div[1]/div[1]/img[1]")
+    public WebElement profileButton;
+
+    //My Adverts Button
+    @FindBy(xpath = "//a[@href='/my-adverts']")
+    public WebElement myAdvertsButton;
+
+    //Village House
+    @FindBy(xpath= "//table[@class=\"p-datatable-table\"]")
+    public WebElement villageHouse01;
+
+
+    //@TC02E
+
+
+    // Edit butonuna tıkla
+    @FindBy(xpath = "//tbody/tr[1]/td[5]/div[1]/div[1]/button[2]//*[name()='svg']")
+    public WebElement editAdvertButton;
+
+    //Price butonuna tıkla
+    @FindBy(xpath = "//input[@id='price']")
+    public WebElement priceButton;      //input[@id='price']     document.querySelector(\"#price\")"
+
+    //Update butonuna tıkla
+    @FindBy(xpath = "//button[normalize-space()='Update']")
+    public WebElement updateButton;
+
+    //Basarıyla guncellenmiştir mesajı
+    @FindBy(xpath = "//*[@class='p-toast-message-text']")
+    public WebElement mesageButton;
+
+    @FindBy(xpath = "//div[normalize-space()='Price must be positive']")
+    public WebElement mustBePositive;
 
 
 

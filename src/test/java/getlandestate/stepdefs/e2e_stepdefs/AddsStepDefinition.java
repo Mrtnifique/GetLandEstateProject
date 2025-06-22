@@ -3,7 +3,6 @@ package getlandestate.stepdefs.e2e_stepdefs;
 import getlandestate.pages.AddsPage;
 import getlandestate.pages.DashBoardPage;
 import getlandestate.pages.LogInPage;
-import getlandestate.utilities.ConfigReader;
 import getlandestate.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
