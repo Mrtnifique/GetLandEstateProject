@@ -19,10 +19,12 @@ import java.time.Duration;
 
 
 public class LogInPageStepDefs {
+    DashBoardPage dashBoardPage = new DashBoardPage();
+    LogInPage logInPage = new LogInPage();
+
     @Given("Siteye admin olarak giriş yapılır")
     public void siteyeAdminGirisYapilir() {
-        DashBoardPage dashBoardPage = new DashBoardPage();
-        LogInPage logInPage = new LogInPage();
+
         Driver.getDriver().get("http://64.227.123.49");
 
         dashBoardPage.loginButton.click();
@@ -41,7 +43,7 @@ public class LogInPageStepDefs {
         Driver.getDriver().get("http://64.227.123.49");
 
 
-}
+    }
 
     @Given("Customer olarak sayfaya giris yapılır")
     public void customerOlarakSayfayaGirisYapılır() {
@@ -60,7 +62,7 @@ public class LogInPageStepDefs {
         logInPage.loginButton.click();
     }
 
-    @When( "Manager hesabı ile sisteme giriş yapılır18")
+    @When("Manager hesabı ile sisteme giriş yapılır18")
     public void managerHesabıileSistemeGirişYapılır18() {
         LogInPage logInPage = new LogInPage();
         DashBoardPage dashBoardPage = new DashBoardPage();
@@ -88,11 +90,11 @@ public class LogInPageStepDefs {
     }
 
 
-
     @Given("Siteye {string} username {string} password ile giriş yapılır")
     public void siteyeUsernamePasswordIleGirişYapılır(String username, String password) {
         Driver.getDriver().get("http://64.227.123.49");
         dashBoardPage.loginButton.click();
+    }
 
 
     @Given("siteye manager olarak giriş yapılır")
@@ -114,6 +116,7 @@ public class LogInPageStepDefs {
     //Customer registerle Login olmalı
     Faker faker = new Faker();
     LogInPage registerLogin = new LogInPage();
+
     @Given("Web seyfesine get")
     public void webSeyfesineGet() {
         Driver.getDriver().get("http://64.227.123.49");
@@ -150,7 +153,7 @@ public class LogInPageStepDefs {
 
     @And("Customer olaraq qeyd olmali")
     public void customerOlaraqQeydOlmali() {
-        Assert.assertTrue("Customer olaraq qeyd olmali",registerLogin.Register.isDisplayed());
+        Assert.assertTrue("Customer olaraq qeyd olmali", registerLogin.Register.isDisplayed());
     }
 
     @Then("Ad, Soyad ve telefon nomresi xetali yazmali")
@@ -181,11 +184,10 @@ public class LogInPageStepDefs {
 
     @And("Customer olaraq qeyd olmamali")
     public void customerOlaraqQeydOlmamali() {
-        Assert.assertTrue("Customer olaraq qeyd olmamali",registerLogin.Register.isDisplayed());
+        Assert.assertTrue("Customer olaraq qeyd olmamali", registerLogin.Register.isDisplayed());
     }
 
-
-    }
 
 }
+
 
