@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
                 "json:target/json-reports/cucumber.json",
                 "junit:target/xml-reports/cucumber.xml",
         },
-        features = "src/test/resources/features/e2e_features",
+        features = "src/test/resources/features/ui_features",
         glue = {"getlandestate/stepdefs", "getlandestate/hooks"},
   
         tags = "@TC02_Negatif",

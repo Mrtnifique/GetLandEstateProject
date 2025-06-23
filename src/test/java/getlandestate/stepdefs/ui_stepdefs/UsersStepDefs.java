@@ -1,4 +1,4 @@
-package getlandestate.stepdefs.e2e_stepdefs;
+package getlandestate.stepdefs.ui_stepdefs;
 
 import getlandestate.pages.ControlPanelPage;
 import getlandestate.pages.DashBoardPage;
@@ -6,7 +6,6 @@ import getlandestate.pages.LogInPage;
 import getlandestate.utilities.Driver;
 import getlandestate.utilities.WaitUtils;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
