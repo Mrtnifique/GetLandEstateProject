@@ -1,4 +1,4 @@
-package getlandestate.stepdefs.e2e_stepdefs;
+package getlandestate.stepdefs.ui_stepdefs;
 
 import com.github.javafaker.Faker;
 import getlandestate.pages.DashBoardPage;

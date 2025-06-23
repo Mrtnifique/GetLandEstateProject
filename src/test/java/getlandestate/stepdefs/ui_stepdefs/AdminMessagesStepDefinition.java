@@ -1,18 +1,11 @@
-package getlandestate.stepdefs.e2e_stepdefs;
+package getlandestate.stepdefs.ui_stepdefs;
 
 import getlandestate.pages.DashBoardPage;
 import getlandestate.pages.LogInPage;
-import getlandestate.utilities.Driver;
 import getlandestate.utilities.WaitUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import java.util.ArrayList;
-import java.util.List;
-
 
 
 public class AdminMessagesStepDefinition {

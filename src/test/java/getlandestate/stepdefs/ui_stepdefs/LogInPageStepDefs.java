@@ -1,4 +1,4 @@
-package getlandestate.stepdefs.e2e_stepdefs;
+package getlandestate.stepdefs.ui_stepdefs;
 
 import com.github.javafaker.Faker;
 import getlandestate.pages.DashBoardPage;
@@ -11,8 +11,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.junit.Assert;
 
 import java.time.Duration;
