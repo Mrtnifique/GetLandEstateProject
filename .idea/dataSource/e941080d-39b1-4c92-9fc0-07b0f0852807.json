@@ -1,0 +1,42 @@
+{
+  "name" : null,
+  "USERS" : [ {
+    "USER_NAME" : "PUBLIC",
+    "IS_EXPIRED" : "N",
+    "IS_LOCKED" : "N"
+  }, {
+    "USER_NAME" : "postgres",
+    "IS_EXPIRED" : "N",
+    "IS_LOCKED" : "N"
+  } ],
+  "CHARSETS" : [ {
+    "CHARSET_NAME" : "UTF8",
+    "DISPLAY_NAME" : "UTF8",
+    "IS_DEPRECATED" : "N",
+    "MAX_LENGTH" : -1
+  } ],
+  "SYSTEM_PRIVILEGES" : [ {
+    "PRIVILEGE_NAME" : "USAGE"
+  } ],
+  "SCHEMAS" : [ {
+    "SCHEMA_NAME" : "information_schema",
+    "IS_PUBLIC" : "N",
+    "IS_SYSTEM" : "Y",
+    "IS_EMPTY" : "N"
+  }, {
+    "SCHEMA_NAME" : "pg_catalog",
+    "IS_PUBLIC" : "Y",
+    "IS_SYSTEM" : "N",
+    "IS_EMPTY" : "N"
+  }, {
+    "SCHEMA_NAME" : "pg_toast",
+    "IS_PUBLIC" : "N",
+    "IS_SYSTEM" : "N",
+    "IS_EMPTY" : "N"
+  }, {
+    "SCHEMA_NAME" : "public",
+    "IS_PUBLIC" : "N",
+    "IS_SYSTEM" : "N",
+    "IS_EMPTY" : "N"
+  } ]
+}
