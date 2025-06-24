@@ -7,10 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 
 public class AddsPage {
     public AddsPage() {
-        PageFactory.initElements(Driver.getDriver(),this);
-        //ilanlarim butonu
+        PageFactory.initElements(Driver.getDriver(), this);
+    }
 
-}
+
+
 
 
   
@@ -821,37 +822,10 @@ public class AddsPage {
 
 
 
-
     //Rezzan Erva Odabaşı bitis 825
 
     //Emine Arı Baslangıc 827
-  @FindBy(xpath="//*[span='Profilim']")
-                public static WebElement ProfileButton;
     //ilanlarim butonu
-    @FindBy(xpath="//*[@id=\"subMenu\"]/div/a[2]/span[1]/span")
-                public static WebElement addsButon;
-    //Ilan beklemede butonu
-    @FindBy(xpath="(//*[@class='p-tag-value'])[1]")
-                public WebElement waitingButtonVerify;
-    //Degisim-guncelleme ana butonu
-    @FindBy(xpath="(//*[@stroke-linejoin='round'])[3]") //chams elysees
-                public static WebElement addsChangeButton;
-    //Silme butonu
-    @FindBy(xpath="(//*[@stroke-linejoin='round'])[4]")
-                public WebElement addsDeleteButton;
-    //Aktiflestirme butonu
-    @FindBy(xpath="//*[@id='custom-switch']")
-                public static WebElement addsActivateButton;
-    //Guncelleme butonu
-    @FindBy(xpath="(//*[@type='submit'])[1]")
-                public WebElement addsUpdateButton;
-    //Guncelleme Basarili Mesaji
-    @FindBy(xpath="//button[contains(@class,'p-toast-detail')] ")
-                public static WebElement addsUpdateVerifyButton;//(kontrol edilecek )
-    //Ilan basariyla silindi mesaji
-    @FindBy(xpath=" ")
-                public WebElement addsDeletedVerify;
-    //Ilanlarim sayfasindaki ilanlar butonu
     @FindBy(xpath = "( //span[contains(text(),'İlanlar')] ")
     public WebElement addsOnAdverts;
 
@@ -880,26 +854,52 @@ public class AddsPage {
     public WebElement situationActiveButton;
 
 
+
     //Durum Reddedildi butonu
     @FindBy(xpath = "(//span[@class='p-tag-value']")
     public WebElement statusRejectedButton;
 
+
+
     //Guncelleme sayfasindaki Ddm butonu
     @FindBy(xpath = "(//select[@id='statusForAdvert']")
     public WebElement statusDdmButton;
+
+
 
     // Guncelleme sayfasindaki update butonu
     @FindBy(xpath = "(//button[@type='submit']")
     public WebElement updateButtonOnEdit;
 
 
+
+
     // Guncelleme basarili mesaji
     @FindBy(xpath = "(//body/div[@id='root']/div[@class='p-toast p-component p-toast-top-right p-ripple-disabled']/div/div[1]/div[1]/div[1]/div[1]")
     public WebElement updateSuccesfulMessage;
 
-    //Emine Arı bitis 900
 
-    //Fatih Üstünyer baslangic 902
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Emine Arı bitis 900
+
+//Fatih Üstünyer baslangic 902
 
 
 
@@ -975,4 +975,4 @@ public class AddsPage {
 
 
     //Fatih Üstünyer bitis 977
-}
+
