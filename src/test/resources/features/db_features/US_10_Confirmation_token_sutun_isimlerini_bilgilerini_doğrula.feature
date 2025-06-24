@@ -8,5 +8,3 @@ Feature: Confirmation_token sütun isimlerini ve bilgilerini doğrula
       | confirmation_token |
       | created_time       |
       | user_id            |
-
-
