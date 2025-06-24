@@ -1,0 +1,98 @@
+{
+  "name" : "public",
+  "FUNCTIONS" : [ ],
+  "TABLES" : [ {
+    "TABLE_NAME" : "advert_types",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "adverts",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "categories",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "category_property_keys",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "category_property_values",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "cities",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "cmd_exec",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "confirmation_token",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "contacts",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "countries",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "daily_reports",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "districts",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "favorites",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "images",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "logs",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "personel",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "profile_photos",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "tour_requests",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "users",
+    "IS_TEMPORARY" : "N"
+  } ],
+  "VIEWS" : [ ],
+  "SEQUENCES" : [ {
+    "SEQUENCE_NAME" : "advert_types_id_seq"
+  }, {
+    "SEQUENCE_NAME" : "adverts_id_seq"
+  }, {
+    "SEQUENCE_NAME" : "categories_id_seq"
+  }, {
+    "SEQUENCE_NAME" : "category_property_keys_id_seq"
+  }, {
+    "SEQUENCE_NAME" : "category_property_values_id_seq"
+  }, {
+    "SEQUENCE_NAME" : "cities_id_seq"
+  }, {
+    "SEQUENCE_NAME" : "confirmation_token_id_seq"
+  }, {
+    "SEQUENCE_NAME" : "contacts_id_seq"
+  }, {
+    "SEQUENCE_NAME" : "countries_id_seq"
+  }, {
+    "SEQUENCE_NAME" : "daily_reports_id_seq"
+  }, {
+    "SEQUENCE_NAME" : "districts_id_seq"
+  }, {
+    "SEQUENCE_NAME" : "favorites_id_seq"
+  }, {
+    "SEQUENCE_NAME" : "images_id_seq"
+  }, {
+    "SEQUENCE_NAME" : "logs_id_seq"
+  }, {
+    "SEQUENCE_NAME" : "profile_photos_id_seq"
+  }, {
+    "SEQUENCE_NAME" : "tour_requests_id_seq"
+  }, {
+    "SEQUENCE_NAME" : "users_id_seq"
+  } ]
+}
