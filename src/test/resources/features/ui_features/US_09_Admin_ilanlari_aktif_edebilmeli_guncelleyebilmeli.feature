@@ -1,32 +1,57 @@
 @US09
-Feature: US09 Admin ilanlarla ilgili islemleri yapar
-Background:
 
-  Given Siteye admin olarak giriş yapılır
-  When Profilime  tiklar
-  Then Ilanlarima tiklar
 
-  Scenario: TC01 Admin ilanlari guncelleyebilmeli
 
-    And Kayitli ilanlarim'da duzenleme islemi yapar
-    Then guncelleme basarili yazisini goruntuler.
+Feature: US09 Admin girilen ilanları aktif edebilmeli ,reddedebilmeli ,güncelleyebilmelidir
 
-    Scenario: TC02 Admin ilanlari silebilmeli
+  Background:
+    Given Siteye admin olarak giriş yapılır
+    Given kullanıcı ilanlar sayfasındadır
 
-      And Ilanlarimda silme islemi yapar
-      And Silme isleminin basariyla gerceklestigi mesajini goruntuler .
 
-      Scenario: TC03 Admin ilanlari aktive edebilmeli
 
-        Then Ilanlarin goruntulendigi sayfada guncelleye tiklar
-        When Pasif butonu aktive eder
-        And Guncelle butonuna tiklar
-        Then Guncelleme basarili mesajini goruntuler
-        When Guncellenen sayfada butonun aktif oldugu goruntulenir
+  @US09@TC01
+  Scenario Outline: Ilanlar ile ilgili arama islemlerini yapabilmelidir
 
-        Scenario: TC04 Admin ilanlar ile ilgili arama islemleri yapabilmeli
+    When arama çubuğuna "<terim>" yazılarak arama yapılır
+    Then sistem "<terim>" ile ilgili ilanları listelemelidir
+    Then arama çubugunun başarılı bir şekilde çalıştığı doğrulanır
+    And sayfa kapatılır
 
-          And Arama yapar
+    Examples:
+      | terim       |
+      | apartman    |
+      | villa       |
+      | daire       |
+      | tiny house  |
 
-       Scenario:TC05 Ilanlarim sayfasinda arama ozelligi eksik(negatif test)
-         And Arama butonu bulunmamalidir
+
+  @US09@TC02
+  Scenario: İlanlar aktive edilebilmelidir
+    When Aratma kutusuna Seferihisar yazıp aratılır
+    And Sayfada görüntülenen ilanın işlem menüsünden güncelleme butonuna basılır
+    Then ilanın durum ddm den aktif seçeneği seçilir ve güncellenir
+    And  Aratma kutusuna Seferihisar yazıp aratılır
+    Then İlanın aktif olduğu doğrulanır
+    And Sayfa kapatılır
+
+
+
+  @US09@TC03
+  Scenario: İlanlar güncellenebilmeli
+    When Aratma kutusuna Bungalow yazıp aratılır
+    And  Sayfada görüntülenen ilanın işlem menüsünden güncelleme butonuna basılır
+    When İşlem başarılı şekilde güncellendi mesajı doğrulanır
+    And  Sayfa kapatılır
+
+
+
+  @US09@TC04
+  Scenario: İlanlar reddedilebilmelidir
+    When  Aratma kutusuna Seferihisar yazıp aratılır
+    And   Sayfada görüntülenen ilanın işlem menüsünden güncelleme butonuna basılır
+    Then ilanın durum ddm den Reddedildi seçeneği seçilir ve güncellenir
+    And  Aratma kutusuna Seferihisar yazıp aratılır
+    Then İlanın Reddedildi olduğu doğrulanır
+    And Sayfa kapatılır
+

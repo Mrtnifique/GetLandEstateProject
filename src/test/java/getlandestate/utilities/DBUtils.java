@@ -1,3 +1,4 @@
+
 package getlandestate.utilities;
 
 import java.sql.*;
@@ -353,3 +354,4 @@ public class DBUtils {
         return columnCount;
     }
 }
+
