@@ -20,11 +20,11 @@
       <console name="Connection" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="e941080d-39b1-4c92-9fc0-07b0f0852807">
-      <console name="Get Land Estate" type="STANDARD" schema="" session="Main"><![CDATA[SELECT table_schema, table_name
+      <console name="Get Land Estate" type="STANDARD" schema="" session="Main">SELECT table_schema, table_name
 FROM information_schema.tables
 WHERE table_schema = 'public'
   AND table_type = 'BASE TABLE'
-ORDER BY table_name ASC;]]></console>
+ORDER BY table_name ASC;</console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
