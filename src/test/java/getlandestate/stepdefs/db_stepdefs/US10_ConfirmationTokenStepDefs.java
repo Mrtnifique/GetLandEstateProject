@@ -22,8 +22,9 @@ public class US10_ConfirmationTokenStepDefs {
 
 
     @Given("Kullanıcı {string} sekmesinden sütun isimlerini çeker")
-    public void kullanıcıSekmesindenSütunIsimleriniÇeker(String arg0) {
-        actualColumnNames = DBUtils.getColumnNames("SELECT * FROM confirmation_token");
+    public void kullanıcıSekmesindenSütunIsimleriniÇeker(String tableName) {
+
+        actualColumnNames = DBUtils.getColumnNames("SELECT * FROM " + tableName + " LIMIT 1");
         System.out.println("Veritabanından gelen kolonlar: " + actualColumnNames);
     }
 }
