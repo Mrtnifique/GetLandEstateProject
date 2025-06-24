@@ -11,6 +11,13 @@ import java.util.List;
 public class US10_ConfirmationTokenStepDefs {
     List<String> actualColumnNames;
 
+    @Given("Kullanıcı {string} sekmesinden sütun isimlerini çeker")
+    public void kullanıcıSekmesindenSütunIsimleriniÇeker(String tableName) {
+
+        actualColumnNames = DBUtils.getColumnNames("SELECT * FROM " + tableName + " LIMIT 1");
+        System.out.println("Veritabanından gelen kolonlar: " + actualColumnNames);
+    }
+
     @Then("Kullanıcı gelen isimleri doğrular")
     public void kullanicigelenisimleridogrular(DataTable expectedTable) {
         List<String> expectedColumnNames = expectedTable.asList();
@@ -21,11 +28,6 @@ public class US10_ConfirmationTokenStepDefs {
     }
 
 
-    @Given("Kullanıcı {string} sekmesinden sütun isimlerini çeker")
-    public void kullanıcıSekmesindenSütunIsimleriniÇeker(String tableName) {
 
-        actualColumnNames = DBUtils.getColumnNames("SELECT * FROM " + tableName + " LIMIT 1");
-        System.out.println("Veritabanından gelen kolonlar: " + actualColumnNames);
-    }
 }
 
