@@ -14,10 +14,10 @@ import org.junit.runner.RunWith;
                 "json:target/json-reports/cucumber.json",
                 "junit:target/xml-reports/cucumber.xml",
         },
-        features = "src/test/resources/features/ui_features",
+        features = "src/test/resources/features/db_features",
         glue = {"getlandestate/stepdefs", "getlandestate/hooks"},
 
-        tags = "",
+        tags = "@DBUS09",
 
 
 
