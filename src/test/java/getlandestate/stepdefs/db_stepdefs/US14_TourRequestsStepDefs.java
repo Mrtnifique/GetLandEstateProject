@@ -10,13 +10,14 @@ import java.sql.*;
 
 public class US14_TourRequestsStepDefs {
 
-    private Connection connection = DBUtils.connection; // bağlantı DBUtils'tan alınır
+    private Connection connection; // DBUtils'tan dinamik olarak alınacak
     private ResultSet resultSet;
     private ResultSetMetaData metaData;
     private PreparedStatement preparedStatement;
 
     @And("tour_requests tablosuna erişim sağlanır")
     public void tour_requests_tablosuna_erisim_saglanir() {
+        connection = DBUtils.connectToDatabase(); // Her seferinde yeniden al
         executeQuery("SELECT * FROM tour_requests LIMIT 1");
         System.out.println("tour_requests tablosuna erişim sağlandı");
     }
@@ -24,6 +25,11 @@ public class US14_TourRequestsStepDefs {
     @When("{int} numaralı satır sorgulanır")
     public void numarali_satir_sorgulanir(int id) {
         try {
+            // Connection'ı kontrol et, yoksa yeniden al
+            if (connection == null) {
+                connection = DBUtils.connectToDatabase();
+            }
+
             String query = "SELECT * FROM tour_requests WHERE id = ?";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, id);
@@ -56,6 +62,11 @@ public class US14_TourRequestsStepDefs {
 
     @When("tablo yapısı kontrol edilir")
     public void tablo_yapisi_kontrol_edilir() {
+        // Connection'ı kontrol et, yoksa yeniden al
+        if (connection == null) {
+            connection = DBUtils.connectToDatabase();
+        }
+
         executeQuery("SELECT * FROM tour_requests LIMIT 1");
         try {
             metaData = resultSet.getMetaData();
@@ -90,6 +101,11 @@ public class US14_TourRequestsStepDefs {
     // Ortak SQL sorgulama fonksiyonu
     private void executeQuery(String query) {
         try {
+            // Connection'ı kontrol et, yoksa yeniden al
+            if (connection == null) {
+                connection = DBUtils.connectToDatabase();
+            }
+
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
         } catch (SQLException e) {
