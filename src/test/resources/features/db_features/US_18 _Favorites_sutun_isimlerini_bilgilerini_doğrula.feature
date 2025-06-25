@@ -2,7 +2,7 @@
 Feature: Kullanıcı Favorites sütun isimlerini ve bilgilerini doğrula
 
   Scenario: Favorites sütun isimlerini doğrula
-    Given Kullanıcı "favorites" sekmesinden sütun isimlerini çeker
+    Given Kullanıcı "districts" sekmesinden sütun isimlerini çeker
     Then Kullanıcı gelen isimleri doğrular
       | id         |
       | advert_id  |
