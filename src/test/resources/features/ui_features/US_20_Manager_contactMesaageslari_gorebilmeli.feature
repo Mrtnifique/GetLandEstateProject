@@ -11,3 +11,4 @@ Feature: Manager İletileri Görüntüleme
     When ContactMessages butonuna tıkla
     And Messajlarda arama yap
     Then Manager ContactMessages görebildiğini doğrula
+  And Siteye "test" username "test" password ile giriş yapılır
