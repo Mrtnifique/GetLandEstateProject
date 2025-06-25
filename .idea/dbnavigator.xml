@@ -27,7 +27,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="9603ae38-9b06-446a-9454-b65c4da5a52e">
-      <console name="Connection" type="STANDARD" schema="" session="Main"><![CDATA[select * from category_property_keys]]></console>
+      <console name="Connection" type="STANDARD" schema="public" session="Main"><![CDATA[select * from category_property_keys]]></console>
       <console name="GetLandEstate" type="STANDARD" schema="prettierhomes" session="Main" />
     </connection>
   </component>
@@ -36,7 +36,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
-      <object connection-id="9603ae38-9b06-446a-9454-b65c4da5a52e" object-ref="consoles/GetLandEstate" />
+      <object connection-id="9603ae38-9b06-446a-9454-b65c4da5a52e" object-ref="consoles/Connection" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">

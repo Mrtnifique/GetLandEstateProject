@@ -36,3 +36,11 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Default ignored files
+
+# IntelliJ IDEA project files
+.idea/
+.idea/shelf/
+.idea/workspace.xml
+.idea/mavenHomeManager.xmlsrc/test/java/getlandestate/runners/Runner.java
