@@ -1,8 +1,0 @@
-# Default ignored files
-
-# IntelliJ IDEA project files
-.idea/
-.idea/shelf/
-.idea/workspace.xml
-.idea/mavenHomeManager.xml
-src/test/java/getlandestate/runners/Runner.java
