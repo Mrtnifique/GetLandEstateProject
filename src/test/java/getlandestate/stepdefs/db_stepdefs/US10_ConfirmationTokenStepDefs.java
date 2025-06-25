@@ -15,15 +15,15 @@ public class US10_ConfirmationTokenStepDefs {
     public void kullanıcıSekmesindenSütunIsimleriniÇeker(String tableName) {
 
         actualColumnNames = DBUtils.getColumnNames("SELECT * FROM " + tableName + " LIMIT 1");
-        System.out.println("Veritabanından gelen kolonlar: " + actualColumnNames);
+        System.out.println("Veritabanından gelen isimler: " + actualColumnNames);
     }
 
     @Then("Kullanıcı gelen isimleri doğrular")
     public void kullanicigelenisimleridogrular(DataTable expectedTable) {
         List<String> expectedColumnNames = expectedTable.asList();
 
-        System.out.println("Beklenen kolonlar: " + expectedColumnNames);
-        System.out.println("Gerçek kolonlar  : " + actualColumnNames);
+        System.out.println("Beklenen isimler: " + expectedColumnNames);
+        System.out.println("Gelen isimler  : " + actualColumnNames);
         Assert.assertEquals(expectedColumnNames, actualColumnNames);
     }
 
