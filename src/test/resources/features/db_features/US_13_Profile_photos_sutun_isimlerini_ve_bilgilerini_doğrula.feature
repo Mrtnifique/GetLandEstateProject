@@ -1,4 +1,4 @@
-@US13
+@DBUS13
   Feature: Profile Photos sütun isimlerini ve bilgilerini doğrula
 
     Scenario: Profile Photos sütun isimlerini dogrula
@@ -10,7 +10,7 @@
         | type    |
 
     Scenario: Kullanıcı Profile Photos sütun bilgilerini doğrular
-      Given Kullanıcı "profile_photos" tablosundan "45" id'den bilgileri alir
+      Given Kullanıcı "profile_photos" tablosundan "63" id'den bilgileri alir
       Then Kullanıcıdan gelen bilgiler doğrulanir
         | id    | data              | name               | type       |
-        | 45    |                   |                    |            |
+        | 63    | 2081312           | cropped-image.jpg  |  image/jpeg|
