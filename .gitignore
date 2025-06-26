@@ -44,3 +44,4 @@ build/
 .idea/shelf/
 .idea/workspace.xml
 .idea/mavenHomeManager.xmlsrc/test/java/getlandestate/runners/Runner.java
+.idea/misc.xml
