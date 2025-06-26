@@ -8,3 +8,9 @@
         | data    |
         | name    |
         | type    |
+
+    Scenario: Kullanıcı Profile Photos sütun bilgilerini doğrular
+      Given Kullanıcı "profile_photos" tablosundan "45" id'den bilgileri alir
+      Then Kullanıcıdan gelen bilgiler doğrulanir
+        | id    | data              | name               | type       |
+        | 45    |                   |                    |            |
