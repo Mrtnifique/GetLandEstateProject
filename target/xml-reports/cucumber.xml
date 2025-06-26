@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="7.907" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-06-26T15:15:17.883440200Z">
+<testcase classname="category_property_values sütun isimlerini ve bilgilerini doğrula" name="category_property_values tablosunda doğru sütun isimleri bulunmalı" time="7.097">
+<system-out><![CDATA[
+Given Kullanıcı veritabanına bağlanır.......................................passed
+When "category_property_values" tablosundan sütun bilgileri alınır..........passed
+Then Aşağıdaki sütunların mevcut olduğu doğrulanır..........................passed
+]]></system-out>
+</testcase>
+</testsuite>

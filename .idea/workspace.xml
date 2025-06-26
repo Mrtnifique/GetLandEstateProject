@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="66d2e2b2-0105-4e9c-b71c-b248c841beba" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;mervesubas&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Mrtnifique/GetLandEstateProject.git&quot;,
+    &quot;accountId&quot;: &quot;4635eae7-d01e-4f32-8e5a-50227ca82410&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2yb5jgHDv9OSVkB6RGtsYxC6QlZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Cucumber Java.Feature: US_03_Customer_profile_bilgilerini_görebilmeli_ve_güncelleyebilmeli.executor": "Run",
+    "Cucumber Java.Scenario: TC01 Customer, profile bilgilerini görebilmeli ve güncelleyebilmeli.executor": "Run",
+    "Cucumber Java.Scenario: TC02 Geçersiz Bilgilerle Profil Güncelleme.executor": "Run",
+    "JUnit.Runner.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ROOT/IdeaProjects/GetLandEstateProject/src/test/java/getlandestate/stepdefs/db_stepdefs",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ROOT\IdeaProjects\GetLandEstateProject\src\test\resources\features\db_features" />
+      <recent name="C:\Users\ROOT\IdeaProjects\GetLandEstateProject\src\test\resources\features\e2e_features" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ROOT\IdeaProjects\GetLandEstateProject\src\test\resources\testdata" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.Runner">
+    <configuration name="Feature: US_03_Customer_profile_bilgilerini_görebilmeli_ve_güncelleyebilmeli" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/e2e_features/US_03_Customer_profile_bilgilerini_görebilmeli_ve_güncelleyebilmeli.feature" />
+      <option name="GLUE" value="getlandestate.hooks" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="GetLandEstateProject" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: US_03_Customer_profile_bilgilerini_görebilmeli_ve_güncelleyebilmeli" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: TC01 Customer, profile bilgilerini görebilmeli ve güncelleyebilmeli" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/e2e_features/US_03_Customer_profile_bilgilerini_görebilmeli_ve_güncelleyebilmeli.feature" />
+      <option name="GLUE" value="getlandestate.hooks" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="GetLandEstateProject" />
+      <option name="NAME_FILTER" value="^TC01 Customer\, profile bilgilerini görebilmeli ve güncelleyebilmeli$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^TC01 Customer\, profile bilgilerini görebilmeli ve güncelleyebilmeli$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: TC01 Customer, profile bilgilerini görebilmeli ve güncelleyebilmeli" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: TC02 Geçersiz Bilgilerle Profil Güncelleme" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/e2e_features/US_03_Customer_profile_bilgilerini_görebilmeli_ve_güncelleyebilmeli.feature" />
+      <option name="GLUE" value="getlandestate.hooks getlandestate.stepdefs.e2e_stepdefs" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="GetLandEstateProject" />
+      <option name="NAME_FILTER" value="^TC02 Geçersiz Bilgilerle Profil Güncelleme$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^TC02 Geçersiz Bilgilerle Profil Güncelleme$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: TC02 Geçersiz Bilgilerle Profil Güncelleme" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Runner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GetLandEstateProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="getlandestate.runners.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="getlandestate.runners" />
+      <option name="MAIN_CLASS_NAME" value="getlandestate.runners.Runner" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.Runner" />
+        <item itemvalue="Cucumber Java.Scenario: TC02 Geçersiz Bilgilerle Profil Güncelleme" />
+        <item itemvalue="Cucumber Java.Scenario: TC01 Customer, profile bilgilerini görebilmeli ve güncelleyebilmeli" />
+        <item itemvalue="Cucumber Java.Feature: US_03_Customer_profile_bilgilerini_görebilmeli_ve_güncelleyebilmeli" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="66d2e2b2-0105-4e9c-b71c-b248c841beba" name="Changes" comment="" />
+      <created>1750090568832</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1750090568832</updated>
+      <workItem from="1750090570074" duration="4200000" />
+      <workItem from="1750095437163" duration="8529000" />
+      <workItem from="1750111672676" duration="3079000" />
+      <workItem from="1750116549356" duration="74000" />
+      <workItem from="1750154238859" duration="63692000" />
+      <workItem from="1750373437130" duration="664000" />
+      <workItem from="1750374176165" duration="5000" />
+      <workItem from="1750429828198" duration="7704000" />
+      <workItem from="1750517547240" duration="3234000" />
+      <workItem from="1750602615911" duration="11000" />
+      <workItem from="1750682466203" duration="3382000" />
+      <workItem from="1750771677036" duration="832000" />
+      <workItem from="1750849078769" duration="290000" />
+      <workItem from="1750849405862" duration="5656000" />
+      <workItem from="1750942943152" duration="4184000" />
+      <workItem from="1750950879332" duration="131000" />
+      <workItem from="1750966527909" duration="448000" />
+      <workItem from="1750966998761" duration="904000" />
+      <workItem from="1750967969398" duration="692000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
