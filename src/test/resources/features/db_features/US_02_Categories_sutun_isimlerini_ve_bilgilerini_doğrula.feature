@@ -1,7 +1,7 @@
 @DBUS02
-  Feature: Categories sutun isimlerini ve bilgilerini doğrula
+Feature: Categories sütun adlarını və məlumatlarını təsdiqləyir
 
-    Scenario: Categories sutun isimlerini ve bilgilerini dogrula
-      Given Kullanıcı veritabanına bağlanır
-      When Kullanıcı Categories sutun isimlerini ve bilgilerini çeker
-      Then Kullanıcı Categories sutun isimlerini ve bilgilerini dogrular
+  Scenario: Categories sütun adlarını və məlumatlarını təsdiqləyir
+    Given İstifadəçi database-ə qoşulur
+    When İstifadəçi Categories cədvəlindən məlumatları çəkir
+    Then İstifadəçi sütun adlarını və məlumatların düzgünlüyünü təsdiqləyir
