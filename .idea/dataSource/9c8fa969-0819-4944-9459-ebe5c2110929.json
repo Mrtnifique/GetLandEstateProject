@@ -1,0 +1,38 @@
+{
+  "name" : null,
+  "CHARSETS" : [ {
+    "CHARSET_NAME" : "UTF8",
+    "DİSPLAY_NAME" : "UTF8",
+    "İS_DEPRECATED" : "N",
+    "MAX_LENGTH" : -1
+  } ],
+  "SYSTEM_PRIVILEGES" : [ {
+    "PRİVİLEGE_NAME" : "USAGE"
+  } ],
+  "USERS" : [ {
+    "USER_NAME" : "PUBLIC",
+    "İS_EXPİRED" : "N",
+    "İS_LOCKED" : "N"
+  } ],
+  "SCHEMAS" : [ {
+    "SCHEMA_NAME" : "information_schema",
+    "İS_PUBLİC" : "N",
+    "İS_SYSTEM" : "Y",
+    "İS_EMPTY" : "N"
+  }, {
+    "SCHEMA_NAME" : "pg_catalog",
+    "İS_PUBLİC" : "Y",
+    "İS_SYSTEM" : "N",
+    "İS_EMPTY" : "N"
+  }, {
+    "SCHEMA_NAME" : "pg_toast",
+    "İS_PUBLİC" : "N",
+    "İS_SYSTEM" : "N",
+    "İS_EMPTY" : "N"
+  }, {
+    "SCHEMA_NAME" : "public",
+    "İS_PUBLİC" : "N",
+    "İS_SYSTEM" : "N",
+    "İS_EMPTY" : "N"
+  } ]
+}
