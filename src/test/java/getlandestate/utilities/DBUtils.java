@@ -353,5 +353,27 @@ public class DBUtils {
         }
         return columnCount;
     }
+
+
+    public static List<String> getColumn() {
+        List<String> columnNames = new ArrayList<>();
+
+        try {
+            DatabaseMetaData metaData = connection.getMetaData(); // connection, önceden create edilmiş olmalı
+            ResultSet resultSet = metaData.getColumns(null, null, "Users", null);
+
+            while (resultSet.next()) {
+                String columnName = resultSet.getString("String");
+                columnNames.add(columnName);
+            }
+
+            resultSet.close();
+
+        } catch (SQLException e) {
+            System.out.println("🚨 Sütun bilgileri alınırken hata oluştu: " + e.getMessage());
+        }
+
+        return columnNames;
+    }
 }
 
