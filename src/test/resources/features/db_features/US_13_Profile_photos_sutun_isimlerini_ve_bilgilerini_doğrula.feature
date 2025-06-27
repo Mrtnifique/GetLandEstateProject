@@ -13,4 +13,4 @@
       Given Kullanıcı "profile_photos" tablosundan "63" id'den bilgileri alir
       Then Kullanıcıdan gelen bilgiler doğrulanir
         | id    | data              | name               | type       |
-        | 63    | 2081312           | cropped-image.jpg  |  image/jpeg|
+        | 63    | 2081312           | cropped-image.jpg  | image/jpeg |
