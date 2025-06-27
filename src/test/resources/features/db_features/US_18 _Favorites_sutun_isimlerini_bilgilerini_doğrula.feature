@@ -1,7 +1,7 @@
 @DBUS18
 Feature: Kullanıcı Favorites sütun isimlerini ve bilgilerini doğrula
 
-  Scenario: Favorites sütun isimlerini doğrula
+  Scenario: Kullanıcı favorites sütun isimlerini doğrular
     Given Kullanıcı "favorites" sekmesinden sütun isimlerini çeker
     Then Kullanıcı gelen isimleri doğrular
       | id         |
