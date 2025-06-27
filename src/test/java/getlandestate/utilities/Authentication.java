@@ -7,21 +7,18 @@ import static io.restassured.RestAssured.given;
 
 public class Authentication {
 
-    public static String generateToken(){
-        String credentials ="{\n" +
-                "  \"password\": \"Techpro123.\",\n" +
-                "  \"rememberMe\": true,\n" +
-                "  \"username\": \"techproed\"\n" +
-                "}";
+    public static String generateToken(String email, String password) {
+        String url = "http://64.227.123.49:8092/users/login";
+        String body = "{\"email\": \""+email+"\",\"password\": \""+password+"\"}";
 
-        Response response = given()
-                .body(credentials)
-                .contentType(ContentType.JSON)
+        return given()
                 .when()
-                .post("https://medunna.com/api/authenticate");
+                .body(body)
+                .contentType(ContentType.JSON)
+                .post(url)
+                .jsonPath()
+                .getString("token");
 
-        return response.jsonPath().getString("id_token");
+
     }
-
-
 }
