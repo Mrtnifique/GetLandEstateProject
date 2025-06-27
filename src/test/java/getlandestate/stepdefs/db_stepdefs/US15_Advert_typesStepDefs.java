@@ -19,8 +19,8 @@ public class US15_Advert_typesStepDefs {
         System.out.println("✅ Istifadeci database qosuldu.");
     }
 
-    @When("Istifadechi Advert_types cedvelinden melumatlari cekir")
-    public void istifadechiAdvert_typesCedvelindenMelumatlariCekir() {
+    @When("Istifadechi {string} cedvelinden melumatlari cekir")
+    public void istifadechiCedvelindenMelumatlariCekir(String arg0) {
         try {
             DBUtils.getColumnNames("Advert_types");
             //actualData = DBUtils.getQueryResultAsListOfLists("Selecet * from Advert_types");

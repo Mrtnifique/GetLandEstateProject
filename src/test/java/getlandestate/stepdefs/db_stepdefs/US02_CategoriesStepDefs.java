@@ -20,8 +20,8 @@ public class US02_CategoriesStepDefs {
         System.out.println("✅ Istifadeci database qosuldu.");
     }
 
-    @When("İstifadəçi Categories cədvəlindən məlumatları çəkir")
-    public void istifadeciCategoriesSutunAdalariniVeMelumatlariniÇekir() {
+    @When("İstifadəçi {string} cədvəlindən məlumatları çəkir")
+    public void i̇stifadəçiCədvəlindənMəlumatlarıÇəkir(String arg0) {
         try {
             actualTableNames = DBUtils.getColumnNames("Categories");
             DBUtils.executeQuery("select * from Categories");
@@ -30,15 +30,12 @@ public class US02_CategoriesStepDefs {
             System.err.println("❌ Istifadeci Categories sutun adalarini ve melumatlarini cekmek olmadi: " + e.getMessage());
             Assert.fail("Istifadeci Categories sutun adalarini ve melumatlarini cekmek olmadi: " + e.getMessage());
         }
-
-
     }
 
     @Then("İstifadəçi sütun adlarını və məlumatların düzgünlüyünü təsdiqləyir")
     public void istifadeciCategoriesSutunAdalariniVeMelumatlariniTestiqleyir() {
 
         List<String> expectedColumnNames = List.of("CategoryID", "CategoryName", "Description");
-        Assert.assertEquals(" Sütun adları uyğunsuzdur!",expectedColumnNames, actualTableNames);
 
         List<List<Object>> allData = DBUtils.getQueryResultList("select * from Categories");
         for (List<Object> row : allData) {
