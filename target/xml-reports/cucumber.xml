@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="5.955" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-06-29T21:55:55.258164400Z">
+<testcase classname="Tour Requests Controller API Testleri" name="Customer için tüm tur isteklerini getirme" time="5.601">
+<system-out><![CDATA[
+Given customer "tour-requests/customer" adresine GET isteği gönderir........passed
+Then durum kodu 200 olmalıdır...............................................passed
+And yanıt gövdesi "content" içermelidir.....................................passed
+]]></system-out>
+</testcase>
+</testsuite>
