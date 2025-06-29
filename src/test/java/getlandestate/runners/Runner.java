@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = {"getlandestate/stepdefs", "getlandestate/hooks"},
 
-        tags = "@API06Tugberk",
+        tags = "@API11Tugberk",
 
 
 
