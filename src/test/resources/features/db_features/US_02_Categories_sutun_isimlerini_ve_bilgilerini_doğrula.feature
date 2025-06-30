@@ -1,25 +1,24 @@
 @DBUS02
 Feature: Categories sutun isimlerini ve bilgilerini dogrula
 
-  Scenario: Categories sutun isimlerini ve bilgilerini dogrula
-    Given Kullanıcı database-e baglanır
-    When Kullanıcı "Categories" sutun isimlerini ceker
-    Then Kullanıcı sutun isimlerini ve bilgilerini dogrular
+  Scenario: Categories sutun isimlerini dogrula
+    Given Kullanici veri_tabanina baglanir
+    When Kullanıcı categories tablosundan sütun isimlerini çeker
+    Then Kullanıcı gelen isimlerin tamamini dogrular
 
-      |id  |
-      |created_at|
-      |updated_at|
-      |is_active|
-      |built_in|
-      |icon|
-      |seq|
-      |slug|
-      |title|
+      | id         |
+      | created_at |
+      | updated_at |
+      | is_active  |
+      | built_in   |
+      | icon       |
+      | seq        |
+      | slug       |
+      | title      |
 
-  Scenario: Categories sutun isimlerini ve bilgilerini dogrula
-    Given Kullanıcı database-e baglanır
-    When Kullanıcı "Categories" sekmesindeki "193" id'li bilgileri ceker
-    Then Kullanıcı sutun isimlerini ve bilgilerini dogrular
+  Scenario: Categories satir isimlerini ve bilgilerini dogrula
+    Given Kullanıcı "categories" tablosundan "312" nolu id'den bilgileri çeker
+    Then Kullanıcı categories tablosundan gelen bilgiler doğrulanır
 
-      |id  |    icon                     | seq | slug               | title |
-      |193 |    fa-solid fa-mountain-sun | 5   | land-1722713016558 | Land  |
+      | id  | created_at                 | updated_at                 | icon  | seq | slug                         | title          |
+      | 312 | 2025-03-16 06:54:39.784368 | 2025-06-17 17:05:02.316011 | house | 1   | 1750179902286-housetinyhouse | HouseTinyHouse |
