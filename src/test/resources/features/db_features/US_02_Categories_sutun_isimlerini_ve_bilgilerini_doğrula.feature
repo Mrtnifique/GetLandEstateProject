@@ -1,11 +1,25 @@
 @DBUS02
-Feature: Categories sütun adlarını və məlumatlarını təsdiqləyir
+Feature: Categories sutun isimlerini ve bilgilerini dogrula
 
-  Scenario: Categories sütun adlarını və məlumatlarını təsdiqləyir
-    Given İstifadəçi database-ə qoşulur
-    When İstifadəçi "Categories" cədvəlindən məlumatları çəkir
-    Then İstifadəçi sütun adlarını və məlumatların düzgünlüyünü təsdiqləyir
+  Scenario: Categories sutun isimlerini ve bilgilerini dogrula
+    Given Kullanıcı database-e baglanır
+    When Kullanıcı "Categories" sutun isimlerini ceker
+    Then Kullanıcı sutun isimlerini ve bilgilerini dogrular
 
-      |CategoryId|
-      |CategoryName|
-      |Description|
+      |id  |
+      |created_at|
+      |updated_at|
+      |is_active|
+      |built_in|
+      |icon|
+      |seq|
+      |slug|
+      |title|
+
+  Scenario: Categories sutun isimlerini ve bilgilerini dogrula
+    Given Kullanıcı database-e baglanır
+    When Kullanıcı "Categories" sekmesindeki "193" id'li bilgileri ceker
+    Then Kullanıcı sutun isimlerini ve bilgilerini dogrular
+
+      |id  |    icon                     | seq | slug               | title |
+      |193 |    fa-solid fa-mountain-sun | 5   | land-1722713016558 | Land  |
