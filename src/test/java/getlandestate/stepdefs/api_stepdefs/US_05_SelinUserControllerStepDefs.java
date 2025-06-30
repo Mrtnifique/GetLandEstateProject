@@ -1,6 +1,5 @@
 package getlandestate.stepdefs.api_stepdefs;
 
-import com.github.javafaker.Faker;
 import getlandestate.pojos.US_05_SelinUserController;
 import getlandestate.pojos.US_05_SelinUserLogin;
 import getlandestate.pojos.US_05_SelinUserPatch;
@@ -8,12 +7,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 import static getlandestate.base_url.BaseUrl.spec;
-import static io.restassured.RestAssured.basePath;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.*;
 
