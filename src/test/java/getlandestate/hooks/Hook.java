@@ -1,5 +1,7 @@
 package getlandestate.hooks;
 
+import com.github.javafaker.Faker;
+import getlandestate.base_url.BaseUrl;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -28,10 +30,14 @@ public class Hook {
     }
 
     @Before("@ApiCustomer")
+
+    public void apiCustomer(){
+        settingup("abcdd@test.com","12345BBbb.");
+    }
+
     public void apiCustomer() {
         settingup("canan1@gmail.com", "12345678.Canan");
     }
-
 
     @After("y")
     public void tearDown2() throws Exception {
