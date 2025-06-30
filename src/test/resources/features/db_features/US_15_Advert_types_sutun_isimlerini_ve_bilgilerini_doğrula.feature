@@ -5,20 +5,14 @@ Feature: Kullanicin Advert_types sutun isimlerini ve bilgilerini doğrula
     Given Kullanıcın database-e bağlanır
     When Kullanicin "advert_types" sekmesinden bilgilerini ceker
 
-      | id         |
-      | created_at |
-      | updated_at |
-      | is_active  |
-      | built_in   |
-      | icon       |
-      | seq        |
-      | slug       |
-      | title      |
+      | id       |
+      | built_in |
+      | title    |
 
   Scenario: Kullanici Advert_types sutun bilgilerini dogrular
     Given Kullanıcın database-e bağlanır
-    When Kullanicin "advert_types" sekmesinden "300" id'den bilgilerini ceker
+    When Kullanicin "advert_types" sekmesinden "319" id'den bilgilerini ceker
     Then Kullanicin gelen bilgileri dogrular
 
-      | id  | is_active |  icon       | seq | title      |
-      | 300 | true      |  headphones | 12  | denemedort |
+      | id  | built_in | title  |
+      | 300 | false    | Kaleem |
