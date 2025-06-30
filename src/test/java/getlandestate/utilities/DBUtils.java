@@ -196,20 +196,19 @@ public class DBUtils {
      * Verilen sorgunun sonucunda belirtilen sütunun verilerini liste olarak döner.
      *
      * @param query Çalıştırılacak sorgu
-     * @param column Sütun ismi
      * @return Sütun verilerini içeren liste
-     *
+     * <p>
      * Kullanım:
      * List<Object> columnData = DBUtils.getColumnData("SELECT * FROM table_name", "column_name");
      */
-    public static List<Object> getColumnData(String query, String column) {
+    public static List<Object> getColumnData(String query) {
         executeQuery(query);
         List<Object> rowList = new ArrayList<>();
         ResultSetMetaData rsmd;
         try {
             rsmd = resultSet.getMetaData();
             while (resultSet.next()) {
-                rowList.add(resultSet.getObject(column));
+                rowList.add(resultSet.getObject(rsmd.getColumnCount()));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -375,5 +374,6 @@ public class DBUtils {
 
         return columnNames;
     }
+
 }
 
