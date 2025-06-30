@@ -45,11 +45,11 @@ public class US02_CategoriesStepsDef {
 
     @Then("Kullanıcı sutun isimlerini ve bilgilerini dogrular")
     public void kullanıcıSutunIsimleriniVeBilgileriniDogrular(DataTable expectedTable) {
-        //List<String> expectedrows = Arrays.asList("id", "created_at", "updated_at", "is_active", "built_in", "icon", "seq", "slug", "title");
+        List<String> expectedrows = Arrays.asList("id", "created_at", "updated_at", "is_active", "built_in", "icon", "seq", "slug", "title");
         System.out.println("Beklenen sutunlar: " + expectedTable);
         System.out.println("Gelen sutunlar: " + actualColumnNames);
 
-        //Assert.assertEquals("Sutun isimleri eşlesmiyor!", expectedrows, actualColumnNames);
+        Assert.assertEquals("Sutun isimleri eşlesmiyor!", expectedrows, actualColumnNames);
         System.out.println(" ✅ Sutun isimleri ve bilgileri dogru.");
     }
 

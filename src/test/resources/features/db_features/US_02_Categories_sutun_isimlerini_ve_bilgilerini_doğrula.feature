@@ -18,7 +18,7 @@ Feature: Categories sutun isimlerini ve bilgilerini dogrula
 
     Scenario: Categories sutun isimlerini ve bilgilerini dogrula
       Given Kullanıcı database-e baglanır
-      When Kullanıcı "Categories" sekmesindeki "5" id'li bilgileri ceker
+      When Kullanıcı "Categories" sekmesindeki "193" id'li bilgileri ceker
       Then Kullanıcı sutun isimlerini ve bilgilerini dogrular
 
         |id  |    icon                     | seq | slug               | title |
