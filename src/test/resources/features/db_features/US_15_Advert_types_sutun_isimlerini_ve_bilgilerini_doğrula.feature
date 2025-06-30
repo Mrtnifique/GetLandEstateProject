@@ -1,12 +1,24 @@
 @DBUS15
-Feature: Advert_types sutun isimlerini ve bilgilerini doğrula
+Feature: Kullanicin Advert_types sutun isimlerini ve bilgilerini doğrula
 
-  Scenario: Advert_types sutun isimlerini ve bilgilerini dogrula
-    Given Istifadechi Database-ə qosulur
-    When Istifadechi "Advert_types" cedvelinden melumatlari cekir
-    Then Istifadechi sutun adlarini ve melumatlari dogrula
+  Scenario: Kullanicin Advert_types sutun isimlerini dogrular
+    Given Kullanıcın database-e bağlanır
+    When Kullanicin "advert_types" sekmesinden bilgilerini ceker
 
-      |id    |name  |
-      |1     |Sell  |
-      |2     |Rent  |
-      |3     |Buy   |
+      | id         |
+      | created_at |
+      | updated_at |
+      | is_active  |
+      | built_in   |
+      | icon       |
+      | seq        |
+      | slug       |
+      | title      |
+
+  Scenario: Kullanici Advert_types sutun bilgilerini dogrular
+    Given Kullanıcın database-e bağlanır
+    When Kullanicin "advert_types" sekmesinden "300" id'den bilgilerini ceker
+    Then Kullanicin gelen bilgileri dogrular
+
+      | id  | is_active |  icon       | seq | title      |
+      | 300 | true      |  headphones | 12  | denemedort |
