@@ -27,6 +27,11 @@ public class Hook {
 
     }
 
+    @Before("@ApiCustomer")
+    public void apiCustomer() {
+        settingup("canan1@gmail.com", "12345678.Canan");
+    }
+
 
     @After("y")
     public void tearDown2() throws Exception {
