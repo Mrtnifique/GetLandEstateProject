@@ -23,7 +23,7 @@ public class US_06_Erva_ContactControllerStepDefs {
 
     @And("Contact controller icin payload olusturulur")
     public void contactControllerIcinPayloadOlusturulur() {
-        payload = new US06ErvaContactControllerPost("thebirthof", "venus", "thebirthofvenus", "thebirthofvenus", true);
+        payload = new US06ErvaContactControllerPost("the", "kiss", "thekiss", "thekiss@gmail.com", true);
     }
 
     @When("Contact controller icin POST request gonderilir ve response alinir")
@@ -44,4 +44,29 @@ public class US_06_Erva_ContactControllerStepDefs {
         assertEquals(expectedMessage, actualMessage);
     }
 
+    @Given("Contact Controller Get icin URL olusturulur")
+    public void contactControllerGetIcinURLOlusturulur() {
+        spec.pathParams("first","contact-messages", "second", "2929");
+    }
+
+    @When("Get request gonderilir ve response alinir")
+    public void getRequestGonderilirVeResponseAlinir() {
+        response = given(spec).when().get("{first}/{second}");
+        response.prettyPrint();
+    }
+
+    @Then("Status kodun {int} oldugu dogrulanir")
+    public void statusKodunOlduguDogrulanir(int statusCode) {
+        assertEquals(statusCode, response.getStatusCode());
+    }
+
+    @Given("Contact controller delete icin URL olusturulur")
+    public void contactControllerDeleteIcinURLOlusturulur() {
+        spec.pathParams("first","contact-messages", "second", "2929");
+    }
+
+    @When("Delete request gonderilir ve response alinir")
+    public void deleteRequestGonderilirVeResponseAlinir() {
+        response = given(spec).when().get("{first}/{second}");
+    }
 }

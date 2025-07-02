@@ -9,14 +9,14 @@ Feature: Contact controller
     Then Contact controller icin status kodun 200 oldugu dogrulanir
     Then Contact message saved successfully gorunurlugu dogrulanir
 
-  #@ApiAdmin
-  #Scenario: TC02 | GET
-  #  Given Contact Controller Get icin URL olusturulur
-  #  When Get request gonderilir ve response alinir
-  #  Then Status kodun 200 oldugu dog
-#
-  #@ApiAdmin
-  #Scenario: TC03 | DELETE
-  #  Given Contact controller delete icin URL olusturulur
-  #  When Delete request gonderilir ve response alinir
-  #  Then Status kodun 200 oldugu dogrulanir
+  @ApiAdmin
+  Scenario: TC02 | GET
+    Given Contact Controller Get icin URL olusturulur
+    When Get request gonderilir ve response alinir
+    Then Status kodun 200 oldugu dogrulanir
+
+  @ApiAdmin
+  Scenario: TC03 | DELETE
+    Given Contact controller delete icin URL olusturulur
+    When Delete request gonderilir ve response alinir
+    Then Status kodun 200 oldugu dogrulanir
