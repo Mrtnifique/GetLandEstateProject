@@ -1,105 +1,90 @@
 package getlandestate.stepdefs.api_stepdefs;
 
-import getlandestate.base_url.BaseUrl;
-import getlandestate.pojos.US_01_PinarTourRequestPayload;
-import getlandestate.pojos.US_01_PinarTourRequestResponse;
+
+import getlandestate.pojos.US_01_PinarTourRequestPost;
+import getlandestate.pojos.US_01_PinarTourRequestPut;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.restassured.http.ContentType;
+import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 
+import static getlandestate.base_url.BaseUrl.spec;
 import static io.restassured.RestAssured.given;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
+public class US_01_PinarTourRequestControllerStepDefs {
 
-public class US_01_PinarTourRequestControllerStepDefs extends BaseUrl {
-    US_01_PinarTourRequestPayload payload;
+
+    US_01_PinarTourRequestPost payload;
+    US_01_PinarTourRequestPut put;
 
     Response response;
 
-    @Given("customer aşağıdaki verilerle {string} adresine POST isteği gönderir")
-    public void customerAsagidakiVerilerleAdresinePOSTIstegiGonderir(String endpoint, String requestBody) {
-        spec.pathParams("first", endpoint);
 
-        response = given(spec)
-                .contentType(ContentType.JSON)
-                .body(requestBody)
-                .when()
-                .post("{first}");
+    //Post Test-----------------------------------
+    @Given("Tur isteği oluşturmak için URL düzenlenir")
+    public void turIsteğiOluşturmakIçinURLDüzenlenir() {
 
+        spec.pathParams("first", "tour-requests");
+    }
+
+    @And("Tur isteği için payload verisi hazırlanır")
+    public void turIsteğiIçinPayloadVerisiHazırlanır() {
+        payload = new US_01_PinarTourRequestPost();
+        payload.setAdvertId(71);
+        payload.setTourDate("2027-09-15");
+        payload.setTourTime("20:30");
+        payload.setMessage("Tur hakkında bilgi almak istiyorum");
+
+    }
+
+    @When("Tur isteği için POST request gönderilir ve response alınır")
+    public void turIsteğiIçinPOSTRequestGönderilirVeResponseAlınır() {
+        response = given(spec).body(payload).when().post("{first}");
         response.prettyPrint();
     }
 
-    @Then("durum kodu {int} olmalıdır")
+
+    @Then("Tur isteği için durum kodunun {int} olduğu doğrulanır")
     public void durumKoduOlmalıdır(int statusCode) {
         assertEquals(statusCode, response.getStatusCode());
     }
 
 
 
-    @Then("tur isteği başarılı şekilde oluşturulmalı ve bilgiler doğru dönmeli")
-    public void turIstegiBasariliSekildeOlusturulmaliVeBilgilerDogruDonmeli() {
-        US_01_PinarTourRequestResponse tourRequestResponsePojo = response.as(US_01_PinarTourRequestResponse.class);
 
-        // Örnek doğrulamalar (response içeriğine göre güncelle)
-        assertTrue(tourRequestResponsePojo.getId() > 0);
-        assertEquals("2025-07-30", tourRequestResponsePojo.getTourDate());
-        assertEquals("15:30:00", tourRequestResponsePojo.getTourTime());
-        assertEquals("PENDING", tourRequestResponsePojo.getStatus());
 
-        System.out.println(tourRequestResponsePojo);
+    //Put Test-----------------------------------
+
+    @Given("Customer url düzenler")
+    public void customerUrlDüzenler() {
+        spec.pathParams("first", "tour-requests", "second", "1110", "third", "auth");
     }
 
-    @Given("customer {string} adresine GET isteği gönderir")
-    public void customerAdresineGETIsteğiGönderir(String endpoint) {
-        // Base URL setup (BaseUrl sınıfından alınmış olmalı)
 
-        BaseUrl.settingup("canan1@gmail.com", "12345678.Canan");
-        spec.pathParams(
-                "first", "tour-requests",
-                "second", "page",
-                "third", "71"
-        ).queryParams(
-                "page", 0,
-                "size", 10,
-                "sort", "tourDate",
-                "type", "DESC"
-        );
+    @And("customer payload düzenler")
+    public void customerPayloadDüzenler() {
 
-        response = given()
-                .spec(spec)
-                .when()
-                .get("/{first}/{second}/{third}");
+        put = new US_01_PinarTourRequestPut();
+        put.setTourDate("2028-09-15");
+        put.setTourTime("19:30");
+        put.setMessage("Tur hakkında bilgi almak isterim.");
+        put.setAdvertId(71);
 
+    }
+
+
+    @When("Customer Put request gönderir ve response alınır")
+    public void customerPutRequestGönderirVeResponseAlınır() {
+        response = given(spec).body(put).when().put("{first}/{second}/{third}");
         response.prettyPrint();
     }
-
-
-    @And("yanıt gövdesi {string} içermelidir")
-    public void yanıtGövdesiIçermelidir(String responseBody) {
-        String actualResponseBody = response.getBody().asString();
-        assertTrue(actualResponseBody.contains(responseBody));
-    }
-
-
-    @Given("müşteri {string} id'li tour request için {string} adresine PUT isteği gönderir")
-    public void müşteriIdLiTourRequestIçinAdresinePUTIsteğiGönderir(String id, String endpoint, String requestBody) {
-        spec.pathParams("first", "tour-requests", "second", "1093");
-
-        response = given()
-                .spec(spec)
-                .contentType(ContentType.JSON)
-                .body(requestBody)
-                .when()
-                .put("{first}/{second}");
-    }
-
-
 
     @Then("status code {int} olmalı")
     public void statusCodeOlmalı(int statusCode) {
         assertEquals(statusCode, response.getStatusCode());
-
     }
+
+
+
 }
