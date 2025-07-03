@@ -17,6 +17,7 @@ public class ControlPanelStepDefs {
     ControlPanelPage controlPanelPage = new ControlPanelPage();
     Faker faker = new Faker();
     String randomWord = faker.funnyName().name();
+    String sanitizedTitle = randomWord.replaceAll("[^a-zA-Z\\- ]", "");
 
 
     @And("Yeni kategori eklenir")
@@ -55,7 +56,7 @@ public class ControlPanelStepDefs {
     @And("Yeni Advert Type eklenir")
     public void yeniAdvertTypeEklenir() {
         controlPanelPage.categoriesAddNewButton.click();
-        controlPanelPage.categoriesAddNewTitleBox.sendKeys(randomWord);
+        controlPanelPage.categoriesAddNewTitleBox.sendKeys(sanitizedTitle);
         controlPanelPage.advertTypeCreateButton.click();
         WaitUtils.waitFor(2);
 

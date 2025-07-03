@@ -15,6 +15,7 @@ import static io.restassured.RestAssured.given;
 public class US_04_MuratAdvertTypeControllerStepDefs {
     US_04_MuratAdvertTypePost payload;
     String randomName = new Faker().funnyName().name();
+    String sanitizedTitle = randomName.replaceAll("[^a-zA-Z\\- ]", "");
     Response response;
 
     @Given("URL ayarlanır: first {string}")
@@ -57,7 +58,7 @@ public class US_04_MuratAdvertTypeControllerStepDefs {
 
     @And("Advert Type için payload ayarlanır")
     public void advertTypeIçinPayloadAyarlanır() {
-        payload = new US_04_MuratAdvertTypePost(randomName);
+        payload = new US_04_MuratAdvertTypePost(sanitizedTitle);
     }
 
 
