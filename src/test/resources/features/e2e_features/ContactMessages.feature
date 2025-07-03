@@ -3,6 +3,7 @@ Feature: Contact Messages e2e
 
   #UI
   Scenario: Kullanıcı başarılı bir şekilde iletişim formu gönderir
+    Given Web adresine gidilir
     When Kullanıcı iletişim formuna tıklar
     And Kullanıcı First Name alanına "Ali" yazar
     And Kullanıcı Last Name alanına "Yılmaz" yazar
