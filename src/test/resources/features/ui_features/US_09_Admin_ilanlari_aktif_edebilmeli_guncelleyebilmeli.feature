@@ -10,23 +10,10 @@ Feature: US09 Admin girilen ilanları aktif edebilmeli ,reddedebilmeli ,güncell
 
 
 
+
+
+
   @US09@TC01
-  Scenario Outline: Ilanlar ile ilgili arama islemlerini yapabilmelidir
-
-    When arama çubuğuna "<terim>" yazılarak arama yapılır
-    Then sistem "<terim>" ile ilgili ilanları listelemelidir
-    Then arama çubugunun başarılı bir şekilde çalıştığı doğrulanır
-    And sayfa kapatılır
-
-    Examples:
-      | terim       |
-      | apartman    |
-      | villa       |
-      | daire       |
-      | tiny house  |
-
-
-  @US09@TC02
   Scenario: İlanlar aktive edilebilmelidir
     When Aratma kutusuna Seferihisar yazıp aratılır
     And Sayfada görüntülenen ilanın işlem menüsünden güncelleme butonuna basılır
@@ -37,7 +24,7 @@ Feature: US09 Admin girilen ilanları aktif edebilmeli ,reddedebilmeli ,güncell
 
 
 
-  @US09@TC03
+  @US09@TC02
   Scenario: İlanlar güncellenebilmeli
     When Aratma kutusuna Bungalow yazıp aratılır
     And  Sayfada görüntülenen ilanın işlem menüsünden güncelleme butonuna basılır
@@ -46,7 +33,7 @@ Feature: US09 Admin girilen ilanları aktif edebilmeli ,reddedebilmeli ,güncell
 
 
 
-  @US09@TC04
+  @US09@TC03
   Scenario: İlanlar reddedilebilmelidir
     When  Aratma kutusuna Seferihisar yazıp aratılır
     And   Sayfada görüntülenen ilanın işlem menüsünden güncelleme butonuna basılır

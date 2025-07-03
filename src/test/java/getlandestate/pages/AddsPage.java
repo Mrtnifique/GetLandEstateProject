@@ -847,7 +847,13 @@ public class AddsPage {
     @FindBy(xpath = "(  //tbody//button[2]//*[name()='svg']")
     public WebElement updateButtonOnAdverts;
 
+    //seferihisar gettext ile dogrulama
+    @FindBy(xpath = "(//p[1]]")
+    public WebElement seferihisarAddVerify;
 
+    //seferihisar aktif dogrulamasi
+    @FindBy(xpath = "(//span[@class='p-tag-value']")
+    public WebElement seferihisarActiveVerify;
 
     //Durum Aktif butonu
     @FindBy(xpath = "( //span[@class='p-tag-value'] ")
