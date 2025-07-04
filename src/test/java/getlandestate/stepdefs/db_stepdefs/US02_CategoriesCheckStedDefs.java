@@ -75,4 +75,6 @@ public class US02_CategoriesCheckStedDefs {
             Assert.assertEquals("Alan uyuşmuyor: " + key, expected.trim(), actual.trim());
         }
     }
+
+
 }
