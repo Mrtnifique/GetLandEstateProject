@@ -1,24 +1,25 @@
 package getlandestate.stepdefs.ui_stepdefs;
+
+import com.github.javafaker.Faker;
 import getlandestate.pages.ControlPanelPage;
 import getlandestate.pages.DashBoardPage;
 import getlandestate.pages.LogInPage;
 import getlandestate.utilities.Driver;
 import getlandestate.utilities.WaitUtils;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.datatable.DataTable;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.By;
-import com.github.javafaker.Faker;
 
 import java.time.Duration;
-import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 
 public class AdminStepDefs {
