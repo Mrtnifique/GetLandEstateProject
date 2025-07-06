@@ -14,10 +14,10 @@ import org.junit.runner.RunWith;
                 "json:target/json-reports/cucumber.json",
                 "junit:target/xml-reports/cucumber.xml",
         },
-        features = "src/test/resources/features",
+        features = "src/test/resources/features/e2e_features",
         glue = {"getlandestate/stepdefs", "getlandestate/hooks"},
 
-        tags = "",
+        tags = "@contact_message_e2e",
 
 
 

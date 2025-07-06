@@ -1,3 +1,5 @@
+package getlandestate.stepdefs.api_stepdefs;
+
 import getlandestate.pojos.Mehmet_Hocanin_POJOsu;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
