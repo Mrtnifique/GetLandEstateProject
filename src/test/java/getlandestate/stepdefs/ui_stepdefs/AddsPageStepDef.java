@@ -35,12 +35,7 @@ public class AddsPageStepDef {
 
     }
 
-    @Then("sistem {string} ile ilgili ilanları listelemelidir")
-    public void sistemIleIlgiliIlanlarıListelemelidir(String arg0) {
-        //    Assert.assertTrue(addsPage.seferihisarAddVerify.getText().contains("seferihisar"));
-        // Kod hataları yüzünden yoruma almak zorunda kaldım  - Murat
 
-    }
 
 
     @Then("arama çubugunun başarılı bir şekilde çalıştığı doğrulanır")
